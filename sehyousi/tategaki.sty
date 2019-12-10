@@ -1,0 +1,95 @@
+% tategaki.sty
+%
+%   Created by koba(Shinji Kobayashi) on 1992.6.4
+%   ‚½‚­‚³‚ñ‚Ö‚ñ‚±‚¤ by mura on 1992.6.12
+%
+\typeout{LaTeX —pc‘‚«ƒ}ƒNƒ Version 0.1 -- released 4 June 1992}
+
+\input tjlfonts2.tex\relax
+
+
+
+% \begin{tategaki}[‚¾‚ñ‚·‚¤]{c‚Ì’·‚³}
+%   c‘‚«‚É‚È‚è‚Ü‚·B
+% \end{tategaki}
+% \begin{tatepage}[‚¢‚¿]{c‚Ì’·‚³}
+%   c‘‚«‚É‚È‚è‚Ü‚·Bminipage ‚Æ‚¨‚È‚¶D
+% \end{tatepage}
+\newbox\t@te
+
+\newdimen\tatewidth
+\newdimen\tateheight
+\newskip\interdanrakuskip \interdanrakuskip=16pt
+
+\def\tategaki{\@ifnextchar [{\@itategaki}{\@itategaki[1]}}
+
+\def\@itategaki[#1]#2{\leavevmode% MODIFIED FROM minipage environment
+% tategaki environment IS NOT ALWAYS A BOX
+%   \if #1b\vbox 
+%     \else \if #1t\vtop 
+%              \else \ifmmode \vcenter 
+%                        \else \@pboxswtrue $\vcenter
+%                     \fi
+%           \fi
+%    \fi\bgroup\tate\mc % \tate\mc added 5 June 91 by mura
+% CALCULATE several parameters for tategaki layout
+    \global\tateheight=#2 \global\divide\tateheight by#1
+    \global\advance\tateheight by-\interdanrakuskip
+    \global\tatewidth=\textwidth
+% SET t@te box
+    \setbox\t@te=
+    \vbox\bgroup\tate\mc % \tate\mc added 5 June 91 by mura
+% MODIFIED for using MULTI columns 
+%    \hsize #2\textwidth\hsize \columnwidth\hsize
+    \hsize \tateheight\textwidth\hsize \columnwidth\hsize
+    \@parboxrestore 
+    \def\@mpfn{mpfootnote}\def\thempfn{\thempfootnote}\c@mpfootnote\z@
+    \let\@footnotetext\@mpfootnotetext
+    \let\@listdepth\@mplistdepth \@mplistdepth\z@
+    \@minipagerestore\global\@minipagetrue %% \global added 24 May 89
+    \everypar{\global\@minipagefalse\everypar{}}}
+
+\def\endtategaki{\par\vskip-\lastskip
+\ifvoid\@mpfootins\else
+\vskip\skip\@mpfootins\footnoterule\unvbox\@mpfootins\fi
+\global\@minipagefalse   %% added 24 May 89
+\egroup
+\ifdim\wd\t@te>\tatewidth % WHEN t@te box consists of some columns
+    \vskip0pt
+    {\vbadness=10000\splittopskip0pt\splitmaxdepth0pt
+    \loop\ifvbox\t@te
+        \ifdim\wd\t@te>\tatewidth
+            \vsplit\t@te to\tatewidth
+        \else
+            \vbox to\tatewidth{\tate\box\t@te\vfill}
+        \fi
+        \vskip\interdanrakuskip
+    \repeat}
+\else % WHEN t@te box is shorter than textwidth
+    \box\t@te
+\fi
+}
+
+\def\tatepage{\@ifnextchar [{\@itatepage}{\@itatepage[c]}}
+
+\def\@itatepage[#1]#2{\leavevmode \@pboxswfalse
+   \if #1b\vbox 
+     \else \if #1t\vtop 
+              \else \ifmmode \vcenter 
+                        \else \@pboxswtrue $\vcenter
+                     \fi
+           \fi
+    \fi\bgroup\tate\mc % \tate\mc added 5 June 91 by mura
+    \hsize #2\textwidth\hsize \columnwidth\hsize
+    \@parboxrestore 
+    \def\@mpfn{mpfootnote}\def\thempfn{\thempfootnote}\c@mpfootnote\z@
+    \let\@footnotetext\@mpfootnotetext
+    \let\@listdepth\@mplistdepth \@mplistdepth\z@
+    \@minipagerestore\global\@minipagetrue %% \global added 24 May 89
+    \everypar{\global\@minipagefalse\everypar{}}}
+
+\def\endtatepage{\par\vskip-\lastskip
+\ifvoid\@mpfootins\else
+\vskip\skip\@mpfootins\footnoterule\unvbox\@mpfootins\fi
+\global\@minipagefalse   %% added 24 May 89
+\egroup\if@pboxsw $\fi}

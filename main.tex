@@ -1,0 +1,129 @@
+
+\documentclass[a4j]{jarticle}
+\usepackage{graphicx, color, hyoshi, epsbox}
+\usepackage{float}
+\usepackage{color,fancyhdr}
+\usepackage{multirow}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+\newcommand{\ve}[1]{\mbox{\boldmath $#1$}}
+%Fig.やTableを太字にし，キャプションのコロンを消す
+%--ここから--
+\makeatletter
+\long\def\@makecaption#1#2{%
+\vskip\abovecaptionskip
+\iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+\else\sbox\@tempboxa{\textbf{#1} #2}%
+\fi
+\ifdim \wd\@tempboxa >\hsize
+\iftdir #1\hskip1zw#2\relax\par
+\else \textbf{#1} #2\relax\par\fi
+\else
+\global \@minipagefalse
+\hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+\fi
+\vskip\belowcaptionskip}
+\makeatother
+%--ここまで--
+
+
+%
+%
+% /* Header & Footer */
+%
+\pagestyle{fancy}
+\rhead{\thepage}
+\renewcommand{\theenumi}{\alph{enumi}}
+%\cfoot{\footnotesize{大阪大学大学院基礎工学研究科機能創成専攻機能デザイン領域}}
+\cfoot{}
+%
+
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+ \newenvironment{namelist}[1]{%
+ \begin{list}{}
+  {\let\makelabel\namelistlabel
+   \settowidth{\labelwidth}{#1}
+   \setlength{\leftmargin}{1.1\labelwidth}}
+  }{%
+ \end{list}}
+%
+\def\inttt{\int\!\!\!\!\int\!\!\!\!\int}
+\def\intt{\int\!\!\!\!\int}
+\def\d{\partial}
+\def\tab{\qquad\qqua d}
+\def\bold#1{\mbox{\boldmath$#1$}}
+\def\ebold#1{\mbox{\boldmath$#1$}_e}
+%
+\begin{document}
+%%%%%%表紙%%%%%%%
+\begin{titlepage}
+\baselineskip=24pt
+%\vspace*{30mm}
+\vspace*{10mm}
+\hspace*{10mm}
+\begin{center}
+{{\LARGE \underline{機能創成特別研究IV}}}
+\vspace*{10mm}\\
+{\LARGE 筋シナジー解析に基づく\\走行運動時の足先平衡点軌道の推定}
+%\hspace{-1em}
+\end{center}
+\vspace*{40mm}
+
+
+%
+%\hspace*{50mm}
+%{\Large
+%\begin{flushright}
+\begin{center}
+{\large 平成 27 年 2 月 13 日 提出}\\
+\end{center}
+
+\hspace*{40mm}
+{\Large
+\begin{center}
+$
+\left.
+\begin{array}{l}
+\mbox{宮崎 文夫　教授}\\
+\mbox{平井 宏明　講師}\\
+\mbox{植村 充典　助教}\\
+\end{array}
+\right \}
+$指導\\
+\end{center}
+}
+
+
+\vspace*{20mm}
+\begin{center}
+{\Large
+\hspace*{-2em}
+大阪大学大学院 基礎工学研究科 機能創成専攻 機能デザイン領域
+
+29B13807 富永 健太
+\hspace*{-1em}\\
+\hspace*{-2em}
+
+\hspace*{-1em}}
+\vspace*{0mm}
+%{\LARGE
+%天岡　侑己
+%}
+\end{center}
+\end{titlepage}
+\markright{\hfill}
+\pagenumbering{roman}
+
+\baselineskip=18pt
+
+
+\baselineskip=16pt
+\clearpage
+\pagenumbering{arabic}
+%%%%%%%%1．緒言%%%%%%
+\input{zemi}
+%\clearpage
+%\input{bib}
+%\clearpage
+%\input{hihyo}
+\end{document}
