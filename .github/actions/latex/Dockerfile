@@ -12,6 +12,8 @@ RUN apt-get update \
     texlive-lang-cjk \
     texlive-fonts-recommended \
     texlive-fonts-extra \
+    xdvik-ja \
+    evinc \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mktexlsr && mkdir -p /app
