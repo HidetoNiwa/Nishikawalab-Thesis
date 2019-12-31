@@ -9,6 +9,9 @@ RUN apt-get update \
     texlive \
     texlive-latex-extra \
     texlive-lang-japanese \
+    texlive-lang-cjk \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mktexlsr && mkdir -p /app
