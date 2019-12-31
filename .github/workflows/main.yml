@@ -2,7 +2,7 @@ name: LaTeX to PDF
 
 on:
   push:
-    paths: .tex
+    paths: zemi.tex
 
 jobs:
   build:
