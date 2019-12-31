@@ -1,17 +1,17 @@
-name: CI
+name: LaTeX to PDF
 
-on: [push]
+on:
+  push:
+    paths: main.tex
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Build docker image
+        uses: denkiuo604/tex-to-pdf/.github/actions/latex@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
