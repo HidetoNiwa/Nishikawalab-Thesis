@@ -1,111 +1,77 @@
 \section{研究背景}
-<<<<<<< HEAD
-res-Oviedoらは摂動を加えた時のヒトの姿勢制御中の16筋のEMGに多変量解析を適用することで，異なる摂動方向間で類似する筋シナジーを抽出した\cite{Torres-Oviedo2007}．
-Cappelliniらはヒトの歩行や走行中の32筋のEMGに多変量解析を適用することで，タスク間で類似する4つの筋シナジーと各タスクで固有の1つの筋シナジーを抽出した\cite{Cappellini2006}．
-d'Avellaらも多変量解析を用いて，カエルのジャンプ，水泳，歩行中の13筋のEMGからタスク間で類似する筋シナジーとタスク固有の筋シナジーを抽出した\cite{d'Avella2005}．
-すなわち，運動学的，動力学的に大きく異なるタスク間で共通の筋シナジーが抽出された．
-これらの結果は，我々が実行する運動タスクの種類に応じて理論上無数の筋シナジーが存在する可能性があるにも関わらず，少数の筋シナジーの重ね合わせで多彩な運動が実現されていることを示唆する．
+%TODO:1号機体のお話を書く
+当研究室において先行研究として、人間の筋肉を模した空気圧人工筋をもちいたペダリングロボット（初号機）が存在する.これは,人間のペダリング動作の計測を行い、ロボットに再現させるものであった。
+\begin{figure}[!t]
+ \begin{center}
+  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/1st.eps}
+  \caption{ペダリングロボット（初号機）}
+  \label{初号機}
+  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/2nd.eps}
+  \caption{二足歩行ロボット（2号機）}
+  \label{2号機}
+ \end{center}
+\end{figure}
 
-しかし，先行研究の手法に共通する問題点として，平衡点と剛性という運動制御学的に重要な制御変数を考慮していないということが挙げられる．
-ヒトの運動制御に関して古くから提唱されている平衡点仮説（$\lambda$モデル）によれば，中枢神経系は身体の平衡点もしくは剛性を調整する2種類の運動指令を筋に送っている\cite{Feldman2008}．
-そのため，EMGは平衡点と剛性の両方の情報を表現していると考えられ，EMGそのものに多変量解析を適用して筋シナジーを抽出しても，抽出される筋シナジーには両情報が混在してしまう．
-その結果，筋シナジーが平衡点や剛性の制御に果たしている役割の評価が困難となる．
+%TODO:2号機のお話を書く
+また、これらの機能を利用し二足歩行型のロボットも製作された。こちらは先述のロボットと異なり二足歩行可能であり、片麻痺患者と健常者の歩行の比較を行った。
 
-%また，先行研究の手法に共通するもう1つの問題点として，多変量解析を用いた筋シナジー抽出では，筋シナジーが平衡点や剛性の制御に及ぼす役割を定量評価できないということが挙げられる．
-先行研究の手法に共通するもう1つの問題点として，多変量解析を用いた筋シナジー抽出では，筋シナジーの機能を定量的に評価できないということが挙げられる．
-この問題を解決する1つの方法として，数理モデルを構築することが挙げられる．
-なぜなら，筋シナジーと平衡点や剛性の関係を定式化できれば，筋シナジーが平衡点や剛性の制御に果たす役割を定量的に評価できるからである．
+%TODO:3号機のお話を書く
+これら、ペダリングロボット（初号機）,2足歩行ロボット（2号機）の経験を踏まえ、今回新たに2足歩行ロボット（3号機）の開発を行った。従来の2足歩行ロボットでは自由度の制約が大きく,2次元平面上のみでの動作となっていたものが3次元空間上で動かせるものとした。
 
-こうした中，我々はEMGを平衡点と剛性の情報に分離するために，筋拮抗比（A-A ratio）と筋拮抗和（A-A sum）という概念を提案し，筋骨格系の拮抗筋対の協調性を解析してきた\cite{Hirai2010,Iimura2011,Inoue2012,Ariga2013,Uno2014}．
-ここで，筋拮抗比は拮抗筋対への運動コマンドの和に対する主導筋への運動コマンドの比として，筋拮抗和は拮抗筋対への運動コマンドの和として定義される．
-そして，前者は平衡点の制御に，後者は剛性の制御に寄与することが，生体筋とよく似た特性を持つ人工筋のモデルにおいて理論的および実験的に実証されている\cite{Ariga2013}．
-EMGをこれらの変量に変換することで，EMGから平衡点と剛性の情報を分離して抽出できることが期待される．
-さらに近年，我々は筋拮抗比と筋拮抗和の概念を応用し，上肢/下肢運動に適用可能な数理モデルに基づく新しい筋シナジーの抽出法を提案している\cite{Uno2014}．
-この数理モデルにおいて，身体の終点（エンドポイント）の平衡点は筋シナジーによって記述されるため，筋シナジーが平衡点の制御に果たす役割が明確になる．
-我々はこの数理モデルに基づく筋シナジーの抽出法を上肢到達運動に適用することで，肩関節を中心とする極座標系において手先平衡点の動径，偏角方向の運動に寄与する2つの筋シナジーを抽出することに成功した\cite{Uno2014}．
-さらに，数理モデルにおいて手先平衡点が筋シナジーによって記述されることを利用して，上肢運動中の手先平衡点軌道を推定することに成功している．
+股関節部分の自由度
 
-本研究では，筋シナジーが平衡点という運動学的な制御に果たす役割に着目した上で，数理モデルに基づく筋シナジーの抽出法を用いて，先行研究の2つの問題点を解決する．
-そして，日常的に重要な下肢運動であるヒトの走行から平衡点の制御に果たす役割が明確な筋シナジーを抽出し，足先の平衡点軌道を推定する．
-下肢運動中の足先平衡点軌道や足先剛性はその計測の難しさゆえに，実態はほとんど明らかにされていない．
-そのため，足先の平衡点軌道や剛性の推定は大きな意義がある．
-本研究では，筋拮抗比と筋拮抗和の概念を導入した上で，筋骨格モデルの力学解析に基づく筋協調解析を走行運動に適用し，筋シナジーの抽出，平衡点軌道と剛性の推定を行う．
-そして，推定された平衡点軌道と剛性の妥当性をトルクやエネルギーの観点から考察する．
-さらに，足先平衡点軌道をサブムーブメントの観点から考察し，サブムーブメントの抽出と抽出されたサブムーブメントの意味づけを行う．
-本研究では以下のことを示す．
-（1）抽出された筋シナジーは被験者に依らず，筋拮抗比の推移の大部分が動径方向と偏角方向の筋シナジーによって表現できる．
-（2）筋協調解析により推定された平衡点軌道と剛性から算出した偏角方向のトルク，動径方向の力，足関節のトルクはそれぞれ，先行研究で逆動力学により算出された股関節，膝関節，足関節のモーメントと特徴が似ている．
-（3）筋協調解析により推定された偏角方向と足関節の仕事率は重心の運動エネルギーと，偏角方向の仕事率は重心の位置エネルギーと密接に関係している．
- (4) 走行中の足先平衡点軌道は5つのサブムーブメントの重ね合わせによって表現でき，その数や発生タイミングは先行研究のものと類似している．
-これらの結果は提案手法の妥当性を示すと同時に，ヒトが走行のようなリズミックな運動も離散的な運動コマンドによって生成していることを示唆するものである．
-=======
->>>>>>> develop/master
+足関節の自由度
 
-\section{力学解析に基づく筋協調解析}
+%TODO:伸縮センサのお話を書く
+導電性布を用いて柔軟精度の高いセンサを作成する
+また,これらを利用することで,人間の足首に模した空気圧人工筋をもちいたシステムを動作させる.
 
-\subsection{筋骨格モデルの静力学}
+%TODO:これらを統合し、筋肉の伸長を巻き込んだシステムの話をする
+今回開発を行った導電性布,シリコンを用いた伸縮センサを空気圧人工筋に組み合わせ
+\section{動作モデル}
+\subsection{足首}
+%TODO:足首周りの動作関係のお話をする
+%付着筋肉のお話もする
+付着筋肉
 
-\subsection{筋拮抗比・筋拮抗和の導入とシナジーベクトル}
+ロール・ピッチ・ヨー各軸
+\subsection{伸縮センサ}
+\ref{MITSoftRobot}伸縮センサは
+シリコン中に導電性布が2枚挟まれた状態となっている.
 
+これは,誘電体をシリコン,極板を導電性布にしたものとなっている.
+
+ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$とすると、
+\begin{eqnarray}
+    Q=CV
+\end{eqnarray}
+\subsection{伸縮センサ計測回路}
+%TODO:伸縮センサ計測回路に関しての記述を行う
 \section{実験方法}
-
-\subsection{運動計測}
+\subsection{伸縮センサ作製}
+\begin{enumerate}
+    \item 3Dプリンターを用いて伸縮センサのサイズに合った型を用意する。
+    \item 導電性布を型に合わせて鋏を用いて切る。
+    \item 導電性布に錫めっき線を縫い通し、型の上に導電性布を置く.この際、錫めっき線が型の外に出てくるようにする。
+    \item 上から硬化剤を混ぜたシリコン流し込み固まるまで数時間放置.
+    \item シリコンが固まったら2枚目の導電性布に1枚目と同様に錫めっき線を通し硬化したシリコンの上に置く。
+    \item その上から硬化剤を混ぜたシリコンを薄く塗り固まるまで放置.
+    \item 最後のシリコンが硬化したら型から取り外し、錫めっき線に銅線接続し、コネクタをつけて完成.
+\end{enumerate}
+\subsection{伸縮センサ計測}
 
 \subsection{データ処理}
 
-\subsection{足関節の平衡点軌道と剛性}
-
 \section{結果}
-%
-\clearpage
+
 \section{考察}
 
-\subsection{筋シナジー}
-
-\subsection{推定された平衡点軌道と剛性の妥当性}
-
-\subsubsection{トルクと力の推定}
-
-%
-\clearpage
-\subsubsection{仕事率の推定}
-\clearpage
-\subsection{サブムーブメント}
-\subsubsection{サブムーブメントの抽出}
-\subsubsection{抽出されたサブムーブメントの物理的意味}
 \section{結言}
 
 \small
 \begin{thebibliography}{99}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibitem{Bernstein1967} N. Bernstein: {\it The co-ordination and regulation of movements}, Oxford, Pergamon, 1967.
-\bibitem{Torres-Oviedo2007} G. Torres-Oviedo and L. H. Ting: ``Muscle synergies characterizing human postural responses,'' {\it Journal of neurophysiol.}, vol. 98, no. 4, pp. 2144-2156, 2007.
-\bibitem{Cappellini2006} G. Cappellini, Y. P. Ivanenko, R. E. Poppele, and F. Lacquaniti: ``Motor Patterns in Human Walking and Running,'' {\it J. Neurophysiol.}, vol. 95, no. 6, pp. 3426-3437, 2006.
-\bibitem{d'Avella2005} A. d'Avella and E. Bizzi: ``Shared and specific muscle synergies in natural motor behaviors,'' {\it Proc. of the National Academy of Sciences of the United States of America}, vol. 102, no. 8, pp. 3076-3081, 2005.
-\bibitem{Ting2005} L. H. Ting and J. M. Macpherson: A limited set of muscle synergies for force control during a postural task, {\it Journal of neurophysiol.}, vol. 93, no. 1, pp. 609-613, 2005.
-\bibitem{Ivanenko2004} Y. P. Ivanenko, R. E. Poppele, and F. Lacquaniti: Five basic muscle activation patterns account for muscle activity during human locomotion, {\it J. Physiol.}, vol. 556, no. 1, pp. 267-282, 2004.
-\bibitem{Ivanenko2006} Y. P. Ivanenko, R. E. Poppele, and F. Lacquaniti: Motor control programs and walking, {\it The Neuroscientist}, vol. 12, no. 4, pp. 339-348, 2006.
-\bibitem{Bizzi2008} E. Bizzi, V. C. K. Cheung, A. d'Avella, P. Saltiel, and M. Tresch: Combining modules for movement, {\it Brain Research Reviews}, vol. 57, no. 1, pp. 125-133, 2008.
-\bibitem{Feldman2008} A. G. Feldman and M. F. Levin: ``The Equilibrium-Point Hypothesis-Past, Present and Future,'' {\it PROGRESS IN MOTOR CONTROL A Multidisciplinary Perspective}, pp. 699-726, 2008.
-\bibitem{Hirai2010} H. Hirai, K. Matsui, T. Iimura, K. Mitsumori, and F. Miyazaki: Modular Control of Limb Kinematics During Human Walking, {\it Proc. of 2010 IEEE Int. Conf. Biomedical Robotics and Biomechatoronics (BioRob2010)}, pp. 716-721, 2010.
-\bibitem{Iimura2011} T. Iimura, K. Inoue, H. T. T. Pham, H. Hirai, and F. Miyazaki: Decomposition of Limb Movement based on MuscularCoordination during Human Running, {\it J. Adv. Comp. Intel. \& Intel. Info.}, vol. 15, no. 8, pp. 980-987, 2011.
-\bibitem{Inoue2012} K. Inoue, T. Iimura, T. Oku, H. T. T. Pham, H. Hirai, and F. Miyazaki: An Experimental Study of Muscle Coordination and Function during Human Locomotion, {\it BIO web of Conf. /the Int. Conf. SKILLS 2011}, vol. 1, pp. 00040-1-0040-4, 2011.
-\bibitem{Ariga2013} 有賀陽平，前田大輔，Hang T. T. Pham，中山かんな，植村充典，平井宏明，宮崎文夫: 筋拮抗比と筋活性度を用いた拮抗駆動装置の線形制御と筋電インタフェースへの応用，日本ロボット学会誌，vol. 31, no. 5，pp. 71-80, 2013.
-\bibitem{Uno2014} 宇野かんな, 奥貴紀, 古場啓太郎, 植村充典, 平井宏明, 宮崎文夫: ``水平面内におけるヒト上肢運動時のEMG信号を利用した筋シナジー，平衡軌道および手先剛性の新しい評価法の提案,'' 日本ロボット学会誌, vol. 32, no. 7-8, 2014.
-\bibitem{Mitsuda1996} 満田隆, 丸典明, 冨士川和延, 宮崎文夫: ``視空間を用いた逆運動学の線形近似,'' 日本ロボット学会誌, vol. 14, no. 8, pp. 1145-1151, 1996.
-
-\bibitem{Neumann2002} D. A. Neumann, {\it Kinesiology of the Musculoskeletal System}, Mosby, 2002.
-\bibitem{Crams2008} E. Criswell: {\it Cram's Introduction to Surface Electromyography}, Second Edition, Jones \& Bartlett Pub, 2008.
-\bibitem{Hislop2008} H. Hislop, J. Montgomery: 新・徒手筋力検査法　原著第8版，協同医書出版社, 2008.
-%\bibitem{Ariga2012} Y. Ariga, H. T. T. Pham, M. Uemura, H. Hirai and F. Miyazaki: Novel Equilibrium-Point Control of Agonist-Antagonist System with Pneumatic Artificial Muscles, {\it Proc. of the 2012 IEEE Int. Conf. on Robotics and Automation (ICRA2012)}, 1470/1475 (2012)
-%\bibitem{Ariga2012_2} Y. Ariga, D. Maeda, H. T. T. Pham, M. Uemura, H. Hirai and F. Miyazaki: Novel Equilibrium-Point Control of Agonist-Antagonist System with Pneumatic Artificial Muscles: II. Application to EMG-based Human-machine Interface for an Elbow-joint System, {\it Proc. of the 2012 IEEE/RSJ Int. Conf. on Intelligent Robots and Systems (IROS2012)}, (2012)
-%\bibitem{Inoue2011} K. Inoue, T. Iimura, T. Oku, H. T. T. Pham, H. Hirai, and F. Miyazaki: An Experimental Study of Muscle Coordination and Function during Human Locomotion, {\it BIO web of Conf. /the Int. Conf. SKILLS 2011}, {\bf 1}, 00040-1/0040-4 (2011)
-\bibitem{Novacheck1998} T. F. Novacheck: ``The biomechanics of running,'' {\it Gait \& posture}, vol. 7, no. 1, pp. 77-95, 1998.
-\bibitem{Eng1995} J. J. Eng and D. A. Winter: ``Kinetic analysis of the lower limbs during walking: what information can be gained from a three-dimensional model?,'' {\it Journal of biomechanics}, vol. 28, no. 6 pp. 753-758, 1995.
-\bibitem{Woodworth1899} R. S. Woodworth: ``Accuracy of voluntary movement,'' {\it The Psychological Review: Monograph Supplements}, vol. 3, no. 3, 1899.
-\bibitem{Thoroughman2000} K. A. Thoroughman and R. Shadmehr: ``Learning of action through adaptive combination of motor primitives,'' {\it Nature} vol. 407, no. 6805, pp. 742-747, 2000.
-\bibitem{Schmidt1988} R. A. Schmidt and T. Lee: {\it Motor Control and Learning, 5E.}, Human kinetics, 1988.
-
+\bibitem{MITSoftRobot} https://softroboticstoolkit.com/resources-for-educators/tsh-sensor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{thebibliography}
 \normalsize
