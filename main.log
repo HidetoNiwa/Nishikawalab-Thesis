@@ -1,15 +1,15 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.sjis) (TeX Live 2019/W32TeX) (preloaded format=platex 2019.5.29)  10 DEC 2019 16:27
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.sjis) (TeX Live 2019/W32TeX) (preloaded format=platex 2019.12.31)  31 DEC 2019 11:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"c:/Users/Hideto Niwa/Desktop/NishikawaLab/卒論/main"
-(c:/Users/Hideto Niwa/Desktop/NishikawaLab/卒論/main.tex
-pLaTeX2e <2019-04-06> (based on LaTeX2e <2018-12-01>)
+**e:/NishikawaLab/Nishikawalab-Thesis/main
+(e:/NishikawaLab/Nishikawalab-Thesis/main.tex
+pLaTeX2e <2019-10-01>+1 (based on LaTeX2e <2019-10-01> patch level 3)
 (c:/texlive/2019/texmf-dist/tex/platex/base/jarticle.cls
-Document Class: jarticle 2019/04/02 v1.8b Standard pLaTeX class
+Document Class: jarticle 2019/10/17 v1.8c Standard pLaTeX class
 \c@@paper=\count83
 (c:/texlive/2019/texmf-dist/tex/platex/base/jsize10.clo
-File: jsize10.clo 2019/04/02 v1.8b Standard pLaTeX file (size option)
+File: jsize10.clo 2019/10/17 v1.8c Standard pLaTeX file (size option)
 )
 \c@part=\count84
 \c@section=\count85
@@ -34,13 +34,13 @@ Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 ) (c:/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2019/11/01 v1.3d Standard LaTeX Graphics (DPC,SPQR)
  (c:/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 ) (c:/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 99.
+Package graphics Info: Driver file: dvips.def on input line 105.
  (c:/texlive/2019/texmf-dist/tex/latex/graphics-def/dvips.def
 File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
 ))
@@ -88,7 +88,7 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@O@olf=\skip50
 \f@nch@O@orf=\skip51
 ) (c:/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip52
 \multirow@cntb=\count98
 \multirow@dima=\skip53
@@ -96,30 +96,30 @@ Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 65.
+(Font)              <17.28> on input line 64.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 65.
+(Font)              <12> on input line 64.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 83.
+(Font)              <14.4> on input line 82.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 83.
+(Font)              <7> on input line 82.
  [1
 
 ] (./zemi.tex
@@ -127,16 +127,18 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 14.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 5.
 
 
 LaTeX Font Warning: Font shape `JT1/mc/m/sl' undefined
-(Font)              using `JT1/mc/m/n' instead on input line 31.
+(Font)              using `JT1/mc/m/n' instead on input line 19.
 
 
 LaTeX Font Warning: Font shape `JY1/mc/m/sl' undefined
-(Font)              using `JY1/mc/m/n' instead on input line 31.
+(Font)              using `JY1/mc/m/n' instead on input line 19.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -147,103 +149,37 @@ This may cause the page layout to be inconsistent, however.
 [1
 
 ]
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 49.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 49.
-File: eps/8muscles.eps Graphic file (type eps)
- <eps/8muscles.eps>
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 54.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 26.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 54.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 59.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 59.
- [2] [3] [4]
-Overfull \hbox (8.81154pt too wide) in paragraph at lines 306--311
-\OML/cmm/m/it/10 w[]; w[]; w[]$ \JY1/mc/m/sl/10 はそれぞれタスク中の $\OML/cmm/m/it/10 w[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 w[]$ \JY1/mc/m/sl/10 と $\OML/cmm/m/it/10 w[]$ \JY1/mc/m/sl/10 の最大値と最小値である ． $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 R[]; \OT1/cmr/m/it/10 ^^H[]\OT1/cmr/m/n/10 )$
- []
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 26.
+ [2
 
-File: eps/def_stiffness.eps Graphic file (type eps)
-<eps/def_stiffness.eps> [5] [6]
-Overfull \hbox (9.95215pt too wide) in paragraph at lines 425--428
-[]\JY1/mc/m/sl/10 健常成人男性 \OT1/cmr/m/n/10 5 \JY1/mc/m/sl/10 名 （\OT1/cmr/m/n/10 A, B, C, D, E\JY1/mc/m/sl/10 ） と健常成人女性 \OT1/cmr/m/n/10 1 \JY1/mc/m/sl/10 名 （\OT1/cmr/m/n/10 F\JY1/mc/m/sl/10 ） （\OT1/cmr/m/n/10 22.3$\OMS/cmsy/m/n/10 ^^F$\OT1/cmr/m/n/10 1.2 \JY1/mc/m/sl/10 歳 ， \OT1/cmr/m/n/10 168$\OMS/cmsy/m/n/10 ^^F$\OT1/cmr/m/n/10 4[cm], 54.5$\OMS/cmsy/m/n/10 ^^F$\OT1/cmr/m/n/10 3.9[kg]\JY1/mc/m/sl/10 ）
- []
-
-File: eps/ankle.eps Graphic file (type eps)
-<eps/ankle.eps> [7] [8]
-File: eps/m.eps Graphic file (type eps)
- <eps/m.eps>
-File: eps/rs.eps Graphic file (type eps)
- <eps/rs.eps>
-File: eps/vector.eps Graphic file (type eps)
- <eps/vector.eps>
-File: eps/score.eps Graphic file (type eps)
- <eps/score.eps>
-File: eps/stiffness.eps Graphic file (type eps)
- <eps/stiffness.eps> [9] [10] [11] [12
+] [3
 
 ]
-File: eps/score(scaled).eps Graphic file (type eps)
- <eps/score(scaled).eps>
-File: eps/torque(iimura).eps Graphic file (type eps)
- <eps/torque(iimura).eps>
-File: eps/torque(hishii).eps Graphic file (type eps)
- <eps/torque(hishii).eps>
-File: eps/torque(tsuji).eps Graphic file (type eps)
- <eps/torque(tsuji).eps>
-File: eps/moment(run).eps Graphic file (type eps)
- <eps/moment(run).eps> [13] [14] [15] [16]
-File: eps/torque(hishii)(walk)_2.eps Graphic file (type eps)
- <eps/torque(hishii)(walk)_2.eps>
-File: eps/moment(walk).eps Graphic file (type eps)
- <eps/moment(walk).eps> [17] [18
-
-
-]
-File: eps/power(tsuji).eps Graphic file (type eps)
- <eps/power(tsuji).eps>
-File: eps/energy(tsuji).eps Graphic file (type eps)
- <eps/energy(tsuji).eps> [19] [20
-
-
-]
-File: eps/stick.eps Graphic file (type eps)
- <eps/stick.eps>
-File: eps/dxy.eps Graphic file (type eps)
- <eps/dxy.eps>
-File: eps/motor_program(run).eps Graphic file (type eps)
- <eps/motor_program(run).eps>
-File: eps/submovement(run).eps Graphic file (type eps)
- <eps/submovement(run).eps>
-File: eps/motor_program(walk).eps Graphic file (type eps)
- <eps/motor_program(walk).eps>
-File: eps/submovement(walk).eps Graphic file (type eps)
- <eps/submovement(walk).eps>
-File: eps/stick&submovement.eps Graphic file (type eps)
- <eps/stick&submovement.eps> [21] [22]
 
 LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
-(Font)              using `JT1/mc/m/n' instead on input line 916.
+(Font)              using `JT1/mc/m/n' instead on input line 40.
 
 
 LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
-(Font)              using `JY1/mc/m/n' instead on input line 916.
+(Font)              using `JY1/mc/m/n' instead on input line 40.
 
-[23]) [24] (./main.aux)
+[4
+
+]) [5] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1352 strings out of 493216
- 17008 string characters out of 6147083
- 92105 words of memory out of 5000000
- 5325 multiletter control sequences out of 15000+600000
- 20965 words of font info for 77 fonts, out of 8000000 for 9000
+ 1199 strings out of 492759
+ 14512 string characters out of 6143227
+ 88044 words of memory out of 5000000
+ 5673 multiletter control sequences out of 15000+600000
+ 14022 words of font info for 54 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 30i,13n,43p,500b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,11n,45p,423b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (25 pages, 103992 bytes).
+Output written on main.dvi (6 pages, 10100 bytes).
