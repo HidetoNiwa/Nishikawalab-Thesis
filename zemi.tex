@@ -1,12 +1,12 @@
 \section{研究背景}
 %TODO:初号機体のお話を書く
 当研究室において先行研究として、人間の筋肉を模した空気圧人工筋をもちいたペダリングロボット（初号機）が存在する.これは,人間のペダリング動作の計測を行い、ロボットに再現させるものであった。
-\begin{figure}
+\begin{figure}[!t]
  \begin{center}
   \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/1st.eps}
   \caption{ペダリングロボット（初号機）}
   \label{初号機}
-  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/2nd.eps}
+  \includegraphics[width=0.25\columnwidth,clip]{Photo/BackGround/2nd.eps}
   \caption{二足歩行ロボット（2号機）}
   \label{2号機}
  \end{center}
@@ -38,20 +38,30 @@
 
 ロール・ピッチ・ヨー各軸に自由度を持たせた
 \subsection{伸縮センサ}
-\ref{MITSoftRobot}伸縮センサは
-シリコン中に導電性布が2枚挟まれた状態となっている.
+MIT \ref{MITSoftRobot}において紹介されている.
+伸縮センサはシリコン中に導電性布が2枚挟まれた状態となっている.
 
-これは,誘電体をシリコン,極板を導電性布にしたものとなっている.
+これは,誘電体をシリコン,極板を導電性布としたにしたものとなっている.
 
-ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$とすると、
+ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$,真空の誘電率を$\epsilon{}_0$,シリコンの比誘電率を$\epsilon{}_s$とすると,
 \begin{eqnarray}
-    Q=CV
+    C=\epsilon{}_0\epsilon{}_s\frac{S}{d}
 \end{eqnarray}
-
-比誘電率$\epsilon$とすると
-
+といった式となる.
 \subsection{伸縮センサ計測回路}
 %TODO:伸縮センサ計測回路に関しての記述を行う
+%TODO:RC回路の回路図を掲載する
+伸縮センサは静電容量の変化で伸縮状況を示す.故に今回は静電容量の変化を計測することができるシステムを用いればよい.そのため,NucleoF303K8にRC回路を用いて可変静電容量に関して,固定抵抗器を用いて計測を行った.
+
+これらの計測に関して、1つのマイコンを用いて複数の伸縮センサの計測を行うと計測周期が低下し,計測精度の低下が懸念された.これを踏まえ,1つのマイコンで計測を行う伸縮センサの数を2個とした.一方で今回,足首を中心とした筋の伸縮の計測を行うため6チャンネル分の計測を行う必要がある.故に,マイコン3枚分の計測システムを用意した.これらをCAN通信（Controller Area Network）と同期信号を用いて計測のデータ取得,同期を行った.
+\begin{figure}[!t]
+ \begin{center}
+  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/circuit.eps}
+  \caption{計測回路}
+  \label{circuit}
+ \end{center}
+\end{figure}
+
 \section{実験方法}
 \subsection{伸縮センサ作製}
 \begin{enumerate}
