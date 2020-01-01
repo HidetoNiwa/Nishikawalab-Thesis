@@ -1,7 +1,7 @@
 \section{研究背景}
 %TODO:初号機体のお話を書く
 当研究室において先行研究として,人間の筋肉を模した空気圧人工筋をもちいたペダリングロボット（初号機）が存在する.これは,人間のペダリング動作の計測を行い,ロボットに再現させるものであった.片麻痺患者と健常者のペダリング動作の比較を行った.腰が固定され股関節,膝関節,足首関節それぞれがピッチ方向にのみ自由度を持っていた.またそれに合わせて空気圧人工筋を片足8筋分用いていた.
-\begin{figure}[!t]
+\begin{figure}[h]
  \begin{center}
   \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/1st.eps}
   \caption{ペダリングロボット（初号機）}
@@ -11,7 +11,7 @@
 
 %TODO:2号機のお話を書く
 また,先述の初号機を元にして腰を固定していない状態の二足歩行型のロボットも製作された.こちらは先述のロボットと異なり二足歩行可能であり,片麻痺患者と健常者の歩行の比較を行った.
-  \begin{figure}
+  \begin{figure}[h]
   \begin{center}
   \includegraphics[width=0.25\columnwidth,clip]{Photo/BackGround/2nd.eps}
   \caption{二足歩行ロボット（2号機）}
@@ -24,7 +24,8 @@
 
 股関節部分の自由度
 
-足関節の自由度を
+足関節の自由度が従来の2足歩行ロボット（2号機）ではピッチ方向の1自由度であった。一方で実際の人間の自由度はこれに加えてロール方向,ヨー方向も存在し3自由度である.
+
 
 %TODO:伸縮センサのお話を書く
 導電性布を用いて柔軟精度の高いセンサを作成する
@@ -36,36 +37,56 @@
 \subsection{足首}
 %TODO:足首周りの動作関係のお話をする
 %付着筋肉のお話もする
-付着筋肉
+付着筋肉 %何の筋肉をもちいた？
 
 ボールジョイントを用いて,ロール・ピッチ・ヨー各軸に自由度を持たせた.
 \subsection{伸縮センサ}
-MIT \ref{MITSoftRobot}において紹介されている.
+MIT \cite{MITSoftRobot}において紹介されている.
 伸縮センサはシリコン中に導電性布が2枚挟まれた状態となっている.
 
 これは,誘電体をシリコン,極板を導電性布としたにしたものとなっている.
+
+一方で,伸縮センサは引張方向のみに応力がかかる単軸応力状態であると見れるため,引張方向のひずみ$\gamma$,引張方向の垂直応力$\sigma$,ヤング率$E$とそれぞれすると,
+\begin{eqnarray}
+    \sigma=E\gamma
+    \label{フックの法則}
+\end{eqnarray}
+といった式がフックの法則により示される.また,引張方向に対して直交方向である垂直ひずみ
 
 ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$,真空の誘電率を$\epsilon{}_0$,シリコンの比誘電率を$\epsilon{}_s$とすると,
 \begin{eqnarray}
     C=\epsilon{}_0\epsilon{}_s\frac{S}{d}
 \end{eqnarray}
 といった式となる.
+
 \subsection{伸縮センサ計測回路}
 %TODO:伸縮センサ計測回路に関しての記述を行う
-%TODO:RC回路の回路図を掲載する
+%TODO:RC回路の電圧を掛けたときの時定数の様子をオシロスコープで撮影した画像が欲しい
 伸縮センサは静電容量の変化で伸縮状況を示す.故に今回は静電容量の変化を計測することができるシステムを用いればよい.そのため,NucleoF303K8にRC回路を用いて可変静電容量に関して,固定抵抗器を用いて計測を行った.
 
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/RC.eps}
+  \caption{RC回路}
+  \label{RC}
+ \end{center}
+\end{figure}
+
 これらの計測に関して,1つのマイコンを用いて複数の伸縮センサの計測を行うと計測周期が低下し,計測精度の低下が懸念された.これを踏まえ,1つのマイコンで計測を行う伸縮センサの数を2個とした.一方で今回,足首を中心とした筋の伸縮の計測を行うため6チャンネル分の計測を行う必要がある.故に,マイコン3枚分の計測システムを用意した.これらをCAN通信（Controller Area Network）と同期信号を用いて計測のデータ取得,同期を行った.
-\begin{figure}[!t]
+\begin{figure}[h]
  \begin{center}
   \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/circuit.eps}
-  \caption{計測回路}
+  \caption{計測時に実際にもちいた基板}
   \label{circuit}
  \end{center}
 \end{figure}
 
 \section{実験方法}
-\subsection{伸縮センサ作製}
+\subsection{2足歩行ロボットの製作}
+今回、2足歩行ロボットの足首部分を製作するために
+
+成人男性の半分
+\subsection{伸縮センサ製作}
 \begin{enumerate}
     \item 3Dプリンターを用いて伸縮センサのサイズに合った型を用意する.
     \item 導電性布を型に合わせて鋏を用いて切る.
