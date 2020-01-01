@@ -1,0 +1,24 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "platex",
+            "type": "shell",
+            "command": "platex main.tex",
+        },
+        {
+            "label": "pdf",
+            "type": "shell",
+            "command": "dvipdfmx main",
+            "dependsOn": [
+                "platex"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

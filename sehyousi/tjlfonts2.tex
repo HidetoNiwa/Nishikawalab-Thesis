@@ -1,0 +1,573 @@
+% tjlfonts.tex
+%
+%   Created by koba(Shinji Kobayashi) on 1992.6.4
+%   たくさんへんこう by mura on 1992.6.12
+%
+\typeout{LaTeX 用縦書きフォント}
+
+% From jlfonts2.tex
+\def\@setsize#1#2#3#4{\@nomath#1\let\@currsize#1\baselineskip
+   #2\setbox\strutbox\hbox{\vrule height.7\baselineskip
+      depth.3\baselineskip width\z@}\baselineskip\baselinestretch\baselineskip
+   \normalbaselineskip\baselineskip#3#4\xkanjiskip.25zw plus .15zw minus .1zw
+   \tbaselineshift.25zw}
+
+\font\fivtmin=tmin5
+%\font\fivtgt=tgoth5
+\font\sixtmin=tmin6
+%\font\sixtgt=tgoth6
+\font\sevtmin=tmin7
+%\font\sevtgt=tgoth7
+\font\egttmin=tmin8
+%\font\egttgt=tgoth8
+\font\nintmin=tmin9
+\font\nintgt=tgoth9
+\font\tentmin=tmin10
+\font\tentgt=tgoth10
+%\font\elvtmin=tmin10 \@halfmag
+%\font\elvtgt=tgoth10 \@halfmag
+%\font\twltmin=tmin10 \@magscale1
+%\font\twltgt=tgoth10 \@magscale1
+%\font\frtntmin=tmin10 \@magscale2
+%\font\frtntgt=tgoth10 \@magscale2
+%\font\svtntmin=tmin10 \@magscale3
+%\font\svtntgt=tgoth10 \@magscale3
+%\font\twtytmin=tmin10 \@magscale4
+%\font\twtytgt=tgoth10 \@magscale4
+%\font\twfvtmin=tmin10 \@magscale5
+%\font\twfvtgt=tgoth10 \@magscale5
+
+\def\tm{\protect\ptmin}
+\def\tg{\protect\ptgt}
+\def\mc{\protect\minchou}
+\def\gt{\protect\gothic}
+\def\minchou{\iftdir\ptmin\else\pmin\fi}
+\def\gothic{\iftdir\ptgt\else\pgt\fi}
+\def\jbf{\iftdir\ptgt\else\pgt\fi}
+\def\cmfont@{\def\rm{\protect\prm}\def\sl{\protect\psl}%
+\def\bf{\protect\pbf\protect\jbf}}\cmfont@
+\def\mcfont{\def\rm{\protect\pbk}\def\sl{\protect\psbk}%
+\def\bf{\protect\pbbk\protect\jbf}\rm}%
+
+\newfam\tmfam     % \tm
+\newfam\tgfam     % \tg
+
+\def\vpt{\textfont\z@\fivrm 
+  \scriptfont\z@\fivrm \scriptscriptfont\z@\fivrm
+\textfont\@ne\fivmi \scriptfont\@ne\fivmi \scriptscriptfont\@ne\fivmi
+\textfont\tw@\fivsy \scriptfont\tw@\fivsy \scriptscriptfont\tw@\fivsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\prm{\fam\z@\fivrm}%
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath
+  \unboldmath\fam\@ne\@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\pit{\@subfont\it\rm}% 
+\def\psl{\@subfont\sl\rm}%
+\def\pbf{\@getfont\pbf\bffam\@vpt{cmbx5}}%
+\def\ptt{\@subfont\tt\rm}%
+\def\psf{\@subfont\sf\rm}%
+\def\psc{\@subfont\sc\rm}%
+\def\ly{\fam\lyfam\fivly}\textfont\lyfam\fivly 
+    \scriptfont\lyfam\fivly \scriptscriptfont\lyfam\fivly 
+\def\pmin{\fam\mcfam\fivmin}\textfont\mcfam\fivmin 
+   \scriptfont\mcfam\fivmin \scriptscriptfont\mcfam\fivmin 
+\def\ptmin{\fam\tmfam\fivtmin}\textfont\tmfam\fivtmin 
+   \scriptfont\tmfam\fivtmin \scriptscriptfont\tmfam\fivtmin 
+\def\pgt{\@getfont\pgt\gtfam\@vpt{goth5}}%
+\def\ptgt{\@getfont\ptgt\tgfam\@vpt{tgoth5}}%
+\def\pbk{\@@readf\vbk{mcbk5}\@setfam\vbk\vbk\vbk\chfam\fam\chfam\vbk}%
+\def\pmbk{\@getfont\pmbk\chfam\@vpt{mcmb5}}%
+\def\pbbk{\@getfont\pbbk\chfam\@vpt{mcb5}}%
+\def\pebk{\@getfont\pebk\chfam\@vpt{mcxb5}}%
+\def\psbk{\@getfont\psbk\chfam\@vpt{mcs5}}%
+\def\psmbk{\@getfont\psmbk\chfam\@vpt{mcsmb5}}%
+\def\psbbk{\@getfont\psbbk\chfam\@vpt{mcsb5}}%
+\def\psebk{\@getfont\psebk\chfam\@vpt{mcsxb5}}%
+\@setstrut\rm\mc}
+
+\def\@vpt{}
+%\def\@jvpt{}
+
+\def\vipt{\textfont\z@\sixrm 
+  \scriptfont\z@\sixrm \scriptscriptfont\z@\sixrm
+\textfont\@ne\sixmi \scriptfont\@ne\sixmi \scriptscriptfont\@ne\sixmi
+\textfont\tw@\sixsy \scriptfont\tw@\sixsy \scriptscriptfont\tw@\sixsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\prm{\fam\z@\sixrm}%
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath
+  \unboldmath\@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\pit{\@subfont\it\rm}%
+\def\psl{\@subfont\sl\rm}%
+\def\pbf{\@getfont\pbf\bffam\@vipt{cmbx6}}%
+\def\ptt{\@subfont\tt\rm}%
+\def\psf{\@subfont\sf\rm}%
+\def\psc{\@subfont\sc\rm}%
+\def\ly{\fam\lyfam\sixly}\textfont\lyfam\sixly 
+    \scriptfont\lyfam\sixly \scriptscriptfont\lyfam\sixly 
+\def\pmin{\fam\mcfam\sixmin}\textfont\mcfam\sixmin 
+   \scriptfont\mcfam\fivmin \scriptscriptfont\mcfam\fivmin 
+\def\ptmin{\fam\tmfam\sixtmin}\textfont\tmfam\sixtmin 
+   \scriptfont\tmfam\fivtmin \scriptscriptfont\tmfam\fivtmin 
+\def\pgt{\@getfont\pgt\gtfam\@vipt{goth6}}%
+\def\ptgt{\@getfont\ptgt\tgfam\@vipt{tgoth6}}%
+\def\pbk{\@@readf\vibk{mcbk6}\@setfam\vibk\vibk\vibk\chfam\fam\chfam\vibk}%
+\def\pmbk{\@getfont\pmbk\chfam\@vipt{mcmb6}}%
+\def\pbbk{\@getfont\pbbk\chfam\@vipt{mcb6}}%
+\def\pebk{\@getfont\pebk\chfam\@vipt{mcxb6}}%
+\def\psbk{\@getfont\psbk\chfam\@vipt{mcs6}}%
+\def\psmbk{\@getfont\psmbk\chfam\@vipt{mcsmb6}}%
+\def\psbbk{\@getfont\psbbk\chfam\@vipt{mcsb6}}%
+\def\psebk{\@getfont\psebk\chfam\@vipt{mcsxb6}}%
+\@setstrut\rm\mc}
+
+\def\@vipt{}
+%\def\@jvipt{}
+
+\def\viipt{\textfont\z@\sevrm 
+  \scriptfont\z@\sixrm \scriptscriptfont\z@\fivrm
+\textfont\@ne\sevmi \scriptfont\@ne\fivmi \scriptscriptfont\@ne\fivmi
+\textfont\tw@\sevsy \scriptfont\tw@\fivsy \scriptscriptfont\tw@\fivsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\prm{\fam\z@\sevrm}%
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath
+\unboldmath\@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\pit{\fam\itfam\sevit}\textfont\itfam\sevit 
+   \scriptfont\itfam\sevit \scriptscriptfont\itfam\sevit 
+\def\psl{\@subfont\sl\it}%
+\def\pbf{\@getfont\pbf\bffam\@viipt{cmbx7}}%
+\def\ptt{\@subfont\tt\rm}%
+\def\psf{\@subfont\sf\rm}%
+\def\psc{\@subfont\sc\rm}%
+\def\ly{\fam\lyfam\sevly}\textfont\lyfam\sevly 
+    \scriptfont\lyfam\fivly \scriptscriptfont\lyfam\fivly 
+\def\pmin{\fam\mcfam\sevmin}\textfont\mcfam\sevmin 
+   \scriptfont\mcfam\sixmin \scriptscriptfont\mcfam\fivmin 
+\def\ptmin{\fam\tmfam\sevtmin}\textfont\tmfam\sevtmin 
+   \scriptfont\tmfam\sixtmin \scriptscriptfont\tmfam\fivtmin 
+\def\pgt{\@getfont\pgt\gtfam\@viipt{goth7}}%
+\def\ptgt{\@getfont\ptgt\tgfam\@viipt{tgoth7}}%
+\def\pbk{\@@readf\viibk{mcbk7}\@setfam\viibk\viibk\viibk\chfam\fam\chfam\viibk}%
+\def\pmbk{\@getfont\pmbk\chfam\@viipt{mcmb7}}%
+\def\pbbk{\@getfont\pbbk\chfam\@viipt{mcb7}}%
+\def\pebk{\@getfont\pebk\chfam\@viipt{mcxb7}}%
+\def\psbk{\@getfont\psbk\chfam\@viipt{mcs7}}%
+\def\psmbk{\@getfont\psmbk\chfam\@viipt{mcsmb7}}%
+\def\psbbk{\@getfont\psbbk\chfam\@viipt{mcsb7}}%
+\def\psebk{\@getfont\psebk\chfam\@viipt{mcsxb7}}%
+\@setstrut\rm\mc}
+
+\def\@viipt{}
+%\def\@jviipt{}
+
+\def\viiipt{\textfont\z@\egtrm 
+  \scriptfont\z@\sixrm \scriptscriptfont\z@\fivrm
+\textfont\@ne\egtmi \scriptfont\@ne\sixmi \scriptscriptfont\@ne\fivmi
+\textfont\tw@\egtsy \scriptfont\tw@\sixsy \scriptscriptfont\tw@\fivsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\prm{\fam\z@\egtrm}%
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath
+\unboldmath\@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\pit{\fam\itfam\egtit}\textfont\itfam\egtit 
+   \scriptfont\itfam\sevit \scriptscriptfont\itfam\sevit 
+\def\psl{\@getfont\psl\slfam\@viiipt{cmsl8}}%
+\def\pbf{\@getfont\pbf\bffam\@viiipt{cmbx8}}%
+\def\ptt{\@getfont\ptt\ttfam\@viiipt{cmtt8}\@nohyphens\ptt\@viiipt}%
+\def\psf{\@getfont\psf\sffam\@viiipt{cmss8}}%
+\def\psc{\@getfont\psc\scfam\@viiipt{\@mcsc\@ptscale8}}%
+%\def\psc{\@getfont\psc\scfam\@viiipt{amcsc10 \@ptscale8}}% TEMPORARY KLUDGE
+\def\ly{\fam\lyfam\egtly}\textfont\lyfam\egtly 
+    \scriptfont\lyfam\sixly \scriptscriptfont\lyfam\fivly 
+\def\pmin{\fam\mcfam\egtmin}\textfont\mcfam\egtmin 
+   \scriptfont\mcfam\sixmin \scriptscriptfont\mcfam\fivmin 
+\def\ptmin{\fam\tmfam\egttmin}\textfont\tmfam\egttmin 
+   \scriptfont\tmfam\sixtmin \scriptscriptfont\tmfam\fivtmin 
+\def\pgt{\@getfont\pgt\gtfam\@viiipt{goth8}}%
+\def\ptgt{\@getfont\tpgt\tgfam\@viiipt{tgoth8}}%
+\def\pbk{\@@readf\viiibk{mcbk8}\@setfam\viiibk\viiibk\viiibk\chfam\fam\chfam\viiibk}%
+\def\pmbk{\@getfont\pmbk\chfam\@viiipt{mcmb8}}%
+\def\pbbk{\@getfont\pbbk\chfam\@viiipt{mcb8}}%
+\def\pebk{\@getfont\pebk\chfam\@viiipt{mcxb8}}%
+\def\psbk{\@getfont\psbk\chfam\@viiipt{mcs8}}%
+\def\psmbk{\@getfont\psmbk\chfam\@viiipt{mcsmb8}}%
+\def\psbbk{\@getfont\psbbk\chfam\@viiipt{mcsb8}}%
+\def\psebk{\@getfont\psebk\chfam\@viiipt{mcsxb8}}%
+\@setstrut\rm\mc}
+
+\def\@viiipt{}
+%\def\@jviiipt{}
+
+\def\ixpt{\textfont\z@\ninrm 
+  \scriptfont\z@\sixrm \scriptscriptfont\z@\fivrm
+\textfont\@ne\ninmi \scriptfont\@ne\sixmi \scriptscriptfont\@ne\fivmi
+\textfont\tw@\ninsy \scriptfont\tw@\sixsy \scriptscriptfont\tw@\fivsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\prm{\fam\z@\ninrm}%
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+    \@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\pit{\fam\itfam\ninit}\textfont\itfam\ninit 
+   \scriptfont\itfam\sevit \scriptscriptfont\itfam\sevit 
+\def\psl{\@getfont\psl\slfam\@ixpt{cmsl9}}%
+\def\pbf{\fam\bffam\ninbf}\textfont\bffam\ninbf 
+   \scriptfont\bffam\ninbf \scriptscriptfont\bffam\ninbf 
+\def\ptt{\fam\ttfam\nintt}\textfont\ttfam\nintt
+   \scriptfont\ttfam\nintt \scriptscriptfont\ttfam\nintt 
+\def\psf{\@getfont\psf\sffam\@ixpt{cmss9}}%
+\def\psc{\@getfont\psc\scfam\@ixpt{\@mcsc\@ptscale9}}%
+\def\ly{\fam\lyfam\ninly}\textfont\lyfam\ninly 
+   \scriptfont\lyfam\sixly \scriptscriptfont\lyfam\fivly 
+\def\pmin{\fam\mcfam\ninmin}\textfont\mcfam\ninmin 
+   \scriptfont\mcfam\sixmin \scriptscriptfont\mcfam\fivmin 
+\def\ptmin{\fam\tmfam\nintmin}\textfont\tmfam\nintmin 
+   \scriptfont\tmfam\sixtmin \scriptscriptfont\tmfam\fivtmin 
+\def\pgt{\fam\gtfam\ningt}\textfont\gtfam\ningt 
+   \scriptfont\gtfam\ningt \scriptscriptfont\gtfam\ningt 
+\def\ptgt{\fam\tgfam\nintgt}\textfont\tgfam\nintgt 
+   \scriptfont\tgfam\nintgt \scriptscriptfont\tgfam\nintgt 
+\def\pbk{\@readfont\ixbk{mcbk9}\vibk{mcbk6}\vbk{mcbk5}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@ixpt{mcmb9}}%
+\def\pbbk{\@getfont\pbbk\chfam\@ixpt{mcb9}}%
+\def\pebk{\@getfont\pebk\chfam\@ixpt{mcxb9}}%
+\def\psbk{\@getfont\psbk\chfam\@ixpt{mcs9}}%
+\def\psmbk{\@getfont\psmbk\chfam\@ixpt{mcsmb9}}%
+\def\psbbk{\@getfont\psbbk\chfam\@ixpt{mcsb9}}%
+\def\psebk{\@getfont\psebk\chfam\@ixpt{mcsxb9}}%
+\@setstrut\rm\mc}
+
+\def\@ixpt{}
+
+\def\xpt{\textfont\z@\tenrm 
+  \scriptfont\z@\sevrm \scriptscriptfont\z@\fivrm
+\textfont\@ne\tenmi \scriptfont\@ne\sevmi \scriptscriptfont\@ne\fivmi
+\textfont\tw@\tensy \scriptfont\tw@\sevsy \scriptscriptfont\tw@\fivsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+          \textfont\@ne\tenmi 
+          \textfont\tw@\tensy \textfont\lyfam\tenly
+          \@boldfalse}\@boldfalse
+\def\boldmath{\@ifundefined{tenmib}{\global\font\tenmib\@mbi 
+   \global\font\tensyb\@mbsy 
+   \global\font\tenlyb\@lasyb\relax\@addfontinfo\@xpt
+   {\def\boldmath{\everymath{\mit}\everydisplay{\mit}\@prtct\@nomathbold
+        \textfont\@ne\tenmib \textfont\tw@\tensyb 
+        \textfont\lyfam\tenlyb \@prtct\@boldtrue}}}{}\@xpt\boldmath}%
+\def\prm{\fam\z@\tenrm}%
+\def\pit{\fam\itfam\tenit}\textfont\itfam\tenit \scriptfont\itfam\sevit
+    \scriptscriptfont\itfam\sevit
+\def\psl{\fam\slfam\tensl}\textfont\slfam\tensl 
+     \scriptfont\slfam\tensl \scriptscriptfont\slfam\tensl
+\def\pbf{\fam\bffam\tenbf}\textfont\bffam\tenbf 
+    \scriptfont\bffam\tenbf \scriptscriptfont\bffam\tenbf 
+\def\ptt{\fam\ttfam\tentt}\textfont\ttfam\tentt
+    \scriptfont\ttfam\tentt \scriptscriptfont\ttfam\tentt
+\def\psf{\fam\sffam\tensf}\textfont\sffam\tensf
+    \scriptfont\sffam\tensf \scriptscriptfont\sffam\tensf
+\def\psc{\@getfont\psc\scfam\@xpt{\@mcsc}}%
+\def\ly{\fam\lyfam\tenly}\textfont\lyfam\tenly 
+   \scriptfont\lyfam\sevly \scriptscriptfont\lyfam\fivly 
+\def\pmin{\fam\mcfam\tenmin}\textfont\mcfam\tenmin 
+    \scriptfont\mcfam\sevmin \scriptscriptfont\mcfam\fivmin 
+\def\ptmin{\fam\tmfam\tentmin}\textfont\tmfam\tentmin 
+    \scriptfont\tmfam\sevtmin \scriptscriptfont\tmfam\fivtmin 
+\def\pgt{\fam\gtfam\tengt}\textfont\gtfam\tengt 
+    \scriptfont\gtfam\tengt \scriptscriptfont\gtfam\tengt 
+\def\ptgt{\fam\tgfam\tentgt}\textfont\tgfam\tentgt 
+    \scriptfont\tgfam\tentgt \scriptscriptfont\tgfam\tentgt 
+\def\pbk{\@readfont\xbk{mcbk10}\viibk{mcbk7}\vbk{mcbk5}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xpt{mcmb10}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xpt{mcb10}}%
+\def\pebk{\@getfont\pebk\chfam\@xpt{mcxb10}}%
+\def\psbk{\@getfont\psbk\chfam\@xpt{mcs10}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xpt{mcsmb10}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xpt{mcsb10}}%
+\def\psebk{\@getfont\psebk\chfam\@xpt{mcsxb10}}%
+\@setstrut\rm\mc}
+
+\def\@xpt{}
+
+\def\xipt{\textfont\z@\elvrm 
+  \scriptfont\z@\egtrm \scriptscriptfont\z@\sixrm
+\textfont\@ne\elvmi \scriptfont\@ne\egtmi \scriptscriptfont\@ne\sixmi
+\textfont\tw@\elvsy \scriptfont\tw@\egtsy \scriptscriptfont\tw@\sixsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+          \textfont\@ne\elvmi \textfont\tw@\elvsy 
+          \textfont\lyfam\elvly \@boldfalse}\@boldfalse
+\def\boldmath{\@ifundefined{elvmib}{\global\font\elvmib\@mbi\@halfmag 
+         \global\font\elvsyb\@mbsy\@halfmag
+         \global\font\elvlyb\@lasyb\@halfmag\relax\@addfontinfo\@xipt
+         {\def\boldmath{\everymath{\mit}\everydisplay{\mit}\@prtct\@nomathbold
+                \textfont\@ne\elvmib \textfont\tw@\elvsyb 
+                \textfont\lyfam\elvlyb\@prtct\@boldtrue}}}{}\@xipt\boldmath}%
+\def\prm{\fam\z@\elvrm}%
+\def\pit{\fam\itfam\elvit}\textfont\itfam\elvit 
+   \scriptfont\itfam\egtit \scriptscriptfont\itfam\sevit
+\def\psl{\fam\slfam\elvsl}\textfont\slfam\elvsl 
+    \scriptfont\slfam\tensl \scriptscriptfont\slfam\tensl 
+\def\pbf{\fam\bffam\elvbf}\textfont\bffam\elvbf 
+   \scriptfont\bffam\ninbf \scriptscriptfont\bffam\ninbf 
+\def\ptt{\fam\ttfam\elvtt}\textfont\ttfam\elvtt
+   \scriptfont\ttfam\nintt \scriptscriptfont\ttfam\nintt 
+\def\psf{\fam\sffam\elvsf}\textfont\sffam\elvsf
+    \scriptfont\sffam\tensf \scriptscriptfont\sffam\tensf
+\def\psc{\@getfont\psc\scfam\@xipt{\@mcsc\@halfmag}}%
+\def\ly{\fam\lyfam\elvly}\textfont\lyfam\elvly 
+   \scriptfont\lyfam\egtly \scriptscriptfont\lyfam\sixly 
+\def\pmin{\fam\mcfam\elvmin}\textfont\mcfam\elvmin 
+   \scriptfont\mcfam\egtmin \scriptscriptfont\mcfam\sixmin 
+\def\ptmin{\fam\tmfam\elvtmin}\textfont\tmfam\elvtmin 
+   \scriptfont\tmfam\egttmin \scriptscriptfont\tmfam\sixtmin 
+\def\pgt{\fam\gtfam\elvgt}\textfont\gtfam\elvgt 
+   \scriptfont\gtfam\ningt \scriptscriptfont\gtfam\ningt 
+\def\ptgt{\fam\tgfam\elvtgt}\textfont\tgfam\elvtgt 
+   \scriptfont\tgfam\nintgt \scriptscriptfont\tgfam\nintgt 
+\def\pbk{\@readfont\xibk{mcbk11}\viiibk{mcbk8}\vibk{mcbk6}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xipt{mcmb11}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xipt{mcb11}}%
+\def\pebk{\@getfont\pebk\chfam\@xipt{mcxb11}}%
+\def\psbk{\@getfont\psbk\chfam\@xipt{mcs11}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xipt{mcsmb11}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xipt{mcsb11}}%
+\def\psebk{\@getfont\psebk\chfam\@xipt{mcsxb11}}%
+\@setstrut\rm\mc}
+
+\def\@xipt{}
+
+\def\xiipt{\textfont\z@\twlrm 
+  \scriptfont\z@\egtrm \scriptscriptfont\z@\sixrm
+\textfont\@ne\twlmi \scriptfont\@ne\egtmi \scriptscriptfont\@ne\sixmi
+\textfont\tw@\twlsy \scriptfont\tw@\egtsy \scriptscriptfont\tw@\sixsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+          \textfont\@ne\twlmi 
+          \textfont\tw@\twlsy \textfont\lyfam\twlly
+          \@boldfalse}\@boldfalse
+\def\boldmath{\@ifundefined{twlmib}{\global\font\twlmib\@mbi\@magscale1\global
+        \font\twlsyb\@mbsy \@magscale1\global\font
+         \twllyb\@lasyb\@magscale1\relax\@addfontinfo\@xiipt
+              {\def\boldmath{\everymath
+                {\mit}\everydisplay{\mit}\@prtct\@nomathbold
+                \textfont\@ne\twlmib \textfont\tw@\twlsyb 
+                \textfont\lyfam\twllyb\@prtct\@boldtrue}}}{}\@xiipt\boldmath}%
+\def\prm{\fam\z@\twlrm}%
+\def\pit{\fam\itfam\twlit}\textfont\itfam\twlit \scriptfont\itfam\egtit
+   \scriptscriptfont\itfam\sevit
+\def\psl{\fam\slfam\twlsl}\textfont\slfam\twlsl 
+     \scriptfont\slfam\tensl \scriptscriptfont\slfam\tensl
+\def\pbf{\fam\bffam\twlbf}\textfont\bffam\twlbf 
+   \scriptfont\bffam\ninbf \scriptscriptfont\bffam\ninbf 
+\def\ptt{\fam\ttfam\twltt}\textfont\ttfam\twltt
+   \scriptfont\ttfam\nintt \scriptscriptfont\ttfam\nintt 
+\def\psf{\fam\sffam\twlsf}\textfont\sffam\twlsf
+    \scriptfont\sffam\tensf \scriptscriptfont\sffam\tensf
+\def\psc{\@getfont\psc\scfam\@xiipt{\@mcsc\@magscale1}}%
+\def\ly{\fam\lyfam\twlly}\textfont\lyfam\twlly 
+   \scriptfont\lyfam\egtly \scriptscriptfont\lyfam\sixly
+\def\pmin{\fam\mcfam\twlmin}\textfont\mcfam\twlmin
+   \scriptfont\mcfam\egtmin \scriptscriptfont\mcfam\sixmin
+\def\ptmin{\fam\tmfam\twltmin}\textfont\tmfam\twltmin
+   \scriptfont\tmfam\egttmin \scriptscriptfont\tmfam\sixtmin
+\def\pgt{\fam\gtfam\twlgt}\textfont\gtfam\twlgt
+   \scriptfont\gtfam\ningt \scriptscriptfont\gtfam\ningt
+\def\ptgt{\fam\tgfam\twltgt}\textfont\tgfam\twltgt
+   \scriptfont\tgfam\nintgt \scriptscriptfont\tgfam\nintgt
+\def\pbk{\@readfont\xiibk{mcbk12}\viiibk{mcbk8}\vibk{mcbk6}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xiipt{mcmb12}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xiipt{mcb12}}%
+\def\pebk{\@getfont\pebk\chfam\@xiipt{mcxb12}}%
+\def\psbk{\@getfont\psbk\chfam\@xiipt{mcs12}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xiipt{mcsmb12}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xiipt{mcsb12}}%
+\def\psebk{\@getfont\psebk\chfam\@xiipt{mcsxb12}}%
+\@setstrut\rm\mc}
+
+\def\@xiipt{}
+
+\def\xivpt{\textfont\z@\frtnrm 
+  \scriptfont\z@\tenrm \scriptscriptfont\z@\sevrm
+\textfont\@ne\frtnmi \scriptfont\@ne\tenmi \scriptscriptfont\@ne\sevmi
+\textfont\tw@\frtnsy \scriptfont\tw@\tensy \scriptscriptfont\tw@\sevsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath 
+          \textfont\@ne\frtnmi \textfont\tw@\frtnsy 
+          \textfont\lyfam\frtnly \@boldfalse}\@boldfalse
+\def\boldmath{\@ifundefined{frtnmib}{\global\font
+        \frtnmib\@mbi\@magscale2\global\font\frtnsyb\@mbsy\@magscale2
+         \global\font\frtnlyb\@lasyb\@magscale2\relax\@addfontinfo\@xivpt
+               {\def\boldmath{\everymath
+                {\mit}\everydisplay{\mit}\@prtct\@nomathbold
+              \textfont\@ne\frtnmib \textfont\tw@\frtnsyb 
+              \textfont\lyfam\frtnlyb\@prtct\@boldtrue}}}{}\@xivpt\boldmath}%
+\def\prm{\fam\z@\frtnrm}%
+\def\pit{\@getfont\pit\itfam\@xivpt{cmti10\@magscale2}}%
+\def\psl{\@getfont\psl\slfam\@xivpt{cmsl10\@magscale2}}%
+\def\pbf{\fam\bffam\frtnbf}\textfont\bffam\frtnbf 
+   \scriptfont\bffam\tenbf \scriptscriptfont\bffam\ninbf 
+\def\ptt{\@getfont\ptt\ttfam\@xivpt{cmtt10\@magscale2}\@nohyphens\ptt\@xivpt}%
+\def\psf{\@getfont\psf\sffam\@xivpt{\@mss\@magscale2}}%
+\def\psc{\@getfont\psc\scfam\@xivpt{\@mcsc\@magscale2}}%
+\def\ly{\fam\lyfam\frtnly}\textfont\lyfam\frtnly
+   \scriptfont\lyfam\tenly \scriptscriptfont\lyfam\sevly
+\def\pmin{\fam\mcfam\frtnmin}\textfont\mcfam\frtnmin
+   \scriptfont\mcfam\tenmin \scriptscriptfont\mcfam\sevmin
+\def\ptmin{\fam\tmfam\frtntmin}\textfont\tmfam\frtntmin
+   \scriptfont\tmfam\tentmin \scriptscriptfont\tmfam\sevtmin
+\def\pgt{\fam\gtfam\frtngt}\textfont\gtfam\frtngt
+   \scriptfont\gtfam\tengt \scriptscriptfont\gtfam\ningt
+\def\ptgt{\fam\tgfam\frtntgt}\textfont\tgfam\frtntgt
+   \scriptfont\tgfam\tentgt \scriptscriptfont\tgfam\nintgt
+\def\pbk{\@readfont\xivbk{mcbk14}\xbk{mcbk10}\viibk{mcbk7}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xivpt{mcmb14}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xivpt{mcb14}}%
+\def\pebk{\@getfont\pebk\chfam\@xivpt{mcxb14}}%
+\def\psbk{\@getfont\psbk\chfam\@xivpt{mcs14}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xivpt{mcsmb14}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xivpt{mcsb14}}%
+\def\psebk{\@getfont\psebk\chfam\@xivpt{mcsxb14}}%
+\@setstrut\rm\mc}
+
+\def\@xivpt{}
+
+\def\xviipt{\textfont\z@\svtnrm 
+  \scriptfont\z@\twlrm \scriptscriptfont\z@\tenrm
+\textfont\@ne\svtnmi \scriptfont\@ne\twlmi \scriptscriptfont\@ne\tenmi
+\textfont\tw@\svtnsy \scriptfont\tw@\twlsy \scriptscriptfont\tw@\tensy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+          \textfont\@ne\svtnmi \textfont\tw@\svtnsy \textfont\lyfam\svtnly
+          \@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\prm{\fam\z@\svtnrm}%
+\def\pit{\@getfont\pit\itfam\@xviipt{cmti10\@magscale3}}%
+\def\psl{\@getfont\psl\slfam\@xviipt{cmsl10\@magscale3}}%
+\def\pbf{\fam\bffam\svtnbf}\textfont\bffam\svtnbf 
+    \scriptfont\bffam\twlbf \scriptscriptfont\bffam\tenbf 
+\def\ptt{\@getfont\ptt\ttfam\@xviipt{cmtt10\@magscale3}\@nohyphens
+   \ptt\@xviipt}%
+%\def\psf{\@getfont\psf\sffam\@xviipt{\@mss\@magscale3}}%
+\def\psf{\@getfont\psf\sffam\@xviipt{cmss17}}%
+\def\psc{\@getfont\psc\scfam\@xviipt{\@mcsc\@magscale3}}%
+\def\ly{\fam\lyfam\svtnly}\textfont\lyfam\svtnly
+   \scriptfont\lyfam\twlly \scriptscriptfont\lyfam\tenly
+\def\pmin{\fam\mcfam\svtnmin}\textfont\mcfam\svtnmin
+    \scriptfont\mcfam\twlmin \scriptscriptfont\mcfam\tenmin
+\def\ptmin{\fam\tmfam\svtntmin}\textfont\tmfam\svtntmin
+    \scriptfont\tmfam\twltmin \scriptscriptfont\tmfam\tentmin
+\def\pgt{\fam\gtfam\svtngt}\textfont\gtfam\svtngt
+    \scriptfont\gtfam\twlgt \scriptscriptfont\gtfam\tengt
+\def\ptgt{\fam\tgfam\svtntgt}\textfont\tgfam\svtntgt
+    \scriptfont\tgfam\twltgt \scriptscriptfont\tgfam\tentgt
+\def\pbk{\@readfont\xviibk{mcbk18}\xiibk{mcbk12}\xbk{mcbk10}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xviipt{mcmb18}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xviipt{mcb18}}%
+\def\pebk{\@getfont\pebk\chfam\@xviipt{mcxb18}}%
+\def\psbk{\@getfont\psbk\chfam\@xviipt{mcs18}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xviipt{mcsmb18}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xviipt{mcsb18}}%
+\def\psebk{\@getfont\psebk\chfam\@xviipt{mcsxb18}}%
+\@setstrut\rm\mc}
+
+\def\@xviipt{}
+
+\def\xxpt{\textfont\z@\twtyrm 
+  \scriptfont\z@\frtnrm \scriptscriptfont\z@\twlrm
+\textfont\@ne\twtymi \scriptfont\@ne\frtnmi \scriptscriptfont\@ne\twlmi
+\textfont\tw@\twtysy \scriptfont\tw@\frtnsy \scriptscriptfont\tw@\twlsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+        \textfont\@ne\twtymi \textfont\tw@\twtysy \textfont\lyfam\twtyly
+        \@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\prm{\fam\z@\twtyrm}%
+\def\pit{\@getfont\pit\itfam\@xxpt{cmti10\@magscale4}}%
+\def\psl{\@getfont\psl\slfam\@xxpt{cmsl10\@magscale4}}%
+\def\pbf{\@getfont\pbf\bffam\@xxpt{cmbx10\@magscale4}}%
+\def\ptt{\@getfont\ptt\ttfam\@xxpt{cmtt10\@magscale4}\@nohyphens\ptt\@xxpt}%
+\def\psf{\@getfont\psf\sffam\@xxpt{\@mss\@magscale4}}%
+\def\psc{\@getfont\psc\scfam\@xxpt{\@mcsc\@magscale4}}%
+\def\ly{\fam\lyfam\twtyly}\textfont\lyfam\twtyly
+   \scriptfont\lyfam\frtnly \scriptscriptfont\lyfam\twlly
+\def\pmin{\fam\mcfam\twtymin}\textfont\mcfam\twtymin
+    \scriptfont\mcfam\frtnmin \scriptscriptfont\mcfam\twlmin
+\def\ptmin{\fam\tmfam\twtytmin}\textfont\tmfam\twtytmin
+    \scriptfont\tmfam\frtntmin \scriptscriptfont\tmfam\twltmin
+\def\pgt{\@getfont\pgt\gtfam\@xxpt{goth10\@magscale4}}%
+\def\ptgt{\@getfont\ptgt\tgfam\@xxpt{tgoth10\@magscale4}}%
+\def\pbk{\@readfont\xxbk{mcbk20}\xivbk{mcbk14}\xiibk{mcbk12}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xxpt{mcmb20}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xxpt{mcb20}}%
+\def\pebk{\@getfont\pebk\chfam\@xxpt{mcxb20}}%
+\def\psbk{\@getfont\psbk\chfam\@xxpt{mcs20}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xxpt{mcsmb20}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xxpt{mcsb20}}%
+\def\psebk{\@getfont\psebk\chfam\@xxpt{mcsxb20}}%
+\@setstrut\rm\mc}
+
+\def\@xxpt{}
+
+\def\xxvpt{\textfont\z@\twfvrm 
+  \scriptfont\z@\twtyrm \scriptscriptfont\z@\svtnrm
+\textfont\@ne\twtymi \scriptfont\@ne\twtymi \scriptscriptfont\@ne\svtnmi
+\textfont\tw@\twtysy \scriptfont\tw@\twtysy \scriptscriptfont\tw@\svtnsy
+\textfont\thr@@\tenex \scriptfont\thr@@\tenex \scriptscriptfont\thr@@\tenex
+\def\unboldmath{\everymath{}\everydisplay{}\@nomath\unboldmath
+        \textfont\@ne\twtymi \textfont\tw@\twtysy \textfont\lyfam\twtyly
+        \@boldfalse}\@boldfalse
+\def\boldmath{\@subfont\boldmath\unboldmath}%
+\def\prm{\fam\z@\twfvrm}%
+\def\pit{\@subfont\it\rm}%
+\def\psl{\@subfont\sl\rm}%
+\def\pbf{\@getfont\pbf\bffam\@xxvpt{cmbx10\@magscale5}}%
+\def\ptt{\@subfont\tt\rm}%
+\def\psf{\@subfont\sf\rm}%
+\def\psc{\@subfont\sc\rm}%
+\def\ly{\fam\lyfam\twtyly}\textfont\lyfam\twtyly
+   \scriptfont\lyfam\twtyly \scriptscriptfont\lyfam\svtnly
+\def\pmin{\fam\mcfam\twfvmin}\textfont\mcfam\twfvmin
+    \scriptfont\mcfam\twtymin \scriptscriptfont\mcfam\svtnmin
+\def\ptmin{\fam\tmfam\twfvtmin}\textfont\tmfam\twfvtmin
+    \scriptfont\tmfam\twtytmin \scriptscriptfont\tmfam\svtntmin
+\def\pgt{\@getfont\pgt\gtfam\@xxvpt{goth10\@magscale5}}%
+\def\ptgt{\@getfont\ptgt\tgfam\@xxvpt{tgoth10\@magscale5}}%
+\def\pbk{\@readfont\xxvbk{mcbk24}\xxbk{mcbk20}\xviibk{mcbk18}\chfam}%
+\def\pmbk{\@getfont\pmbk\chfam\@xxvpt{mcmb24}}%
+\def\pbbk{\@getfont\pbbk\chfam\@xxvpt{mcb24}}%
+\def\pebk{\@getfont\pebk\chfam\@xxvpt{mcxb24}}%
+\def\psbk{\@getfont\psbk\chfam\@xxvpt{mcs24}}%
+\def\psmbk{\@getfont\psmbk\chfam\@xxvpt{mcsmb24}}%
+\def\psbbk{\@getfont\psbbk\chfam\@xxvpt{mcsb24}}%
+\def\psebk{\@getfont\psebk\chfam\@xxvpt{mcsxb24}}%
+\@setstrut\rm\mc}
+
+\def\@xxvpt{}
+
+% From sample.tex
+\newskip\連数skip
+\連数skip=0.3zw plus 0.1zw minus 0.1zw
+
+\def\連数字#1{\hskip\連数skip\hbox to 0pt{\yoko\hss#1\hss}%
+  \nobreak\hskip\連数skip}
+
+\def\arabic#1{\iftdir\連数字{\@arabic{\@nameuse{c@#1}}}%
+  \else\@arabic{\@nameuse{c@#1}}\fi} 
+\def\roman#1{\iftdir\連数字{\@roman{\@nameuse{c@#1}}}%
+  \else\@roman{\@nameuse{c@#1}}\fi}
+\def\Roman#1{\iftdir\連数字{\@Roman{\@nameuse{c@#1}}}%
+  \else\@Roman{\@nameuse{c@#1}}\fi}
+\def\alph#1{\iftdir\連数字{\@alph{\@nameuse{c@#1}}}%
+  \else\@alph{\@nameuse{c@#1}}\fi}
+\def\Alph#1{\iftdir\連数字{\@Alph{\@nameuse{c@#1}}}%
+  \else\@Alph{\@nameuse{c@#1}}\fi}
+%\def\fnsymbol#1{\@fnsymbol{\@nameuse{c@#1}}}
+
+% enumerate
+\def\enumerate{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne 
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\iftdir\連数字{\csname label\@enumctr\endcsname}
+      \else\csname label\@enumctr\endcsname\fi}{\usecounter
+        {\@enumctr}\def\makelabel##1{\hss\llap{##1}}}\fi}
+
