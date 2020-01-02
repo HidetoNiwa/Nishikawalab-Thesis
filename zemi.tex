@@ -1,11 +1,9 @@
 \section{研究背景}
 %TODO:伸縮センサのお話を書く
-伸縮センサとして抵抗値の変化を計測するタイプと静電容量を計測するタイプのものが存在する.抵抗値の変化を計測するタイプに関しては
-
 soft robotics toolkit\cite{MITSoftRobot}において,シリコンと導電性布をもちいた伸縮センサが紹介されていた.本センサは,伸縮性に優れており,柔軟性も兼ね備えたものとなっている.また,製作コストも\$23と非常に安価なものであると紹介されている.
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.275\columnwidth,clip]{Photo/BackGround/MITSoftRobotics.eps}
+        \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/MITSoftRobotics.eps}
         \caption{soft roboticstool kit 表紙\cite{MITSoftRobot}}
         \label{MITSoftRobot表紙}
     \end{center}
@@ -16,18 +14,18 @@ soft robotics toolkit\cite{MITSoftRobot}において,シリコンと導電性布
 当研究室において先行研究として,人間の筋肉を模した空気圧人工筋をもちいたペダリングロボット（初号機）が存在する.これは,人間のペダリング動作における筋シナジーの計測を行い,ロボットに再現させるものであった.筋シナジーの計測は片麻痺患者,健常者ともに行い,片麻痺患者におけるペダリング動作時の特徴的な活動状態を健常者との比較を行った.本ロボットは,腰がサドル上に固定された状態で股関節,膝関節,足首関節それぞれがピッチ方向にのみ自由度を持っており2次元平面上における動作を再現することが出来た.また本動作を再現するために空気圧人工筋を片足8筋分用いて行っていた.
 \begin{figure}[h]
  \begin{center}
-  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/1st.eps}
+  \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/1st.eps}
   \caption{ペダリングロボット（初号機）}
   \label{初号機}
   \end{center}
-  \end{figure}
+\end{figure}
 
 %TODO:2号機のお話を書く
 %TODO:2号機関連の研究のリファレンスを貼る
 また,先述の初号機を元にして腰を固定していない状態の二足歩行型ロボット（2号機）も製作された.こちらは先述のロボットと異なり腰が固定されておらず,二足歩行可能な形となっている.一方で関節動作に関しては先述のロボットと同様の形となっており,股関節,膝関節,足首関節それぞれがピッチ方向にのみ自由度を持っており2次元平面上における動作を再現することが出来た.先述のロボットと同様に,筋シナジーベクトルを利用し片麻痺患者と健常者の歩行の比較をロボット上で行った.
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[width=0.275\columnwidth,clip]{Photo/BackGround/2nd.eps}
+  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/2nd.eps}
   \caption{二足歩行ロボット（2号機）}
   \label{2号機}
  \end{center}
@@ -48,7 +46,9 @@ soft robotics toolkit\cite{MITSoftRobot}において,シリコンと導電性布
 %付着筋肉のお話もする
 付着筋肉 %何の筋肉をもちいた？
 
-ボールジョイントを用いて,ロール・ピッチ・ヨー各軸に自由度を持たせた.\$23伸縮センサ
+ボールジョイントを用いて,ロール・ピッチ・ヨー各軸に自由度を持たせた.
+
+\subsection{伸縮センサ}
 伸縮センサはシリコン中に導電性布が2枚挟まれた状態となっている.
 
 これは,誘電体をシリコン,極板を導電性布としたにしたものとなっている.
@@ -77,7 +77,7 @@ soft robotics toolkit\cite{MITSoftRobot}において,シリコンと導電性布
 
 \begin{figure}[h]
  \begin{center}
-  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/RC.eps}
+  \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/RC.eps}
   \caption{RC回路}
   \label{RC}
  \end{center}
@@ -86,7 +86,7 @@ soft robotics toolkit\cite{MITSoftRobot}において,シリコンと導電性布
 これらの計測に関して,1つのマイコンを用いて複数の伸縮センサの計測を行うと計測周期が低下し,計測精度の低下が懸念された.これを踏まえ,1つのマイコンで計測を行う伸縮センサの数を2個とした.一方で今回,足首を中心とした筋の伸縮の計測を行うため6チャンネル分の計測を行う必要がある.故に,マイコン3枚分の計測システムを用意した.これらをCAN通信（Controller Area Network）と同期信号を用いて計測のデータ取得,同期を行った.
 \begin{figure}[h]
  \begin{center}
-  \includegraphics[width=0.5\columnwidth,clip]{Photo/BackGround/circuit.eps}
+  \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/circuit.eps}
   \caption{計測時に実際にもちいた基板}
   \label{circuit}
  \end{center}
