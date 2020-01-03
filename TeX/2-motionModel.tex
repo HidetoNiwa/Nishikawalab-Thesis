@@ -8,17 +8,30 @@
 
 \subsection{伸縮センサ}
 %TODO: 大学PCで書いた伸縮センサCADのレンダリング画像を挿入する
-伸縮センサはFig.\ref{伸縮センサ断面図}において示す通り,柔軟で弾性変形するシリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.これは,誘電体をシリコン,極板を導電性布としたコンデンサとなっている.
+伸縮センサはFig.\ref{伸縮センサ断面図}において示す通り,柔軟で弾性変形する伸縮性シリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.これは,誘電体をシリコン,極板を導電性布としたコンデンサとなっている.
 
 \begin{figure}[h]
     \begin{center}
         \label{伸縮センサ全体図}
-        \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/伸縮センサCAD.eps}
+        \includegraphics[width=0.85\columnwidth,clip]{Photo/BackGround/画像_説明付き/スライド1.eps}
         \caption{伸縮センサ全体図}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}       
         \label{伸縮センサ断面図}
+        \includegraphics[width=0.85\columnwidth,clip]{Photo/BackGround/画像_説明付き/スライド2.eps}
         \caption{伸縮センサ断面図}
     \end{center}
 \end{figure}
+
+ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$,真空の誘電率を$\epsilon{}_0$,シリコンの比誘電率を$\epsilon{}_s$とすると,
+\begin{eqnarray}
+    C=\epsilon{}_0\epsilon{}_s\frac{S}{d}
+\end{eqnarray}
+といった式となる.ここで体積が一定の変化であると仮定すると, 
+
+ここで静電容量の変化を$\Delta{}C$,厚みの変化を$\Delta{}d$とそれぞれすると、
 
 一方で,伸縮センサは引張方向のみに応力がかかる単軸応力状態であると見れるため,引張方向のひずみ$\gamma$,引張方向の垂直応力$\sigma$,ヤング率$E$とそれぞれすると,
 \begin{eqnarray}
@@ -31,11 +44,6 @@
     \label{ポアソン比}
 \end{eqnarray}
 といった式となる.
-ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$,真空の誘電率を$\epsilon{}_0$,シリコンの比誘電率を$\epsilon{}_s$とすると,
-\begin{eqnarray}
-    C=\epsilon{}_0\epsilon{}_s\frac{S}{d}
-\end{eqnarray}
-といった式となる.ここで体積が一定の変化であると仮定すると,
 
 \subsection{伸縮センサ計測回路}
 %TODO:伸縮センサ計測回路に関しての記述を行う
@@ -44,6 +52,7 @@
 
 \begin{figure}[h]
  \begin{center}
+    %Voutの向きを出力にする
   \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/RC.eps}
   \caption{RC回路}
   \label{RC}
