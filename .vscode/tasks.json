@@ -6,7 +6,15 @@
         {
             "label": "platex",
             "type": "shell",
-            "command": "ptex2pdf -l -ot -kanji=utf8 -synctex=1 main.tex",
+            "command": "platex main.tex",
+        },
+        {
+            "label": "pdf",
+            "type": "shell",
+            "command": "dvipdfmx -f ptex-ipa.map main",
+            "dependsOn": [
+                "platex"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true

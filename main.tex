@@ -1,4 +1,4 @@
-\documentclass[a4j]{jarticle}
+\documentclass[twocolumn,a4j]{jarticle}
 \usepackage{graphicx, color, hyoshi, epsbox}
 %\usepackage{float}
 \usepackage{color,fancyhdr}
@@ -24,7 +24,6 @@
 \vskip\belowcaptionskip}
 \makeatother
 %--ここまで--
-
 
 %
 %
@@ -113,10 +112,19 @@ $指導\\
 \baselineskip=16pt
 \clearpage
 \pagenumbering{arabic}
-%%%%%%%%1．緒言%%%%%%
-\input{zemi}
-%\clearpage
-%\input{bib}
-%\clearpage
-%\input{hihyo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{TeX/1-background.tex}
+
+\input{TeX/2-motionModel.tex}
+
+\input{TeX/3-howToExperiment.tex}
+
+\input{TeX/4-result.tex}
+
+\input{TeX/5-consider.tex}
+
+\input{TeX/6-finally.tex}
+
+\input{TeX/7-reference.tex}
+
 \end{document}

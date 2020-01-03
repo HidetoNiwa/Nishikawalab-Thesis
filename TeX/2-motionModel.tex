@@ -1,0 +1,69 @@
+\section{動作モデル}
+\subsection{足首}
+%TODO:足首周りの動作関係のお話をする
+%付着筋肉のお話もする
+付着筋肉 %何の筋肉をもちいた？
+
+ボールジョイントを用いて,ロール・ピッチ・ヨー各軸に自由度を持たせた.
+
+\subsection{伸縮センサ}
+%TODO: 大学PCで書いた伸縮センサCADのレンダリング画像を挿入する
+伸縮センサはFig.\ref{伸縮センサ断面図}において示す通り,柔軟で弾性変形する伸縮性シリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.これは,誘電体をシリコン,極板を導電性布としたコンデンサとなっている.
+
+\begin{figure}[h]
+    \begin{center}
+        \label{伸縮センサ全体図}
+        \includegraphics[width=0.85\columnwidth,clip]{Photo/BackGround/画像_説明付き/スライド1.eps}
+        \caption{伸縮センサ全体図}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}       
+        \label{伸縮センサ断面図}
+        \includegraphics[width=0.85\columnwidth,clip]{Photo/BackGround/画像_説明付き/スライド2.eps}
+        \caption{伸縮センサ断面図}
+    \end{center}
+\end{figure}
+
+ここで伸縮センサ中の導電性布の表面積$S$,誘電体の厚さを$d$,真空の誘電率を$\epsilon{}_0$,シリコンの比誘電率を$\epsilon{}_s$とすると,
+\begin{eqnarray}
+    C=\epsilon{}_0\epsilon{}_s\frac{S}{d}
+\end{eqnarray}
+といった式となる.ここで体積が一定の変化であると仮定すると, 
+
+ここで静電容量の変化を$\Delta{}C$,厚みの変化を$\Delta{}d$とそれぞれすると、
+
+一方で,伸縮センサは引張方向のみに応力がかかる単軸応力状態であると見れるため,引張方向のひずみ$\gamma$,引張方向の垂直応力$\sigma$,ヤング率$E$とそれぞれすると,
+\begin{eqnarray}
+    \sigma=E\gamma
+    \label{フックの法則}
+\end{eqnarray}
+といった式がフックの法則により示される.また,引張方向に対して直交方向である垂直ひずみ$\gamma{}_s$,ポアソン比$\mu$とすると,
+\begin{eqnarray}
+    \mu = \frac{\gamma{}_s}{\gamma}
+    \label{ポアソン比}
+\end{eqnarray}
+といった式となる.
+
+\subsection{伸縮センサ計測回路}
+%TODO:伸縮センサ計測回路に関しての記述を行う
+%TODO:RC回路の電圧を掛けたときの時定数の様子をオシロスコープで撮影した画像が欲しい
+伸縮センサは静電容量の変化で伸縮状況を示す.故に今回は静電容量の変化を計測することができるシステムを用いればよい.そのため,NucleoF303K8にRC回路を用いて可変静電容量に関して,固定抵抗器を用いて計測を行った.
+
+\begin{figure}[h]
+ \begin{center}
+    %Voutの向きを出力にする
+  \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/RC.eps}
+  \caption{RC回路}
+  \label{RC}
+ \end{center}
+\end{figure}
+
+これらの計測に関して,1つのマイコンを用いて複数の伸縮センサの計測を行うと計測周期が低下し,計測精度の低下が懸念された.これを踏まえ,1つのマイコンで計測を行う伸縮センサの数を2個とした.一方で今回,足首を中心とした筋の伸縮の計測を行うため6チャンネル分の計測を行う必要がある.故に,マイコン3枚分の計測システムを用意した.これらをCAN通信（Controller Area Network）と同期信号を用いて計測のデータ取得,同期を行った.
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[width=0.75\columnwidth,clip]{Photo/BackGround/circuit.eps}
+  \caption{計測時に実際にもちいた基板}
+  \label{circuit}
+ \end{center}
+\end{figure}
