@@ -11,7 +11,7 @@
         {
             "label": "pdf",
             "type": "shell",
-            "command": "dvipdfmx -f ptex-ipa.map ./0_main/main",
+            "command": "dvipdfmx -f ptex-ipa.map main",
             "dependsOn": [
                 "platex"
             ],
