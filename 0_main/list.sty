@@ -1,0 +1,23 @@
+%%
+%% list.sty
+%%
+
+\def\ps@myheadings{\def\@oddhead{\hbox{}\sl\rightmark \hfil
+{\bf\thepage $/$2}}%
+\def\@oddfoot{}\def\@evenhead{{\bf \thepage $/$2}\hfil\sl\leftmark\hbox
+{}}\def\@evenfoot{}\def\sectionmark##1{}\def\subsectionmark##1{}}
+
+\newcommand{\Bunkenlist}[3]{\subsection*{#2.~#3%
+\markboth{ŠÖ˜A•¶Œ£}{ŠÖ˜A•¶Œ£}}
+\list{[#2\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
+\let\endBunkenlist=\endlist
+
+
+%\def\section{\@startsection {section}{1}{\z@}{3.5ex plus 1ex minus 
+% .2ex}{2.3ex plus .2ex}{\center\Large\bf}}
+

@@ -1,0 +1,158 @@
+%=====================================================================
+% slashbox.sty by Koichi Yasuoka, May 27, 1993
+%              minor modification by Toru Sato, May 31, 1993
+\typeout{slashbox style by K.Yasuoka, May 1993.}%
+\newbox\@slashboxa
+\newbox\@slashboxb
+\newbox\@slashboxc
+\newcount\@slashboxwd
+\newcount\@slashboxht
+\newdimen\@slashsepl
+\newdimen\@slashsepr
+\def\slashbox{%
+  \def\@slashboxpicture##1{%
+    \put(0,0){\line(##1,1){\@slashboxwd}}%
+    \put(0,\@slashboxht){\makebox(0,0)[tl]{\box\@slashboxa}}%
+    \put(\@slashboxwd,0){\makebox(0,0)[br]{\box\@slashboxb}}%
+  }%
+  \@slashbox
+}%
+\def\backslashbox{%
+  \def\@slashboxpicture##1{%
+    \put(0,\@slashboxht){\line(##1,-1){\@slashboxwd}}%
+    \put(0,0){\makebox(0,0)[bl]{\box\@slashboxa}}%
+    \put(\@slashboxwd,\@slashboxht){\makebox(0,0)[tr]{\box\@slashboxb}}%
+  }%
+  \@slashbox
+}%
+\def\@slashbox{\@ifnextchar [{\@@slashbox}{\@@slashbox[0pt]}}
+\def\@@slashbox[#1]{\@ifnextchar [{\@@@slashbox[#1]}{\@@@slashbox[#1][c]}}
+\def\@@@slashbox[#1][#2]#3#4{%
+% #1: width, #2: suppression of \tabcolsep on `l', `r', or `lr' side
+% #3: left item, #4: right item
+  \@slashsepl=\tabcolsep
+  \@slashsepr=\tabcolsep
+    \@tfor\@tempa :=#2\do{\expandafter\let
+        \csname @slashsep\@tempa\endcsname=\z@}%
+  \setbox\@slashboxa=\hbox{\strut\hskip\tabcolsep\shortstack[l]{#3}}%
+  \setbox\@slashboxb=\hbox{\shortstack[r]{#4}\hskip\tabcolsep\strut}%
+  \setbox\@slashboxa=\hbox{\raise\dp\@slashboxa\box\@slashboxa}%
+  \setbox\@slashboxb=\hbox{\raise\dp\@slashboxb\box\@slashboxb}%
+  \setbox\@slashboxc=\hbox{%
+    \@tempdima=\wd\@slashboxa
+    \advance\@tempdima by \wd\@slashboxb
+    \advance\@tempdima by \@slashsepl
+    \advance\@tempdima by \@slashsepr
+    \@tempdimb=#1\relax%
+    \ifdim\@tempdimb>\@tempdima \@tempdima=\@tempdimb\fi%
+    \@tempdimb=\ht\@slashboxa
+    \advance\@tempdimb by \dp\@slashboxa
+    \advance\@tempdimb by \ht\@slashboxb
+    \advance\@tempdimb by \dp\@slashboxb
+    \@tempcnta=\@tempdima
+    \@tempcntb=\@tempdimb
+    \advance\@tempcnta by \@tempcntb
+    \advance\@tempcnta by -1
+    \divide\@tempcnta by \@tempcntb
+    \ifnum\@tempcnta>6 \@tempcnta=6
+      \@tempdimb=0.166666666\@tempdima
+    \else
+      \ifnum\@tempcnta<1 \@tempcnta=1\fi
+      \@tempdima=\@tempdimb
+      \multiply\@tempdima by \@tempcnta
+    \fi%
+    \advance\@tempdima by -\@slashsepl
+    \advance\@tempdima by -\@slashsepr
+    \@slashboxwd=\@tempdima
+    \@slashboxht=\@tempdimb
+    \@tempcntb=\@slashsepl
+    \setlength{\unitlength}{1sp}%
+    \begin{picture}(\@slashboxwd,\@slashboxht)(\@tempcntb,0)
+    \advance\@tempdima by \@slashsepl
+    \advance\@tempdima by \@slashsepr
+    \@slashboxwd=\@tempdima
+    \@slashboxpicture{\@tempcnta}
+    \end{picture}%
+  }%
+  $\vcenter{\box\@slashboxc}$%
+}%
+%========================================================================
+\endinput
+%========================================================================
+% From: Toru SATO <tsato@ibuki.kuee.kyoto-u.ac.jp>
+% Subject: Re: slashbox.sty: manual in English 
+% In-Reply-To: Your message of "Fri, 19 Aug 1994 21:56:02."
+%              <9408191256.AA23742@hashi1.civil.tohoku.ac.jp> 
+% Date: Mon, 29 Aug 1994 15:24:31 +0900
+% 
+% slashbox.tex in English
+%--------------------------------------------------------------------
+\documentstyle[12pt,slashbox]{article}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\large\bf
+Sample text for {\tt slashbox.sty}
+\end{center}
+
+The usage is pretty straightforward, such as
+\bigskip
+
+\noindent
+\begin{tabular}{|l||*{5}{c|}}\hline
+\backslashbox{Room}{Date}
+&\makebox[3em]{5/31}&\makebox[3em]{6/1}&\makebox[3em]{6/2}
+&\makebox[3em]{6/3}&\makebox[3em]{6/4}\\\hline\hline
+Meeting Room &&&&&\\\hline
+Auditorium &&&&&\\\hline
+Seminar Room &&&&&\\\hline
+\end{tabular}
+
+\bigskip
+You may include a newline (\verb+\\+) in `Room' and/or `Date'.
+Note that you will get spaces aside the slash line if there is a
+wider column in the same column of a different line.
+In such a case, you need to specify the width of the slashed column
+by saying
+
+\bigskip
+
+\noindent
+\begin{tabular}{|l||*{4}{c|}}\hline
+\backslashbox[48mm]{Room}{Date}
+&\makebox[3em]{5/31}&\makebox[3em]{6/1}&\makebox[3em]{6/2}
+&\makebox[3em]{6/3}\\\hline\hline
+Room With a Long Name &&&&\\\hline
+Auditorium &&&&\\\hline
+Seminar Room &&&&\\\hline
+\end{tabular}
+
+\bigskip
+The specified width is neglected if it is narrower than the natural
+width of the column.
+
+\verb+\(back)slashbox+ assumes by default that there is a blank space
+of width \verb+\tabcolsep+ on both sides of the column.
+Thus the slash line might exceeds the boundary when you use \verb+@{}+ 
+etc.
+
+You can avoid it by specifying
+\bigskip
+
+\noindent
+\begin{tabular}{|@{\ $\bullet$\hspace*{3mm}}l||*{5}{c|}}\hline
+\multicolumn{1}{|@{}l||}{\backslashbox[0pt][l]{Room}{Date}}
+&\makebox[3em]{5/31}&\makebox[4em]{6/1}&\makebox[3em]{6/2}
+&\makebox[3em]{6/3}&\makebox[3em]{6/4}\\\hline\hline
+Meeting Room &&&&&\\\hline
+Auditorium &&&&&\\\hline
+Seminar Room &&&&&\\\hline
+\end{tabular}
+\bigskip
+
+Here \verb+[l]+ tells the command that there is no extra space on the
+left of this column.  You can use \verb+[r]+ and \verb+[lr]+ likewise.
+You have to also specify the width of the column in this case, but it
+can be 0pt.
+\end{document}
+

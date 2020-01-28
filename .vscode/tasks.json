@@ -6,12 +6,12 @@
         {
             "label": "platex",
             "type": "shell",
-            "command": "platex main.tex",
+            "command": "platex ./0_main/main.tex",
         },
         {
             "label": "pdf",
             "type": "shell",
-            "command": "dvipdfmx -f ptex-ipa.map main",
+            "command": "dvipdfmx -f ptex-ipa.map ./0_main/main",
             "dependsOn": [
                 "platex"
             ],

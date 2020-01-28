@@ -1,0 +1,237 @@
+\section{筋拮抗比と筋拮抗和}
+本研究では運動機能が拮抗する主動筋と拮抗筋の筋協調に着目し，筋拮抗比$r_i$（$i=1,\cdots,4$）と筋拮抗和$s_i$（$i=1,\cdots,4$）を{\bf Table }\ref{def_ratio}，{\bf Table }\ref{def_sum}のように定義した．
+ 
+これらの量は筋協調を表し，それぞれ関節平衡点角度と関節剛性に寄与する．
+例えば，伸筋$m_1$が増加し，屈筋$m_2$が減少するとき，つまり筋拮抗比$r_1$が大きくなるとき，股関節は伸展する．
+よって，筋拮抗比$r_1$は股関節角度に寄与していると言える．
+また，伸筋$m_1$と屈筋$m_2$がともに増加するとき，つまり筋拮抗和$s_1$が大きくなるとき，股関節剛性は大きくなる．
+従って，筋拮抗和$s_1$は股関節剛性に寄与していると言える．
+他の要素についても同様のことがいえる．
+以降はこの筋拮抗比と筋拮抗和を用いて解析を行う．
+\begin{table}[!h]
+ \caption{Definition of the A-A ratio.}
+ \begin{center}
+  \begin{tabular}{|c|c|c|} \hline
+   Pair label & Target muscles & Movement function \\ \hline \hline
+   $r_1$ & $m_1/(m_1+m_2)$ & Hip extention \\
+   $r_2$ & $m_3/(m_3+m_4)$ & Hip extention and knee flexion \\
+   $r_3$ & $m_5/(m_5+m_6)$ & Knee extention \\
+   $r_4$ & $m_7/(m_7+m_8)$ & Ankle extention \\ \hline
+  \end{tabular}
+  \label{def_ratio}
+ \end{center}
+\end{table}
+
+\begin{table}[!h]
+ \caption{Definition of the A-A sum.}
+ \begin{center}
+  \begin{tabular}{|c|c|c|} \hline
+   Pair label & Target muscles & Physical property \\ \hline \hline
+   $s_1$ & $m_1+m_2$ & Hip joint stiffness \\
+   $s_2$ & $m_3+m_4$ & Hip and knee joint stiffness \\
+   $s_3$ & $m_5+m_6$ & Knee joint stiffness \\
+   $s_4$ & $m_7+m_8$ & Ankle joint stiffness \\ \hline
+  \end{tabular}
+  \label{def_sum}
+ \end{center}
+\end{table}
+
+
+\section{筋シナジー抽出}
+本研究では, 力学解析に基づく筋シナジーの抽出を行う.  以下筋シナジーの抽出法について述べる.  ヒトの下肢の筋骨格モデル{\bf Fig. \ref{muscle}}を模した{\bf Fig. \ref{muscles}}のような3対6筋の人工筋モデルを考える.  
+これはヒトの6つの筋, $m_1$～$m_6$に対応し、よく似た特性を有する6つのマッキベン型人工筋とヒトの股関節及び膝関節に対応した2つの関節とで構成されている。
+PAM$i$の内部圧力を$P_i$，筋長を$l_i$，収縮力を$F_i$股関節と膝関節の角度を$\theta_{\rm h},\theta_{\rm k}$，モーメントアームを$D$とする（$i=1,\cdots,6$）．
+また6つの人工筋の特性は同一のものとし, 初期状態（$\theta_{\rm h}=\theta_{{\rm h}0},\theta_{\rm k}=\theta_{{\rm k}0}$）のときの人工筋の内部圧力と人工筋の長さを$P_i=P_0$，$l_i=L$（$i=1,\cdots,6$）とする．
+
+　有賀らはマッキベン型人工筋は内部圧力$P_i$によって弾性係数$K(P_i)$と自然長$l_0(P_i)$が変化するバネとして以下のように表現できることを理論解析と実験により実証している%\cite{Ariga2013}.  
+\begin{eqnarray}
+ \label{model1}
+ F_i=K(P_i)(l_i-l_0(P_i))\\
+ \label{model2}
+ l_0(P_i)=\frac{C_1}{K(P_i)}+C_2\\
+ \label{model3}
+ K(P_i)=-C_3(P_i-a)=C_3\cdot\hat{P}_i
+\end{eqnarray}
+%ただし，$F$は人工筋の収縮力，$l$は筋長であり．$C_1,C_2$は人工筋の自然長や損失係数などの特性から決まる定数である．
+ただし，$C_1,C_2,C_3$, aは人工筋の自然長や損失係数などの特性から決まる定数である．
+
+%{\bf Fig. }\ref{muscle}(B)
+の静的な状態を考えると力のつり合いより，
+\begin{eqnarray}
+ \label{balance1}
+ F_1-F_2+F_3-F_4=0,\\
+ \label{balance2}
+ -F_3+F_4+F_5-F_6=0,
+\end{eqnarray}
+が成り立つ．
+
+さらに，関節角度の初期状態からの変位を$\Delta\theta_{\rm h}=\theta_{\rm h}-\theta_{{\rm h}0},\Delta\theta_{\rm k}=\theta_{\rm k}-\theta_{{\rm k}0}$とすると，幾何関係より，
+\begin{eqnarray}
+ \label{geo1}
+ D\cdot\Delta\theta_{\rm h}=l_1-L=-(l_2-L),\\
+ \label{geo2}
+ D(\Delta\theta_{\rm h}-\Delta\theta_{\rm k})=l_3-L=-(l_4-L),\\
+ \label{geo3}
+ D\cdot\Delta\theta_{\rm k}=l_5-L=-(l_6-L),
+\end{eqnarray}
+が成り立つ．
+したがって，これらの式を整理すると以下の式を得る．
+\begin{eqnarray*}
+ \label{mat1}
+ \left[
+  \begin{array}{cc}
+   \hat{P}_1+\hat{P}_2+\hat{P}_3+\hat{P}_4 & -(\hat{P}_3+\hat{P}_4) \\
+   -(\hat{P}_3+\hat{P}_4) & \hat{P}_3+\hat{P}_4+\hat{P}_5+\hat{P}_6
+  \end{array}
+ \right]
+ \left[
+  \begin{array}{c}
+   \Delta\theta_{\rm h} \\
+   \Delta\theta_{\rm k}
+  \end{array}
+ \right]
+\end{eqnarray*}
+\vspace{-1.em}
+\begin{eqnarray}
+ \label{mat2}
+ =\frac{C_2-L}{D}
+ \left[
+  \begin{array}{c}
+   \hat{P}_1-\hat{P}_2+\hat{P}_3-\hat{P}_4 \\
+   -(\hat{P}_3-\hat{P}_4-\hat{P}_5+\hat{P}_6)
+  \end{array}
+ \right]
+\end{eqnarray}
+%ただし，$\Delta\ve{\theta}=[\Delta\thets_h\;\,\Delta\thets_h]^{\rm T}$である．
+さらに，筋拮抗比を$r_{{\rm r}i}=\hat{P}_{2i-1}/(\hat{P}_{2i-1}+\hat{P}_{2i})$，筋拮抗和を$s_{{\rm r}i}=\hat{P}_{2i-1}+\hat{P}_{2i}$と定義し，%Eq. (\ref{mat2})を
+変形すると以下のようになる．
+\begin{eqnarray}
+ C=\frac{2(L-C_2)}{D},
+\end{eqnarray}
+として
+\begin{eqnarray}
+ \label{mat3}
+ \left[
+  \begin{array}{c}
+   \Delta\theta_{\rm h} \\
+   \Delta\theta_{\rm k}
+  \end{array}
+ \right]=C
+ \left[
+  \begin{array}{c}
+   \ve{p}^{\rm T}_1 \\
+   \ve{p}^{\rm T}_2
+  \end{array}
+ \right]
+ \left[
+  \begin{array}{c}
+   r_{{\rm r}1}-\frac{1}{2} \\
+   r_{{\rm r}2}-\frac{1}{2} \\
+   r_{{\rm r}3}-\frac{1}{2} \\
+  \end{array}
+ \right]
+\end{eqnarray}
+
+
+\begin{eqnarray}
+ \arraycolsep=1.5pt
+ \ve{p}_1=\frac{1}{s_{{\rm r}1}s_{{\rm r}2}+s_{{\rm r}2}s_{{\rm r}3}+s_{{\rm r}3}s_{{\rm r}1}}
+ \left(
+  \begin{array}{c}
+   -s_{{\rm r}1}s_{{\rm r}2}-s_{{\rm r}3}s_{{\rm r}1} \\
+   -s_{{\rm r}2}s_{{\rm r}3} \\
+   -s_{{\rm r}2}s_{{\rm r}3}
+  \end{array}
+ \right),
+ \label{s1}
+\end{eqnarray}
+\begin{eqnarray}
+ \arraycolsep=1.5pt
+ \ve{p}_2=\frac{1}{s_{{\rm r}1}s_{{\rm r}2}+s_{{\rm r}2}s_{{\rm r}3}+s_{{\rm r}3}s_{{\rm r}1}}
+ \left(
+  \begin{array}{c}
+   -s_{{\rm r}1}s_{{\rm r}2} \\
+   s_{{\rm r}1}s_{{\rm r}2} \\
+   -s_{{\rm r}2}s_{{\rm r}3}-s_{{\rm r}3}s_{{\rm r}1}
+  \end{array}
+ \right),
+ \label{s2}
+\end{eqnarray}
+である．また，関節座標$(\theta_{\rm h},\theta_{\rm k})$と極座標$(R,{\it \Phi})$の関係は
+\begin{eqnarray}
+ R=L{\rm cos}\frac{\theta_{\rm k}}{2},
+\end{eqnarray}
+\begin{eqnarray}
+ {\it \Phi}=\frac{\it \Pi}{2}+{\theta_{\rm h}}-{\theta_{\rm k}},
+\end{eqnarray}
+となり, 両辺を時間微分すると以下のようになる．
+\begin{eqnarray}
+ \label{jacobi}
+ \arraycolsep=1.5pt
+ \left(
+  \begin{array}{c}
+   \dot{R} \\
+   \dot{{\it \Phi}}
+  \end{array}
+ \right)
+ =
+ \left(
+  \begin{array}{cc}
+   0 & -L{\rm sin}\frac{\theta_{\rm k}}{2} \\
+   1 & -\frac{1}{2}
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+   \dot{\theta_{\rm h}} \\
+   \dot{\theta_{\rm k}}
+  \end{array}
+ \right)
+\end{eqnarray}
+そして，$\ve{p}_1,\ve{p}_2$が時不変である場合，Eq. (\ref{mat3})の両辺を$t$で微分し，その結果を上式に代入すると以下の式を得る．
+\begin{eqnarray}
+ \arraycolsep=1.5pt
+ \left(
+  \begin{array}{c}
+   \dot{R} \\
+   \dot{{\it \Phi}}
+  \end{array}
+ \right)
+ =
+ \left(
+  \begin{array}{cc}
+   -CL{\rm sin}\frac{\theta_{\rm k}}{2} & 0 \\
+   0 & C
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+   \ve{p}_2^{\rm T} \\
+   (\ve{p}_1-\frac{1}{2}\ve{p}_2)^{\rm T}
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+   \dot{r}_{{\rm r}1} \\
+   \dot{r}_{{\rm r}2} \\
+   \dot{r}_{{\rm r}3}
+  \end{array}
+ \right)
+ \label{def_synergy}
+\end{eqnarray}
+Eq. (\ref{def_synergy})は筋拮抗比の速度のベクトル$\dot{\ve{r}}(t)=(\dot{r}_{{\rm r}1}(t),\dot{r}_{{\rm r}2}(t),\dot{r}_{{\rm r}3}(t))^{\rm T}$を筋拮抗和によって張られるベクトル空間$\ve{p}_2\times(\ve{p}_1-\frac{1}{2}\ve{p}_2)$に射影することで，足先の平衡点の速度を推定できることを示している．
+%したがって，$\ve{p}_2$は動径方向，$\ve{p}_1-\frac{1}{2}\ve{p}_2$は偏角方向の運動に寄与するベクトルといえる．
+また，$\ve{p}_2$と$\ve{p}_1-\frac{1}{2}\ve{p}_2$に直交するベクトルは足先の平衡点の変化に直接寄与しない．
+動径方向，偏角方向，動径と偏角に直交する方向の基底ベクトルを求めると，
+\begin{eqnarray}
+ \ve{u}_R=\ve{p}_2/|\ve{p}_2|,\\
+ \ve{u}_{\it \Phi}=(\ve{p}_1-\frac{1}{2}\ve{p}_2)/|\ve{p}_1-\frac{1}{2}\ve{p}_2|,\\
+ \ve{u}_{R\times{\it \Phi}}=(\ve{u}_R\times\ve{u}_{\it \Phi})/|(\ve{u}_R\times\ve{u}_{\it \Phi})|,
+\end{eqnarray}
+となる．
+以降、$\ve{u}_R,\ve{u}_{\it \Phi},\ve{u}_{R\times{\it \Phi}}$をそれぞれ動径方向，偏角方向，零空間のシナジーベクトルとして定義し、
+シナジーベクトルと筋拮抗比の平均からの変化量$d\ve{r}=\ve{r}-\bar{\ve{r}}$との内積をシナジースコアと定義する．
+基底ベクトル$\ve{u}_R,\ve{u}_{\it \Phi},\ve{u}_{R\times{\it \Phi}}$は筋群の協調を重み付きでベクトル化したものである．
+以下，ヒトの筋拮抗和$s_i(t)\;(i=1,\cdots,3)$から算出されたシナジーベクトル$\ve{u}_R,\ve{u}_{\it \Phi},\ve{u}_{R\times{\it \Phi}}$を力学解析に基づき抽出された筋シナジーとする．
+そして，シナジーベクトルとヒトの筋拮抗比$r_i(t)\;(i=1,\cdots,3)$の時間標本平均からの変化量$d\ve{r}(t)=\ve{r}(t)-\bar{\ve{r}}$との内積をシナジースコアと定義する．
+%以後, $dr.\ve{u}_{\it R}$を$\ve{S}_{\it R}$, $dr.\ve{u}_{\it \Phi}$を$\ve{S}_{\it \Phi}$とする.  

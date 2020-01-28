@@ -1,0 +1,53 @@
+\section{運動計測}
+健常成人男性（22歳，170[cm], 60.0[kg]，右利き）及び健常成人男性（23歳，169[cm], 63.0[kg]，右利き）が実験にボランティアで参加した．
+被験者には，予め実験の趣旨，内容について十分な説明を行い，本人から実験参加の同意を得た．
+実験は大阪大学基礎工学研究科倫理委員会の認証の下，委員会が定める所定手続きに従い，遂行された．
+
+
+被験者は，{\bf Fig.\ref {kogano} }
+のように，フォースプレート（BERTEC，FORCE PLATES）上で，
+15秒間，跳躍運動を行った．
+被験者の各関節（両肩，両肘，腰，膝，足首）にモーションキャプチャ用マーカを取り付け，
+3次元位置計測装置（NaturalPoint，OptiTrack）により，100[Hz]で運動学情報を取得した．
+被験者の右下肢主要筋群に筋電位計測用電極を貼り付け，生体アンプ（BTS，FREEEMG）及びマルチテレメータシステム（日本光電工業（株），WEB-5000）により，
+運動中におけるEMG信号を1000[Hz]で計測した．
+被験筋は，大臀筋（$m_1$），腸腰筋（$m_2$），大腿二頭筋短頭を除くハムストリング（$m_3$），大腿直筋（$m_4$），
+内側広筋（$m_5$），大腿二頭筋短頭（$m_6$），腓腹筋（$m_7$），前脛骨筋（$m_8$）の右脚8筋である%（{\bf Fig. }\ref{8muscles}）．
+これらの筋は矢状面上の下肢運動において主要な筋として知られている\cite{Kinesiology}．
+取得したEMGには増幅（×2000）と0.03-450[Hz]の帯域通過フィルタ，60[Hz]のハムフィルタ処理がなされている．
+さらに，フォースプレートより床反力を1000[Hz]で計測した
+上記計測システムは全て同期している．
+
+\section{被験筋}
+本研究の被験筋は大臀筋($m_1$), 腸腰筋($m_2$), 大腿二頭筋短頭を除くハムストリング($m_3$), 大腿直筋($m_4$), 内側広筋($m_5$), 大腿二頭筋短頭($m_6$), 排腹筋($m_7$), 前脛骨筋($m_8$)の片脚8筋を計測対象とする({\bf Fig. \ref{muscle}}).  これらの筋は矢状面上の下肢運動において主要に働く筋として知られている．
+その機能を{\bf Table. \ref{function}}に示．.  \\
+
+\begin{table}[!h]
+ \caption{Names and function of measurement muscles.}
+ \begin{center}
+  \scalebox{1}{
+   \begin{tabular}{|c|c|c|} \hline
+    Label & Muscles & Function \\ \hline \hline
+    $m_1$ & Gluteus Maximus & Hip extention \\
+    $m_2$ & Iliopsoas & Hip flexion \\
+    $m_3$ & Hamstring & Hip extention and knee flexion \\
+    $m_4$ & Rectus femoris & Hip flexion and knee extention \\ 
+    $m_5$ & Vatus medialis & Knee extention\\
+    $m_6$ & Biceps femoris short head & Knee flexion\\
+    $m_7$ & Gastronemius & Ankle extension\\
+    $m_8$ & Tibialis anterior & Ankle flexion \\ \hline
+   \end{tabular}
+   \label{function}
+  }
+ \end{center}
+\end{table}
+
+
+\section{データ処理}
+計測されたEMGはバンドパスフィルタリング（10-450[Hz]）（筋電解析で標準的に行われている処理である\cite{Crams}），整流化，
+平滑化行った後，
+最大収縮時のEMG（MVC）で除することでEMGを正規化（％MVC）した．
+MVCについては，実験時の各EMGデータに上記の処理を行った後，その実験時におけるEMGの最大値をMVCとした．
+さらに，フォースプレートの床反力をもとに15秒間のEMGデータを両足接地から再接地までの1跳躍周期ごとに切り出した．
+そしてスプライン補間により各周期のデータを0～1000[‰]に正規化した．
+これらの各正規時間の標本平均をとることで，各周期における筋活性レベルの平均化を行った．
