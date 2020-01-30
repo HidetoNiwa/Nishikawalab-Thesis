@@ -10,8 +10,9 @@
 
 また、足関節にボールジョイントを用いた。これによって、ボールジョイントを用いて，ロール・ピッチ・ヨー各軸に自由度を持たせることができた。
 
-\subsection{伸縮センサ}
-伸縮センサはFig.\ref{伸縮センサ全体図}，Fig.\ref{伸縮センサ断面図}において示す通り，柔軟で弾性変形する伸縮性シリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.
+\subsection{ストレッチセンサ}
+伸縮センサはFig.\ref{伸縮センサ全体図}，Fig.\ref{伸縮センサ断面図}において示す通り，
+柔軟で弾性変形する伸縮性シリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.
 これは，誘電体をシリコン，極板を導電性布としたコンデンサとなっている．
 
 \begin{figure}[h]
@@ -31,25 +32,34 @@
 
 \newpage
 
-ここで伸縮センサ中の導電性布の表面積$S$，誘電体の厚さを$d$，真空の誘電率を$\epsilon{}_0$，シリコンの比誘電率を$\epsilon{}_s$とすると，
+ここで伸縮センサ中の導電性布の長さ$l$、幅$w$，シリコンの厚さを$d$，シリコンの誘電率を$\epsilon{}_s$とすると，
 \begin{eqnarray}
-    C=\epsilon{}_0\epsilon{}_s\frac{S}{d}
+    C=\epsilon{}_s\frac{lw}{d}
+    \label{cap}
 \end{eqnarray}
-といった式となる.ここで体積が一定の変化であると仮定すると，
+といった式でその静電容量$C$が求められる．
 
-ここで静電容量の変化を$\Delta{}C$，厚みの変化を$\Delta{}d$とそれぞれすると、
-
-一方で，伸縮センサは引張方向のみに応力がかかる単軸応力状態であると見れるため，引張方向のひずみ$\gamma$，引張方向の垂直応力$\sigma$，ヤング率$E$とそれぞれすると，
+伸縮センサに引張方向に力を加えると、センサーの長さが増加する。また、それに伴って、厚み、幅も変化する。
+ここで変化により、導電性布の長さが$\Delta{l}$、幅が$\Delta{w}$、シリコンの厚みが$\Delta{d}$変化したとすると、先ほどの式\ref{cap}より、静電容量の変化量$\Delta{C}$は、
 \begin{eqnarray}
-    \sigma=E\gamma
-    \label{フックの法則}
+    C+\Delta{C} &=& \epsilon{}_s\frac{(l+\Delta{l})(w+\Delta{w})}{(d+\Delta{}d)}\\
+    & \simeq & \epsilon{}_s\frac{lw+l\Delta{w}+w\Delta{l}}{d+\Delta{d}}\\
+    &=&\frac{Cd}{lw}\left(\frac{lw+l\Delta{w}+w\Delta{l}}{d+\Delta{d}}\right)\\
+    (C+\Delta{C})(d+\Delta{d})&=&Cd\left(1+\frac{\Delta{w}}{w}+\frac{\Delta{l}}{l}\right)\\
+    Cd+C\Delta{d}+d\Delta{C}& \simeq &Cd\left(1+\frac{\Delta{w}}{w}+\frac{\Delta{l}}{l}\right)\\
+    \Delta{C}&=&Cd\left(\frac{\Delta{w}}{w}+\frac{\Delta{l}}{l}-\frac{\Delta{d}}{d}\right)
+    \label{deltaC}
 \end{eqnarray}
-といった式がフックの法則により示される.また，引張方向に対して直交方向である垂直ひずみ$\gamma{}_s$，ポアソン比$\mu$とすると，
+といった式で示される．ここで、長さ方向の工学ひずみを$\epsilon_l$、幅方向の工学ひずみを$\epsilon_w$、厚み方向の工学ひずみを$\epsilon_d$とそれぞれすると、式\ref{deltaC}は、
 \begin{eqnarray}
-    \mu = \frac{\gamma{}_s}{\gamma}
-    \label{ポアソン比}
+    \Delta{C}=Cd(\epsilon_w+\epsilon_l-\epsilon_d)
+    \label{epsilonC}
 \end{eqnarray}
-といった式となる.
+といった式で表すことができる．幅、厚み方向のポアソン比を$\nu_w$、$\nu_d$とすると、式\ref{epsilonC}より、
+\begin{eqnarray}
+    \Delta{C}=Cd\epsilon_l(1+\nu_w-\nu_d)
+\end{eqnarray}
+となる。ゆえに、長さ$l$が変化すると、静電容量$C$が変化することが示される。今回は、このことを利用しストレッチセンサーの長さの変化を静電容量の変化として計測を行った。
 
 \subsection{伸縮センサ計測回路}
 %TODO:伸縮センサ計測回路に関しての記述を行う
