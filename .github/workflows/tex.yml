@@ -9,6 +9,6 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Build docker image
-        uses: HidetoNiwa/Nishikawalab-Thesis/.github/actions/latex@master
+        uses: HidetoNiwa/Nishikawalab-Thesis/.github/actions/latex@develop/githubActions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
