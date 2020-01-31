@@ -1,0 +1,53 @@
+%特別研究論文
+\documentstyle[11pt,a4j,makeidx,ascmac,epsbox,ronbun,hyoushi,fig_tab,theorem,list,cprog,graphicx,comment]{jreport}
+	\newcommand{\ve}[1]{\mbox{\boldmath{$#1$}}}
+	\def\rubyfont{\tiny}
+	\makeatletter
+	\def\ruby#1#2{\leavevmode\vbox{%
+	\baselineskip\z@skip\lineskip.25ex
+	\ialign{##\crcr\rubyfont\hfill#2\hfill\crcr
+	\hfill#1\hfill\crcr}}}
+	\textwidth 6.5in
+	\textheight 9.5in
+	\oddsidemargin .2in
+	\topmargin -.5in
+	\parindent 1zw
+	\makeindex
+
+\begin{document}
+
+\large
+	%\maketitle
+	\input{./title}
+	\pagenumbering{roman}
+	\tableofcontents\newpage
+	\listoffigures\newpage
+	\listoftables\newpage
+	\pagebreak
+	\pagenumbering{arabic}
+
+\chapter{緒言}
+\input{./1_prolusion/prolusion}
+\chapter{実験方法}
+\input{./2_measurement/measurement}
+\chapter{解析方法}
+\input{./3_analysis/analysis}
+\chapter{結果・考察}
+\input{./4_consideration/consideration}
+\chapter{結言}
+\input{./5_conclusion/conclusion}
+
+\input{./thanx}
+
+\input{./biblio}
+
+%\input{../appendix/appendix}
+
+%\end{thebibliography}
+%\normalsize
+%\printindex
+\end{document}
+
+
+
+

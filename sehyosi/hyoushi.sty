@@ -1,0 +1,52 @@
+%
+%   HYOUSI.STY ---- ˜_•¶—p style file
+%
+%   28 May, 1990 by  Takeshi Sakaguchi
+%
+
+\def\teacher#1{\gdef\@teacher{#1}}
+\def\affliation#1{\gdef\@affliation{#1}}
+\def\maketitle{\begin{titlepage}
+\let\footnotesize\small \let\footnoterule\relax \setcounter{page}{0}
+\null
+\vfil
+\vskip 60pt
+
+\begin{center}
+  {\huge \@title \par}
+  \vskip 5.8zh
+  {\large •½¬ 10”N\ 3Œ\ 13“ú\  ’ño \par}
+%  \vfil\vfil
+  \vskip 5.8zh
+  \[ \left. \begin{array}{ll}
+                \mbox{{\large ‹{è•¶•v}} & \mbox{{\large ‹³ö}}\\
+                \mbox{{\large ¡’J•Û”}} & \mbox{{\large ut}}\\
+                \mbox{{\large Šs\ \ \ ‹g–L}} & \mbox{{\large ‹qˆõut}}
+
+    \end{array} \right\} \mbox{{\large w“±}} 
+  \] \par
+  \vskip 5.3zh
+  \begin{tabular}[t]{c}
+    {\large ‘åã‘åŠw‘åŠw‰@~~Šî‘bHŠwŒ¤‹†‰È}\\
+	{\large	ƒVƒXƒeƒ€lŠÔŒnêU~~‹@ŠB‰ÈŠw•ª–ì}
+  \end{tabular} \par
+  \vskip 2.3zh
+  {\Large \begin{tabular}[t]{c}{\huge \@author} 
+  \end{tabular}\par}
+\end{center} \par
+
+%\@thanks
+\vfil
+\null
+\end{titlepage}
+\setcounter{footnote}{0} \let\thanks\relax
+\gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@teacher{}\let\maketitle\relax} 
+
+\def\abstract{\titlepage
+\null\vfil
+\begin{center}
+{\bf Abstract}
+\end{center}}
+\def\endabstract{\par\vfil\null\endtitlepage}
+
+

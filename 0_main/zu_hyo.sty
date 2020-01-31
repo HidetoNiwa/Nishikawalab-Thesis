@@ -1,0 +1,39 @@
+%
+%       図 --> Fig. 表 --> Table
+%
+%       fig_tab.sty
+%
+%       大阪大学　有本研究室　升谷保博
+%       88/12/21        V1.0
+%       89-08-30        V1.1    \Fig, \Table
+%       89-09-07        V1.2
+%       95-02-03                \Eq, \Sec       maki tanaka
+
+\typeout{Document Style `fig_tab' V1.1 <30 Aug. 89> by Y.Masutani.}
+
+\renewcommand{\fnum@figure}{{\bf 図\thefigure}}
+
+\renewcommand{\fnum@table}{{\bf 表\thetable}}
+
+% 89-08-28
+
+\newcommand{\Fig}[1]{{\bf 図\ref{fig:#1}}}
+
+\newcommand{\Table}[1]{{\bf 表\ref{tab:#1}}}
+
+\long\def\@makecaption#1#2{
+   \vskip 10pt 
+   \setbox\@tempboxa\hbox{#1 #2}
+   \ifdim \wd\@tempboxa >\hsize   % IF longer than one line:
+       \@hangfrom{#1 } #2 %\ignorespaces #2\strut \par %chaged on 89-09-07
+       %#1 #2\par                 %   THEN set as ordinary paragraph.
+     \else                        %   ELSE  center.
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}  
+   \fi}
+
+
+% 95-02-03
+ 
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+ 
+\newcommand{\Sec}[1]{{\bf \ref{sec:#1}}}

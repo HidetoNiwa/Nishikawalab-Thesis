@@ -1,0 +1,71 @@
+%
+%   RONBUN.STY ---- 修士論文用 style file
+%
+%           13 Feb, 1990 by Nan
+% 			22 Jan, 1991 by T. Sakaguchi    (fot Appendix)
+%
+%     Original Definitions in JREP10.STY
+%
+
+\def\@chapapp{第}
+\def\@chapaft{章}
+
+\def\@makechapterhead#1{ \vspace*{20pt} { \parindent 0pt \raggedright 
+ \ifnum \c@secnumdepth >\m@ne \LARGE\bf
+ \@chapapp{} \thechapter \@chapaft \hspace{1.0zw}
+ \fi \LARGE\bf #1 \par 
+ \nobreak \vskip 30pt } }
+
+\def\@makeschapterhead#1{ \vspace*{20pt} { \parindent 0pt \raggedright 
+ \LARGE\bf #1\par 
+ \nobreak \vskip 30pt } }
+ 
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+ \refstepcounter{chapter}
+ \typeout{\@chapapp\space\thechapter\space\@chapaft.}
+ \addcontentsline{toc}{chapter}{\protect
+ \numberline{\thechapter}#1}\else
+ \addcontentsline{toc}{chapter}{#1}\fi
+ \chaptermark{#1}
+ \addtocontents{lof}{\protect\addvspace{10pt}}
+\addtocontents{lot}{\protect\addvspace{10pt}} \if@twocolumn
+\@topnewpage[\@makechapterhead{#2}] 
+ \else \@makechapterhead{#2}
+ \@afterheading \fi} 
+
+\def\section{\@startsection {section}{1}{\z@}{3.5ex plus 1ex minus 
+ .2ex}{2.3ex plus .2ex}{\Large\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{3.25ex plus 1ex minus 
+ .2ex}{1.5ex plus .2ex}{\Large\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{3.25ex plus
+1ex minus .2ex}{1.5ex plus .2ex}{\large\bf}}
+\def\paragraph{\@startsection
+ {paragraph}{4}{\z@}{3.25ex plus 1ex minus .2ex}{-1em}{\large\bf}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{3.25ex plus 1ex minus 
+ .2ex}{-1em}{\large\bf}}
+
+\def\fnum@figure{{\bf Fig.\thefigure}}
+\def\fnum@table{{\bf Table \thetable}}
+%\def\fnum@figure{{\bf 図\thefigure}}
+%\def\fnum@table{{\bf 表 \thetable}}
+
+\def\chaptermark#1{}
+
+\setcounter{secnumdepth}{2}
+
+\def\appendix{\par
+ \setcounter{chapter}{0}
+ \setcounter{section}{0}
+ \def\@chapapp{附章}
+ \def\@chapaft{}
+ \def\thechapter{\Alph{chapter}}}
+
+\def\thebibliography#1{\chapter*{参考文献\@mkboth
+ {参 考 文 献}{参 考 文 献}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
