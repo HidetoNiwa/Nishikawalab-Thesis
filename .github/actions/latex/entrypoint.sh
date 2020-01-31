@@ -10,15 +10,13 @@ platex ./0_main/main.tex
 
 dvipdfmx -f ptex-ipa.map main
 
-today=`date "+%Y%m%d%H%M%S"`
-
 # create release
 res=`curl -H "Authorization: token $GITHUB_TOKEN" -X POST https://api.github.com/repos/$GITHUB_REPOSITORY/releases \
 -d "
 {
-  \"tag_name\": \"$today\",
+  \"tag_name\": \"v$GITHUB_SHA\",
   \"target_commitish\": \"$GITHUB_SHA\",
-  \"name\": \"$today\",
+  \"name\": \"$GITHUB_SHA\",
   \"draft\": false,
   \"prerelease\": false
 }"`
