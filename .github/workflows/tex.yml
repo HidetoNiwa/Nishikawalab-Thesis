@@ -2,7 +2,7 @@ name: LaTeX to PDF
 
 on:
   push:
-    paths: main.tex
+    paths: ./0_main/main.tex
 
 jobs:
   build:
