@@ -4,6 +4,10 @@ set -eux
 # build pdf (change if necessary)
 platex ./0_main/main.tex
 
+platex ./0_main/main.tex
+
+platex ./0_main/main.tex
+
 dvipdfmx -f ptex-ipa.map main
 
 # create release
