@@ -14,6 +14,7 @@ RUN apt-get update \
     evince \
     texlive-fonts-recommended \
     texlive-fonts-extra \
+    ghostscript \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mktexlsr && mkdir -p /app
