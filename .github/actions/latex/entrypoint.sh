@@ -2,7 +2,9 @@
 set -eux
 
 # build pdf (change if necessary)
-ptex2pdf -l -ot -kanji=utf8 ./0_main/main.tex
+platex ./0_main/main.tex
+
+dvipdfmx -f ptex-ipa.map main
 
 # create release
 res=`curl -H "Authorization: token $GITHUB_TOKEN" -X POST https://api.github.com/repos/$GITHUB_REPOSITORY/releases \
