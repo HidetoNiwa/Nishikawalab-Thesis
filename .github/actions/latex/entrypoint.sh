@@ -10,8 +10,6 @@ platex ./0_main/main.tex
 
 dvipdfmx -f ptex-ipa.map main
 
-timedatectl set-timezone Asia/Tokyo
-
 today=`date "+%Y%m%d%H%M%S"`
 
 # create release
