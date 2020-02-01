@@ -1,8 +1,8 @@
 name: CI
-
-push:
-    branches:
-      - release/master
+on:
+    push:
+        branches:
+        - release/master
 jobs:
   build:
     name: Build
