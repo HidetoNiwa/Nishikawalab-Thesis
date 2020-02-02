@@ -1,5 +1,5 @@
 %
-%   RONBUN.STY ---- Cm˜_•¶—p style file
+%   RONBUN.STY ---- ä¿®å£«è«–æ–‡ç”¨ style file
 %
 %           13 Feb, 1990 by Nan
 % 			22 Jan, 1991 by T. Sakaguchi    (fot Appendix)
@@ -7,8 +7,8 @@
 %     Original Definitions in JREP10.STY
 %
 
-\def\@chapapp{‘æ}
-\def\@chapaft{Í}
+\def\@chapapp{ç¬¬}
+\def\@chapaft{ç« }
 
 \def\@makechapterhead#1{ \vspace*{20pt} { \parindent 0pt \raggedright 
  \ifnum \c@secnumdepth >\m@ne \LARGE\bf
@@ -47,8 +47,8 @@
 
 \def\fnum@figure{{\bf Fig.\thefigure}}
 \def\fnum@table{{\bf Table \thetable}}
-%\def\fnum@figure{{\bf }\thefigure}}
-%\def\fnum@table{{\bf •\ \thetable}}
+%\def\fnum@figure{{\bf å›³\thefigure}}
+%\def\fnum@table{{\bf è¡¨ \thetable}}
 
 \def\chaptermark#1{}
 
@@ -57,12 +57,12 @@
 \def\appendix{\par
  \setcounter{chapter}{0}
  \setcounter{section}{0}
- \def\@chapapp{•Í}
+ \def\@chapapp{é™„ç« }
  \def\@chapaft{}
  \def\thechapter{\Alph{chapter}}}
 
-\def\thebibliography#1{\chapter*{Ql•¶Œ£\@mkboth
- {Q l •¶ Œ£}{Q l •¶ Œ£}}\list
+\def\thebibliography#1{\chapter*{å‚è€ƒæ–‡çŒ®\@mkboth
+ {å‚ è€ƒ æ–‡ çŒ®}{å‚ è€ƒ æ–‡ çŒ®}}\list
  {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
  \advance\leftmargin\labelsep
  \usecounter{enumi}}
