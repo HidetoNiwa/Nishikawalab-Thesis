@@ -1,0 +1,65 @@
+%修士論文
+\documentstyle[12pt,a4j,makeidx,ascmac,epsbox,ronbun,hyoushi,zu_hyo,theorem,list,cprog]{jreport}
+
+	%\usepackage{notebook2e, latexsym}
+	\usepackage{makeidx}
+	\newcommand{\bm}[1]{\mbox{\boldmath{$#1$}}}
+	\def\rubyfont{\tiny}
+	\makeatletter
+	\def\ruby#1#2{\leavevmode\vbox{%
+	\baselineskip\z@skip\lineskip.25ex
+	\ialign{##\crcr\rubyfont\hfill#2\hfill\crcr
+	\hfill#1\hfill\crcr}}}
+	\textwidth 6.5in
+	\textheight 9.5in
+	\oddsidemargin .2in
+	\topmargin -.5in
+	\parindent 1zw
+	\makeindex
+	
+\begin{document}
+
+\usepackage{makeidx}
+	\newcommand{\bm}[1]{\mbox{\boldmath{$#1$}}}
+	\def\rubyfont{\tiny}
+	\makeatletter
+	\def\ruby#1#2{\leavevmode\vbox{%
+	\baselineskip\z@skip\lineskip.25ex
+	\ialign{##\crcr\rubyfont\hfill#2\hfill\crcr
+	\hfill#1\hfill\crcr}}}
+	\textwidth 6.5in
+	\textheight 9.5in
+	\oddsidemargin .2in
+	\topmargin -.5in
+	\parindent 1zw
+	\makeindex
+	
+\begin{document}
+	%\maketitle
+	\input{../title}
+	\pagenumbering{roman}
+	\tableofcontents\newpage
+	\listoffigures\newpage
+	\listoftables\newpage
+	\pagebreak
+	\pagenumbering{arabic}
+\chapter{序論}
+\index{さるかにかつせん@さるかに合戦}
+\input{../Jyoron/Jyoron}
+\chapter{ウェアラブル型内視鏡マニピュレータ}
+\input{../SMART/SMART}
+\chapter{フェイストラッキング型インタフェース}\label{famous}
+\input{../FAceMOUSe/FAceMOUSe}
+\chapter{斜視鏡対応型内視鏡マニピュレータ}
+\input{../COVER/COVER}
+\chapter{結論}
+\input{../Ketsuron/keturon}
+\chapter{謝辞}
+\input{../thanx}
+
+\input{../biblio}
+\input{../appendix/appendix}
+%\end{thebibliography}
+\printindex\typeout{=== Region from (point) to (mark) ===}
+
+\end{document}

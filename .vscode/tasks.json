@@ -6,7 +6,7 @@
         {
             "label": "platex",
             "type": "shell",
-            "command": "platex main.tex",
+            "command": "platex ./0_main/main.tex",
         },
         {
             "label": "pdf",
