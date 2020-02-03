@@ -9,7 +9,7 @@
             "command": "platex ./0_main/main.tex",
         },
         {
-            "label": "pdf",
+            "label": "makePDF",
             "type": "shell",
             "command": "dvipdfmx -f ptex-ipa.map main",
             "dependsOn": [

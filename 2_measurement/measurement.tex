@@ -1,15 +1,4 @@
 \section{動作モデル}
-\subsection{足首}
-%TODO:足首周りの動作関係のお話をする
-%TODO:筋肉のお話もする
-前述のとおり、足関節の作成を行った。人間の動作を再現するにあたり、
-
-空気圧人工筋の出力の関係上、人間の足の重量の1/2で製作を行った。
-
-筋肉として、前脛骨筋、腓骨筋、ヒラメ筋を用いた
-
-また、足関節にボールジョイントを用いた。これによって、ボールジョイントを用いて，ロール・ピッチ・ヨー各軸に自由度を持たせることができた。
-
 \subsection{ストレッチセンサ}
 伸縮センサはFig.\ref{伸縮センサ全体図}，Fig.\ref{伸縮センサ断面図}において示す通り，
 柔軟で弾性変形する伸縮性シリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.
@@ -29,8 +18,6 @@
         \caption{伸縮センサ断面図}
     \end{center}
 \end{figure}
-
-\newpage
 
 ここで伸縮センサ中の導電性布の長さ$l$、幅$w$，シリコンの厚さを$d$，シリコンの誘電率を$\epsilon{}_s$とすると，
 \begin{eqnarray}
@@ -70,7 +57,7 @@
 計測機器の単価が非常に高く、また既存のフィードバック系に組み込みにくいといった状況があった。そこで、
 今回はより安価で手軽な方法である、RC回路を用いた方法をとった。
 
-下記のFig.\ref{RC回路}に示したRC回路を用い、Vinに入力を与えるとVoutで信号が立ち上がるまでに
+下記のFig.\ref{RC}に示したRC回路を用い、Vinに入力を与えるとVoutで信号が立ち上がるまでに
 時間の遅れが発生する。これは、抵抗値$R$、静電容量$C$とすると、時定数$\delta t$は、
 \begin{eqnarray}
     \delta t = RC
@@ -104,4 +91,134 @@
   \caption{計測時に実際に用いた基板}
   \label{circuit}
  \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{足関節における筋肉}
+%TODO:足首周りの動作関係のお話をする
+%TODO:筋肉のお話もする
+Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。これらの脚部筋肉のうち足関節の動作に
+寄与している物はヒラメ筋、長腓骨筋、前脛骨筋、長母趾伸筋、長趾伸筋といったものが挙げられる。
+
+従来のペダリングロボット、2足歩行ロボットの足関節部分では前脛骨筋、ヒラメ筋のみに注目し
+それらの筋肉の再現を、空気圧人工筋を用いて行った。
+今回製作する足関節ロボットでは実際の人間の動作の再現を行うため、従来のピッチ方向のみの動作を
+想定した設計では目的を満たすことができない。そこで、従来注目していた、前脛骨筋、ヒラメ筋に
+加えて、長腓骨筋も注目するようにした。また、従来のロボットでは足関節部分はピンジョイントを用いて、
+動作方向の制限を行っていたが、今回はボールジョイントを用い、動作方向の制限をなくし、ロール・ピッチ・ヨー各方向に
+自由度を持たせることができた。
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/legMuscle.eps}
+     \caption{脚部における筋肉状況}
+     \label{legMuscle}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\section{実験器具の製作}
+\subsection{伸縮センサ製作}
+\begin{enumerate}
+    \item 3Dプリンターを用いて伸縮センサのサイズに合った型を用意する.
+    \item 導電性布を型に合わせて鋏を用いて切る.
+    \item 導電性布に錫めっき線を縫い通し,型の上に導電性布を置く.この際,錫めっき線が型の外に出てくるようにする.
+    \item 上から硬化剤を混ぜたシリコン流し込み固まるまで数時間放置.
+    \item シリコンが固まったら2枚目の導電性布に1枚目と同様に錫めっき線を通し硬化したシリコンの上に置く.
+    \item その上から硬化剤を混ぜたシリコンを薄く塗り固まるまで放置.
+    \item 最後のシリコンが硬化したら型から取り外し,錫めっき線に銅線接続し,コネクタをつけて完成．
+\end{enumerate}
+\subsection{足関節ロボット製作}
+
+先述のとおり、以前製作されたペダリングロボット、2足歩行ロボットの経験をもとに足関節ロボットの製作を行った。
+以下に足関節ロボットの製作過程を示す。
+%TODO:使用した人体模型の種類の記述を行う。
+
+今回、足関節ロボットの骨格としてFig.\ref{bodyBone}人体模型を用いた。本模型から必要となる、膝より下の部分を取り外した。
+取り外した結果、Fig.\ref{legBone}の様になった。
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.4\columnwidth,clip]{./2_measurement/bodyBone.eps}
+     \caption{人体模型骨格(全身)}
+     \label{bodyBone}
+    \end{center}
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legBone.eps}
+     \caption{人体模型骨格(脚部)}
+     \label{legBone}
+    \end{center}
+\end{figure}
+\newpage
+以前製作されたペダリングロボット、2足歩行ロボットでは関節部分にピンジョイントを用いていたが、今回製作する足関節ロボットでは、
+自由度を向上させることを一つの目的としているので、膝部分にピンジョイント、足首部分にボールジョイントを用いた。
+
+まず初めに前脛骨筋の両端を彫刻刀やバンドソーを用いて平面を作成した。続いてそこに、ボルト/ナットを用いてボールジョイント、ピンジョイントの軸受けの
+固定を行った。そして、人間の筋付着位置に合わせて空気圧人工筋を接続するため、リングボルトを設置した。その結果、下記のFig.\ref{legJoint}の様になった。
+
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legJoint.eps}
+     \caption{ジョイント、リングボルト接地状態（脚部）}
+     \label{legJoint}
+    \end{center}
+\end{figure}
+次に重心位置を人間のものと合わせ、重量を成人男性の1/2にする作業を行った。
+人体模型の骨は樹脂でできているため軽量であるので、鉛シートを巻き調整を行った。
+重心位置の確認には紐で巻いて垂らし、その鉛直線が交わるところで求めた。
+重量、重心位置の調整を行った結果、Fig.\ref{legPb}の様になった。
+
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legPb.eps}
+     \caption{鉛シートを巻いた結果}
+     \label{legPb}
+    \end{center}
+\end{figure}
+\newpage
+続いて、足の製作を行った。前脛骨筋と同様に、人間の筋付着位置に合わせて空気圧人工筋の
+接続をするリングボルトの設置をした。また、補強用として足の裏部分にアルミ板を固定した。
+そして、ボールジョイント接続部分に穴をあけタップドリルを用いてねじ溝を掘った。
+
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/foot.eps}
+     \caption{リングボルト設置結果（足上面）}
+     \label{foot}
+    \end{center}
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/footside.eps}
+     \caption{リングボルト設置結果（足側面）}
+     \label{footside}
+    \end{center}
+\end{figure}
+
+その後、指先と踵の間を丁番を用いて接続し、ピッチ方向に自由度を持たせた。
+なお、空気圧人工筋などの能動的なアクチュエータは用いず、接地時に可動する受動的なものとして用いる様にした。
+そして、その足にシリコン材を用いて肉付けを行い、重量、重心位置の調整をおこなった。
+この時、脛骨と同様に重心位置は成人男性、重量は成人男性の1/2となるように調整をおこなった。
+なお、脛骨と異なり鉛シートを用いずシリコン材を用いたのは衝撃吸収と成型性のしやすさからその様にした。
+\newpage
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/siliconfoot.eps}
+     \caption{シリコン材，丁番設置結果（足上面）}
+     \label{foot}
+    \end{center}
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/siliconfootside.eps}
+     \caption{シリコン材，丁番設置結果（足側面）}
+     \label{footside}
+    \end{center}
+\end{figure}
+
+続いて、脛骨と足部をボールジョイントのねじを用いて接続した。そして、人間の前脛骨筋、長腓骨筋、ヒラメ筋にあたる
+空気圧人工筋3本を、それぞれワイヤーを用いてリングボルトと接続した。最後に、足部に靴を履かせて完成した。
+
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.75\columnwidth,clip]{./2_measurement/fin.eps}
+     \caption{完成した足関節ロボット}
+     \label{legPb}
+    \end{center}
 \end{figure}
