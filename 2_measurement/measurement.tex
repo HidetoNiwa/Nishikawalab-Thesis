@@ -1,33 +1,33 @@
 \section{動作モデル}
 \subsection{ストレッチセンサ}
-伸縮センサはFig.\ref{伸縮センサ全体図}，Fig.\ref{伸縮センサ断面図}において示す通り，
+ストレッチセンサはFig.\ref{fig:ストレッチセンサ全体図}，Fig.\ref{fig:ストレッチセンサ断面図}において示す通り，
 柔軟で弾性変形する伸縮性シリコン（絶縁層）と導電性布電極（導電層）の重ね合わせによって構成されている.
 これは，誘電体をシリコン，極板を導電性布としたコンデンサとなっている．
 
 \begin{figure}[h]
     \begin{center}
-        \label{伸縮センサ全体図}
+        \label{fig:ストレッチセンサ全体図}
         \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/slide1.eps}
-        \caption{伸縮センサ全体図}
+        \caption{ストレッチセンサ全体図}
     \end{center}
 \end{figure}
 \begin{figure}[h]
     \begin{center}       
-        \label{伸縮センサ断面図}
+        \label{fig:ストレッチセンサ断面図}
         \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/slide2.eps}
-        \caption{伸縮センサ断面図}
+        \caption{ストレッチセンサ断面図}
     \end{center}
 \end{figure}
 
-ここで伸縮センサ中の導電性布の長さ$l$、幅$w$，シリコンの厚さを$d$，シリコンの誘電率を$\epsilon{}_s$とすると，
+ここでストレッチセンサ中の導電性布の長さ$l$、幅$w$，シリコンの厚さを$d$，シリコンの誘電率を$\epsilon{}_s$とすると，
 \begin{eqnarray}
     C=\epsilon{}_s\frac{lw}{d}
-    \label{cap}
+    \label{eq:cap}
 \end{eqnarray}
 といった式でその静電容量$C$が求められる．
 
-伸縮センサに引張方向に力を加えると、センサーの長さが増加する。また、それに伴って、厚み、幅も変化する。
-ここで変化により、導電性布の長さが$\Delta{l}$、幅が$\Delta{w}$、シリコンの厚みが$\Delta{d}$変化したとすると、先ほどの式\ref{cap}より、静電容量の変化量$\Delta{C}$は、
+ストレッチセンサに引張方向に力を加えると、センサの長さが増加する。また、それに伴って、厚み、幅も変化する。
+ここで変化により、導電性布の長さが$\Delta{l}$、幅が$\Delta{w}$、シリコンの厚みが$\Delta{d}$変化したとすると、先ほどの式\ref{eq:cap}より、静電容量の変化量$\Delta{C}$は、
 \begin{eqnarray}
     C+\Delta{C} &=& \epsilon{}_s\frac{(l+\Delta{l})(w+\Delta{w})}{(d+\Delta{}d)}\\
     & \simeq & \epsilon{}_s\frac{lw+l\Delta{w}+w\Delta{l}}{d+\Delta{d}}\\
@@ -35,61 +35,60 @@
     (C+\Delta{C})(d+\Delta{d})&=&Cd\left(1+\frac{\Delta{w}}{w}+\frac{\Delta{l}}{l}\right)\\
     Cd+C\Delta{d}+d\Delta{C}& \simeq &Cd\left(1+\frac{\Delta{w}}{w}+\frac{\Delta{l}}{l}\right)\\
     \Delta{C}&=&Cd\left(\frac{\Delta{w}}{w}+\frac{\Delta{l}}{l}-\frac{\Delta{d}}{d}\right)
-    \label{deltaC}
+    \label{eq:deltaC}
 \end{eqnarray}
-といった式で示される．ここで、長さ方向の工学ひずみを$\epsilon_l$、幅方向の工学ひずみを$\epsilon_w$、厚み方向の工学ひずみを$\epsilon_d$とそれぞれすると、式\ref{deltaC}は、
+といった式で示される．ここで、長さ方向の工学ひずみを$\epsilon_l$、幅方向の工学ひずみを$\epsilon_w$、厚み方向の工学ひずみを$\epsilon_d$とそれぞれすると、式\ref{eq:deltaC}は、
 \begin{eqnarray}
     \Delta{C}=Cd(\epsilon_w+\epsilon_l-\epsilon_d)
-    \label{epsilonC}
+    \label{eq:epsilonC}
 \end{eqnarray}
-といった式で表すことができる．幅、厚み方向のポアソン比を$\nu_w$、$\nu_d$とすると、式\ref{epsilonC}より、
+といった式で表すことができる．幅、厚み方向のポアソン比を$\nu_w$、$\nu_d$とすると、式\ref{eq:epsilonC}より、
 \begin{eqnarray}
     \Delta{C}=Cd\epsilon_l(1+\nu_w-\nu_d)
 \end{eqnarray}
-となる。ゆえに、長さ$l$が変化すると、静電容量$C$が変化することが示される。今回は、このことを利用しストレッチセンサーの長さの変化を静電容量の変化として計測を行った。
+となる。ゆえに、長さ$l$が変化すると、静電容量$C$が変化することが示される。今回は、このことを利用しストレッチセンサの長さの変化を静電容量の変化として計測を行った。
 
-\subsection{伸縮センサ計測回路}
-%TODO:伸縮センサ計測回路に関しての記述を行う
-%TODO:RC回路の電圧を掛けたときの時定数の様子をオシロスコープで撮影した画像が欲しい
-先述の通り，伸縮センサは静電容量の変化で伸縮状況を示す．故に今回は静電容量の変化を計測することができる回路の製作を行った．
+\subsection{ストレッチセンサ計測回路}\label{sec:RC回路}
+%TODO:ストレッチ計測回路に関しての記述を行う
+先述の通り，ストレッチセンサは静電容量の変化で伸縮状況を示す．故に今回は静電容量の変化を計測することができる回路の製作を行った．
 静電容量の計測を行う方法として、LRCメータやインピーダンスアナライザを用いる方法が挙げられる。
 これらの計測機器を用いると静電容量の変化を高精度に計測することができる。しかし、1ch当たりの
 計測機器の単価が非常に高く、また既存のフィードバック系に組み込みにくいといった状況があった。そこで、
 今回はより安価で手軽な方法である、RC回路を用いた方法をとった。
 
-下記のFig.\ref{RC}に示したRC回路を用い、Vinに入力を与えるとVoutで信号が立ち上がるまでに
+下記のFig.\ref{fig:RC}に示したRC回路を用い、Vinに入力を与えるとVoutで信号が立ち上がるまでに
 時間の遅れが発生する。これは、抵抗値$R$、静電容量$C$とすると、時定数$\delta t$は、
 \begin{eqnarray}
     \delta t = RC
 \end{eqnarray}
-といった式であらわされる。
+といった式であらわされる。なお、この遅れ系の現象を計測すると、Fig.\ref{fig:出力状態図}の様になる。
 
 \begin{figure}[h]
  \begin{center}
     %TODO:Voutの向きを出力にする
   \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/RC.eps}
   \caption{RC回路}
-  \label{RC}
+  \label{fig:RC}
  \end{center}
 \end{figure}
 
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/oscilloscope.eps}
-     \caption{出力状態図}
+     \caption{fig:出力状態図}
      \label{オシロスコープ}
     \end{center}
 \end{figure}
 
-これらの計測に関して，1つのマイコンを用いて複数の伸縮センサの計測を行うと計測周期が低下し，
-計測精度の低下が懸念された.これを踏まえ，1つのマイコンで計測を行う伸縮センサの数を2個とした.
-一方で今回，足首を中心とした筋の伸縮の計測を行うため6チャンネル分の計測を行う必要がある.
+これらの計測に関して，1つのマイコンを用いて複数のストレッチセンサの計測を行うと計測周期が低下し，
+計測精度の低下が懸念された.これを踏まえ，1つのマイコンで計測を行うストレッチセンサの数を2個とした.
+一方で今回，足首を中心とした筋の伸縮の計測を行うため3チャンネル分の計測を行う必要がある.
 故に，マイコン3枚分の計測システムを用意した.同期信号を用いて計測のデータ取得，同期を行った.
 \begin{figure}[h]
  \begin{center}
   \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/circuit.eps}
   \caption{計測時に実際に用いた基板}
-  \label{circuit}
+  \label{fig:circuit}
  \end{center}
 \end{figure}
 
@@ -98,7 +97,7 @@
 \subsection{足関節における筋肉}
 %TODO:足首周りの動作関係のお話をする
 %TODO:筋肉のお話もする
-Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。これらの脚部筋肉のうち足関節の動作に
+Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。これらの脚部筋肉のうち足関節の動作に
 寄与している物はヒラメ筋、長腓骨筋、前脛骨筋、長母趾伸筋、長趾伸筋といったものが挙げられる。
 
 従来のペダリングロボット、2足歩行ロボットの足関節部分では前脛骨筋、ヒラメ筋のみに注目し
@@ -112,16 +111,16 @@ Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。こ�
     \begin{center}
      \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/legMuscle.eps}
      \caption{脚部における筋肉状況}
-     \label{legMuscle}
+     \label{fig:legMuscle}
     \end{center}
 \end{figure}
 
 \newpage
 
 \section{実験器具の製作}
-\subsection{伸縮センサ製作}
+\subsection{ストレッチセンサ製作}
 \begin{enumerate}
-    \item 3Dプリンターを用いて伸縮センサのサイズに合った型を用意する.
+    \item 3Dプリンターを用いてストレッチセンサのサイズに合った型を用意する.
     \item 導電性布を型に合わせて鋏を用いて切る.
     \item 導電性布に錫めっき線を縫い通し,型の上に導電性布を置く.この際,錫めっき線が型の外に出てくるようにする.
     \item 上から硬化剤を混ぜたシリコン流し込み固まるまで数時間放置.
@@ -135,18 +134,18 @@ Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。こ�
 以下に足関節ロボットの製作過程を示す。
 %TODO:使用した人体模型の種類の記述を行う。
 
-今回、足関節ロボットの骨格としてFig.\ref{bodyBone}人体模型を用いた。本模型から必要となる、膝より下の部分を取り外した。
-取り外した結果、Fig.\ref{legBone}の様になった。
+今回、足関節ロボットの骨格としてFig.\ref{fig:bodyBone}人体模型を用いた。本模型から必要となる、膝より下の部分を取り外した。
+取り外した結果、Fig.\ref{fig:legBone}の様になった。
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.4\columnwidth,clip]{./2_measurement/bodyBone.eps}
      \caption{人体模型骨格(全身)}
-     \label{bodyBone}
+     \label{fig:bodyBone}
     \end{center}
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legBone.eps}
      \caption{人体模型骨格(脚部)}
-     \label{legBone}
+     \label{fig:legBone}
     \end{center}
 \end{figure}
 \newpage
@@ -154,25 +153,25 @@ Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。こ�
 自由度を向上させることを一つの目的としているので、膝部分にピンジョイント、足首部分にボールジョイントを用いた。
 
 まず初めに前脛骨筋の両端を彫刻刀やバンドソーを用いて平面を作成した。続いてそこに、ボルト/ナットを用いてボールジョイント、ピンジョイントの軸受けの
-固定を行った。そして、人間の筋付着位置に合わせて空気圧人工筋を接続するため、リングボルトを設置した。その結果、下記のFig.\ref{legJoint}の様になった。
+固定を行った。そして、人間の筋付着位置に合わせて空気圧人工筋を接続するため、リングボルトを設置した。その結果、下記のFig.\ref{fig:legJoint}の様になった。
 
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legJoint.eps}
      \caption{ジョイント、リングボルト接地状態（脚部）}
-     \label{legJoint}
+     \label{fig:legJoint}
     \end{center}
 \end{figure}
 次に重心位置を人間のものと合わせ、重量を成人男性の1/2にする作業を行った。
 人体模型の骨は樹脂でできているため軽量であるので、鉛シートを巻き調整を行った。
 重心位置の確認には紐で巻いて垂らし、その鉛直線が交わるところで求めた。
-重量、重心位置の調整を行った結果、Fig.\ref{legPb}の様になった。
+重量、重心位置の調整を行った結果、Fig.\ref{fig:legPb}の様になった。
 
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legPb.eps}
      \caption{鉛シートを巻いた結果}
-     \label{legPb}
+     \label{fig:legPb}
     \end{center}
 \end{figure}
 \newpage
@@ -184,12 +183,12 @@ Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。こ�
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/foot.eps}
      \caption{リングボルト設置結果（足上面）}
-     \label{foot}
+     \label{fig:foot}
     \end{center}
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/footside.eps}
      \caption{リングボルト設置結果（足側面）}
-     \label{footside}
+     \label{fig:footside}
     \end{center}
 \end{figure}
 
@@ -203,22 +202,23 @@ Fig.\ref{legMuscle}において、脚部における筋肉状況を示す。こ�
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/siliconfoot.eps}
      \caption{シリコン材，丁番設置結果（足上面）}
-     \label{foot}
+     \label{fig:foot2}
     \end{center}
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/siliconfootside.eps}
      \caption{シリコン材，丁番設置結果（足側面）}
-     \label{footside}
+     \label{fig:footside2}
     \end{center}
 \end{figure}
 
 続いて、脛骨と足部をボールジョイントのねじを用いて接続した。そして、人間の前脛骨筋、長腓骨筋、ヒラメ筋にあたる
 空気圧人工筋3本を、それぞれワイヤーを用いてリングボルトと接続した。最後に、足部に靴を履かせて完成した。
+完成したものは、Fig.\ref{fig:legPb}である。
 
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.75\columnwidth,clip]{./2_measurement/fin.eps}
      \caption{完成した足関節ロボット}
-     \label{legPb}
+     \label{fig:legPb}
     \end{center}
 \end{figure}
