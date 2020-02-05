@@ -118,35 +118,45 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
 \newpage
 
 \section{実験器具の製作}
+今回、ストレッチセンサと足関節ロボットの製作を行った。以下にその製作方法の記述を行う。
 \subsection{ストレッチセンサ製作}
-今回、ストレッチセンサの自作を行った。以下にその製作方法に記述を行う。
+まず、Fig.\ref{fig:Inventor}の様に3DCADであるInventorを用いて、ストレッチセンサとして使用するシリコン材を流し込むための型の設計を行う。
+設計を行ったCADデータをもとに、3Dプリンタ（Afinia H800）を用いてABS樹脂で型の出力を行う。出力を行った型はFig.\ref{fig:3Dprinter}にて示すものである。
 
-まず、3DCADであるInventorを用いて、ストレッチセンサとして使用するシリコン材を流し込むための型の設計を行う。
-設計を行ったCADデータをもとに、3Dプリンタ（Afinia H800）を用いてABS樹脂で型の出力を行う。
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/inventor.eps}
      \caption{Inventorを用いて設計した状況}
-     \label{fig:legMuscle}
+     \label{fig:Inventor}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{./2_measurement/3dprint.eps}
+        \caption{3Dプリンターで出力された型}
+        \label{fig:3Dprinter}
     \end{center}
 \end{figure}
 
-\begin{enumerate}
-    \item 3Dプリンターを用いてストレッチセンサのサイズに合った型を用意する.
-    \item 導電性布を型に合わせて鋏を用いて切る.
-    \item 導電性布に錫めっき線を縫い通し,型の上に導電性布を置く.この際,錫めっき線が型の外に出てくるようにする.
-    \item 上から硬化剤を混ぜたシリコン流し込み固まるまで数時間放置.
-    \item シリコンが固まったら2枚目の導電性布に1枚目と同様に錫めっき線を通し硬化したシリコンの上に置く.
-    \item その上から硬化剤を混ぜたシリコンを薄く塗り固まるまで放置.
-    \item 最後のシリコンが硬化したら型から取り外し,錫めっき線に銅線接続し,コネクタをつけて完成．
-\end{enumerate}
-\subsection{足関節ロボット製作}
+\newpage
+続いて、3Dプリンターにて出力した型に合わせて、導電性布をはさみで切る。導電性布に錫めっき線を縫い通し、型の上に置く。
+この際、錫めっき線が型の外に出てくるようにする。その上から硬化剤を混ぜたシリコン20g程を流し込み固まるまで数時間放置する。
+なお、使用したシリコンと硬化剤は、Fig.\ref{fig:silicon}にて示すものである。シリコンが固まったら2枚目の導電性布に1枚目と同様に
+錫めっき線を通し硬化したシリコンの上に置く。その上から硬化剤を混ぜたシリコン5gを薄く塗り固まるまで放置する。最後のシリコンが
+硬化したら型から取り外し、錫めっき線にはんだを用いて銅線を接続し、コネクタを圧着して完成となる。
 
-先述のとおり、以前製作されたペダリングロボット、2足歩行ロボットの経験をもとに足関節ロボットの製作を行った。
-以下に足関節ロボットの製作過程を示す。
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{./2_measurement/silicon.eps}
+        \caption{製作に使用したシリコンと硬化剤}
+        \label{fig:silicon}
+    \end{center}
+\end{figure}
+
+\subsection{足関節ロボット製作}
 %TODO:使用した人体模型の種類の記述を行う。
 
-今回、足関節ロボットの骨格としてFig.\ref{fig:bodyBone}人体模型を用いた。本模型から必要となる、膝より下の部分を取り外した。
+今回、足関節ロボットの骨格としてFig.\ref{fig:bodyBone}の人体模型を用いた。本模型から必要となる、膝より下の部分を取り外した。
 取り外した結果、Fig.\ref{fig:legBone}の様になった。
 \begin{figure}[h]
     \begin{center}
@@ -204,7 +214,7 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
     \end{center}
 \end{figure}
 
-その後、指先と踵の間を丁番を用いて接続し、ピッチ方向に自由度を持たせた。
+その後、指先と踵の間を丁番を用いて接続し、ピッチ方向に自由度を持たせた。その結果、Fig.\ref{fig:foot2}、\ref{fig:footside2}の様になった。
 なお、空気圧人工筋などの能動的なアクチュエータは用いず、接地時に可動する受動的なものとして用いる様にした。
 そして、その足にシリコン材を用いて肉付けを行い、重量、重心位置の調整をおこなった。
 この時、脛骨と同様に重心位置は成人男性、重量は成人男性の1/2となるように調整をおこなった。
