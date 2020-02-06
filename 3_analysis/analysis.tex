@@ -45,3 +45,26 @@
 制御アルゴリズムの部分でも示したが、1000Hz周期で取得したデータの平均値が100Hz周期に出力される。
 このデータをTeraTermのログ取得機能を用いてcsvファイルとして保存した。
 なお、足関節ロボット制御用PCの処理の都合上、別PCを用いて結果の取得を行った。
+%TODO:システム概略図入れたい...（ROSノード的なの）
+
+\section{ストレッチセンサ精度評価}
+今回製作した、ストレッチセンサの精度評価として各空気圧人工筋にsin出力を段階的に与えて、センサの計測値と、実際の長さの比較を行った。
+実際の長さの計測は、ノギスを用いて計測を行った。与えた出力値は12段階とした。底背屈動作をモデルに検討を行うため、前脛骨筋と腓骨筋/ヒラメ筋の
+組み合わせで出力を与えることとした。Fig.\ref{output_for_test}に示す様な出力を各空気圧人工筋に対して与えた。
+
+センサの計測に関して、計測値を安定させるため30秒ほど記録を行った。
+サンプル数$n$、計測値$a_i \left(i=0,1,\cdots,n\right)$としたとき、
+\begin{eqnarray}
+        \overline{a}=\frac{\sum^n_{i=0}a_i}{n}
+\end{eqnarray}
+といった式で求まる、総和平均$\overline{a}$を用いて
+の計算を行った。また、
+
+標準誤差$\delta a$
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.78\columnwidth,clip]{2_measurement/output/output.eps}
+        \caption{精度評価用 出力}
+        \label{output_for_test}
+    \end{center}
+\end{figure}
