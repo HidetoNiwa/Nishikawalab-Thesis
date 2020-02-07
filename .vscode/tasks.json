@@ -4,16 +4,32 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "platex",
+            "label": "platex1",
             "type": "shell",
             "command": "platex ./0_main/main.tex",
+        },
+        {
+            "label": "platex2",
+            "type": "shell",
+            "command": "platex ./0_main/main.tex",
+            "dependsOn": [
+                "platex1"
+            ]
+        },
+        {
+            "label": "platex3",
+            "type": "shell",
+            "command": "platex ./0_main/main.tex",
+            "dependsOn": [
+                "platex2"
+            ]
         },
         {
             "label": "makePDF",
             "type": "shell",
             "command": "dvipdfmx -f ptex-ipa.map main",
             "dependsOn": [
-                "platex"
+                "platex3"
             ],
             "group": {
                 "kind": "build",

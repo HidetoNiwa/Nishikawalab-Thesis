@@ -1,4 +1,5 @@
-\section{ストレッチセンサ計測アルゴリズム}
+\section{計測手法}
+\subsection{ストレッチセンサ計測アルゴリズム}
 \ref{sec:RC回路}にて示す通り、ストレッチセンサの静電容量変化の計測にはRC回路を用いた時定数の計測で行った。
 なお、この時定数の計測にはNucleoF303K8といったマイコン評価ボードを使用した。また、それらのコードの記述にはmbedライブラリを使用した。
 使用したソースコードは下記リンクにて公開している。計測アルゴリズムはFig.\ref{fig:algorithm}にて示すように
@@ -15,10 +16,27 @@
     \end{center}
 \end{figure}
 
-\section{足関節ロボット駆動システム}
-足関節ロボットの駆動システムには従来から存在するペダリングロボット、2足歩行ロボットのシステムと同様のシステムを利用した。
+\subsection{ストレッチセンサ計測システム}
+ストレッチセンサの計測データはNucleoF303K8よりSerial通信によって921600bpsで出力される。
+制御アルゴリズムの部分でも示したが、1000Hz周期で取得したデータの平均値が100Hz周期に出力される。
+このデータをTeraTermのログ取得機能を用いてcsvファイルとして保存した。
+なお、足関節ロボット制御用PCの処理の都合上、別PCを用いて結果の取得を行った。
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.78\columnwidth,clip]{./3_analysis/getSystem.eps}
+        \caption{計測システム概略図}
+        \label{getSystem}
+    \end{center}
+\end{figure}
 
-Fig.\ref{fig:compressor}にて示した、エアーコンプレッサーで8気圧まで圧縮空気を作成し、気圧調整弁を用いて6気圧まで減圧を行った。
+\subsection{足関節ロボット駆動システム}
+足関節ロボットの駆動システムには従来から存在するペダリングロボット、2足歩行ロボットのシステムと同様のシステムを利用した。
+以下にそのシステムに関して記述する。
+
+%TODO:システムブロック図入れられると入れたい...
+まず、Fig.\ref{fig:compressor}にて示す、エアーコンプレッサーで8気圧まで圧縮空気を作成し、気圧調整弁を用いて6気圧まで減圧を行った。
+続いて、制御用PCに搭載されたDAボードより、空気圧制御盤にアナログ信号を送信する。なお、この電圧指令は550段階で制御が行うことが出来る。
+この電圧指令を元に空気圧制御盤に搭載された空気圧制御器によって可変的に空気圧の制御を各人工筋に対して行う。
 
 \begin{figure}[h]
     \begin{center}
@@ -36,11 +54,30 @@ Fig.\ref{fig:compressor}にて示した、エアーコンプレッサーで8気�
     \end{center}
 \end{figure}
 
+\newpage
 
-Visual Studio 2010 C++ を用いたMFCアプリケーションを用いた
+\section{実験手法}
+\section{ストレッチセンサ計測精度評価}
+今回製作した、ストレッチセンサの精度評価として各空気圧人工筋にsin出力を段階的に与えて、センサの計測値と、実際の長さの比較を行った。
+実際の長さの計測は、ノギスを用いて計測を行った。与えた出力値は12段階とした。底背屈動作をモデルに検討を行うため、前脛骨筋と腓骨筋/ヒラメ筋の
+組み合わせで出力を与えることとした。Fig.\ref{output_for_test}に示す様な出力を各空気圧人工筋に対して与えた。
 
-空気圧電磁弁への電圧指令（0～550）を記述したtxtファイル読み込み
+センサでの時定数計測に関して、計測値を安定させるため30秒ほど記録を行った。
+そしてその後、サンプル数$n$、計測値$t_i \left(i=0,1,\cdots,n\right)$としたとき、
+\begin{eqnarray}
+        \overline{t}=\frac{\sum_{i=0}^n t_i}{n}
+\end{eqnarray}
+といった式で求まる、総和平均$\overline{t}$を用いて時定数を求めた。
+また、その誤差$\delta t$として、
+\begin{eqnarray}
+    \delta t = \sqrt{ \frac{\sum_{i=0}^n \left(t_i-\overline{t}\right)^2}{n(n-1)}}
+\end{eqnarray}
+といった式で求まる、標準誤差を用いて計算した。
 
-AD変換ボード
-
-\section{ストレッチセンサ計測データ処理}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.78\columnwidth,clip]{2_measurement/output/output.eps}
+        \caption{精度評価用 出力}
+        \label{output_for_test}
+    \end{center}
+\end{figure}

@@ -84,13 +84,6 @@
 計測精度の低下が懸念された.これを踏まえ，1つのマイコンで計測を行うストレッチセンサの数を2個とした.
 一方で今回，足首を中心とした筋の伸縮の計測を行うため3チャンネル分の計測を行う必要がある.
 故に，マイコン3枚分の計測システムを用意した.同期信号を用いて計測のデータ取得，同期を行った.
-\begin{figure}[h]
- \begin{center}
-  \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/circuit.eps}
-  \caption{計測時に実際に用いた基板}
-  \label{fig:circuit}
- \end{center}
-\end{figure}
 
 \newpage
 
@@ -118,21 +111,28 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
 \newpage
 
 \section{実験器具の製作}
-今回、ストレッチセンサと足関節ロボットの製作を行った。以下にその製作方法の記述を行う。
-\subsection{ストレッチセンサ製作}
+今回、ストレッチセンサとその計測回路、また足関節ロボットの製作を行った。以下にそれらの製作過程の記述を行う。
+\subsection{ストレッチセンサ}
 まず、Fig.\ref{fig:Inventor}の様に3DCADであるInventorを用いて、ストレッチセンサとして使用するシリコン材を流し込むための型の設計を行う。
 設計を行ったCADデータをもとに、3Dプリンタ（Afinia H800）を用いてABS樹脂で型の出力を行う。出力を行った型はFig.\ref{fig:3Dprinter}にて示すものである。
 
 \begin{figure}[h]
     \begin{center}
-     \includegraphics[width=0.5\columnwidth,clip]{./2_measurement/inventor.eps}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/inventor.eps}
      \caption{Inventorを用いて設計した状況}
      \label{fig:Inventor}
     \end{center}
 \end{figure}
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.7\columnwidth,clip]{./2_measurement/3dprint.eps}
+        \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/drowing.eps}
+        \caption{設計した型（図面）}
+        \label{fig:3Dprinter}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/3dprint.eps}
         \caption{3Dプリンターで出力された型}
         \label{fig:3Dprinter}
     \end{center}
@@ -147,13 +147,47 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
 
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.7\columnwidth,clip]{./2_measurement/silicon.eps}
+        \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/silicon.eps}
         \caption{製作に使用したシリコンと硬化剤}
         \label{fig:silicon}
     \end{center}
 \end{figure}
 
-\subsection{足関節ロボット製作}
+\newpage
+\subsection{ストレッチセンサ計測回路}
+
+先述の通り、ストレッチセンサの静電容量計測にはRC回路を用いた。また、その計測用マイコンとして、NucleoF303K8を用いた。
+その回路設計に関して、以下に記述する。
+
+まず、KiCADを用いて回路図の設計を行った。その結果、Fig.\ref{fig:circuitPic}に示すようになった。
+続いて、KiCADを用いてPCB基板の設計を行った。設計結果は、Fig.\ref{fig:PCB}に示す様になった。
+なお、Fig.\ref{fig:circuitPic}に示した回路以外のものも今後の研究のため搭載されているが今回の研究に関わるものだけを抜粋して示した。
+そして、その設計データを元にPCB基板の外注を行った。そして、基板にパーツをはんだ付けし完成となった。
+完成したものは、Fig.\ref{fig:circuit}に示したものである。
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{2_measurement/circuitPicture.eps}
+        \caption{計測回路図}
+        \label{fig:circuitPic}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.4\columnwidth,clip]{2_measurement/PCB.eps}
+        \caption{PCB基板設計図}
+        \label{fig:PCB}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/circuit.eps}
+     \caption{計測に用いた基板}
+     \label{fig:circuit}
+    \end{center}
+\end{figure}
+
+\subsection{足関節ロボット}
 %TODO:使用した人体模型の種類の記述を行う。
 
 今回、足関節ロボットの骨格としてFig.\ref{fig:bodyBone}の人体模型を用いた。本模型から必要となる、膝より下の部分を取り外した。
@@ -164,6 +198,8 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
      \caption{人体模型骨格(全身)}
      \label{fig:bodyBone}
     \end{center}
+\end{figure}
+\begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/legBone.eps}
      \caption{人体模型骨格(脚部)}
@@ -207,6 +243,8 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
      \caption{リングボルト設置結果（足上面）}
      \label{fig:foot}
     \end{center}
+\end{figure}
+\begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/footside.eps}
      \caption{リングボルト設置結果（足側面）}
@@ -214,33 +252,35 @@ Fig.\ref{fig:legMuscle}において、脚部における筋肉状況を示す。
     \end{center}
 \end{figure}
 
+\newpage
 その後、指先と踵の間を丁番を用いて接続し、ピッチ方向に自由度を持たせた。その結果、Fig.\ref{fig:foot2}、\ref{fig:footside2}の様になった。
 なお、空気圧人工筋などの能動的なアクチュエータは用いず、接地時に可動する受動的なものとして用いる様にした。
 そして、その足にシリコン材を用いて肉付けを行い、重量、重心位置の調整をおこなった。
 この時、脛骨と同様に重心位置は成人男性、重量は成人男性の1/2となるように調整をおこなった。
 なお、脛骨と異なり鉛シートを用いずシリコン材を用いたのは衝撃吸収と成型性のしやすさからその様にした。
-\newpage
 \begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/siliconfoot.eps}
      \caption{シリコン材，丁番設置結果（足上面）}
      \label{fig:foot2}
     \end{center}
+\end{figure}
+\begin{figure}[h]
     \begin{center}
      \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/siliconfootside.eps}
      \caption{シリコン材，丁番設置結果（足側面）}
      \label{fig:footside2}
     \end{center}
 \end{figure}
-
+\newpage
 続いて、脛骨と足部をボールジョイントのねじを用いて接続した。そして、人間の前脛骨筋、長腓骨筋、ヒラメ筋にあたる
 空気圧人工筋3本を、それぞれワイヤーを用いてリングボルトと接続した。最後に、足部に靴を履かせて完成した。
-完成したものは、Fig.\ref{fig:legPb}である。
+完成したものは、Fig.\ref{fig:fin}である。
 
 \begin{figure}[h]
     \begin{center}
-     \includegraphics[width=0.75\columnwidth,clip]{./2_measurement/fin.eps}
+     \includegraphics[width=0.6\columnwidth,clip]{./2_measurement/fin.eps}
      \caption{完成した足関節ロボット}
-     \label{fig:legPb}
+     \label{fig:fin}
     \end{center}
 \end{figure}
