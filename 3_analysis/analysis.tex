@@ -76,8 +76,22 @@
 
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.78\columnwidth,clip]{2_measurement/output/output.eps}
-        \caption{精度評価用 出力}
+        \includegraphics[width=0.7\columnwidth,clip]{2_measurement/output/output.eps}
+        \caption{ストレッチセンサ精度評価用 出力}
+        \label{output_for_test}
+    \end{center}
+\end{figure}
+
+\subsection{ストレッチセンサ動的試験}
+先述のストレッチセンサ計測精度評価では空気圧人工筋を動かさず，一定の出力を与えた状態であった．
+一方で，実際に足関節ロボットを動作させるときは，時刻によって空気圧人工筋に与える出力を変え，
+ダイナミックに動作させる．故に，先述の精度測定用出力を元に1Hzのsin波形駆動を入れ，疑似的な底背屈動作を
+連続実行させた．
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{3_analysis/outPut.eps}
+        \caption{ストレッチセンサ動的試験 出力}
         \label{output_for_test}
     \end{center}
 \end{figure}
