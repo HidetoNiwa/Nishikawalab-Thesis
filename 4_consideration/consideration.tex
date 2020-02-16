@@ -56,18 +56,32 @@ Table.\ref{strain}のような長さの結果となった．
 \end{table}
 
 \subsection{ストレッチセンサ動的計測}
-\begin{figure}
-  \includegraphics[width=0.78\columnwidth,clip]{./4_consideration/動的試験/zenkei.png}
+
+Fig. \ref{output_for_actions}のような出力を各空気圧人工筋に与え、
+1秒ごとに区切り0.01秒ごとの区間の平均値、標準誤差の計算を行った結果、
+Fig．\ref{zenkei_action}、\ref{hikotsu_action}、\ref{hirame_action}に示すようになった。
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[width=0.75\columnwidth,clip]{./4_consideration/moving/zenkei.eps}
   \caption{ストレッチセンサ動的計測結果（前脛骨筋）}
-  \label{}
+  \label{zenkei_action}
+  \end{center}
+  \begin{center}
+  \includegraphics[width=0.75\columnwidth,clip]{./4_consideration/moving/hikotsu.eps}
+  \caption{ストレッチセンサ動的計測結果（腓骨筋）}
+  \label{hikotsu_action}
+  \end{center}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.78\columnwidth,clip]{./4_consideration/動的試験/hirame.png}
+\clearpage
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[width=0.75\columnwidth,clip]{./4_consideration/moving/hirame.eps}
   \caption{ストレッチセンサ動的計測結果（ヒラメ筋）}
-  \label{}
+  \label{hirame_action}
+  \end{center}
 \end{figure}
-
 
 \section{考察}
 \subsection{ストレッチセンサ計測精度}
@@ -75,17 +89,7 @@ Table.\ref{strain}のような長さの結果となった．
 Fig.\ref{4-ml}の様になった．このグラフから見てわかるように，腓骨筋とヒラメ筋が組となって
 前脛骨筋と逆位相のsin波形的動きをさせることが出来た．今回，足関節ロボットの空気圧人工筋
 それぞれに対して，Fig.\ref{output_for_test}の出力を出すよう指令を与えたので
-システムとして問題なく動いたことがわかる．
-
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[width=0.78\columnwidth,clip]{4_consideration/ml.eps}
-    \end{center}
-    \caption{計測位置と各空気圧人工筋の長さの関係}
-    \label{4-ml}
-\end{figure}
-
-\newpage
+システムとして問題なく動いたことがわかった．
 
 続いて，Table.\ref{4_2}の結果を用いて，横軸にセンサの長さ，縦軸に時定数としたグラフを
 描画すると，Fig.\ref{ml-rc1}，\ref{ml-rc2}，\ref{ml-rc3}に示すようになった．
@@ -106,6 +110,14 @@ Fig.\ref{4-ml}の様になった．このグラフから見てわかるように
 抵抗値を増加させると時定数も増加するのでマイコンで変化量を計測しやすくなる．
 一方で，抵抗値を増大させると計測ノイズ成分も大きくなるので，その辺りも踏まえて抵抗値の
 再選定をしていく必要があると考えられる．
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{4_consideration/ml.eps}
+    \end{center}
+    \caption{計測位置と各空気圧人工筋の長さの関係}
+    \label{4-ml}
+\end{figure}
 
 \begin{figure}[h]
     \begin{center}
@@ -130,3 +142,7 @@ Fig.\ref{4-ml}の様になった．このグラフから見てわかるように
     \caption{空気圧人工筋の長さとセンサ計測値の関係（ヒラメ筋）}
     \label{ml-rc3}
 \end{figure}
+
+\subsection{ストレッチセンサ動的計測}
+今回、各筋肉に1Hzの周期動作を入れ、区間ごとに区切り各平均値の計算を行った。
+おおむね、各筋において計測精度評価にて観測された時定数内に収まっていた。これは、
