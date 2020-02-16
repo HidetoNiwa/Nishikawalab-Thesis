@@ -33,10 +33,11 @@
 足関節ロボットの駆動システムには従来から存在するペダリングロボット，2足歩行ロボットのシステムと同様のシステムを利用した．
 以下にそのシステムに関して記述する．
 
-%TODO:システムブロック図入れられると入れたい...
 まず，Fig.\ref{fig:compressor}にて示す，エアーコンプレッサーで8気圧まで圧縮空気を作成し，気圧調整弁を用いて6気圧まで減圧を行った．
 続いて，制御用PCに搭載されたDAボードより，空気圧制御盤にアナログ信号を送信する．なお，この電圧指令は550段階で制御が行うことが出来る．
 この電圧指令を元に空気圧制御盤に搭載された空気圧制御器によって可変的に空気圧の制御を各人工筋に対して行う．
+
+\newpage
 
 \begin{figure}[h]
     \begin{center}
@@ -66,11 +67,13 @@
 そしてその後，サンプル数$n$，計測値$t_i \left(i=0,1,\cdots,n\right)$としたとき，
 \begin{eqnarray}
         \overline{t}=\frac{\sum_{i=0}^n t_i}{n}
+        \label{ave}
 \end{eqnarray}
 といった式で求まる，総和平均$\overline{t}$を用いて時定数を求めた．
 また，その誤差$\delta t$として，
 \begin{eqnarray}
     \delta t = \sqrt{ \frac{\sum_{i=0}^n \left(t_i-\overline{t}\right)^2}{n(n-1)}}
+    \label{std}
 \end{eqnarray}
 といった式で求まる，標準誤差を用いて計算した．
 
@@ -82,14 +85,18 @@
     \end{center}
 \end{figure}
 
-\subsection{ストレッチセンサ動的計測}
-上記で計測した結果を元に、足関節ロボットに1Hzのの
-周期的な動作をさせた。
+\newpage
 
-各筋にFig.\ref{output_for_actions}に示すような出力を与えた。
+\subsection{ストレッチセンサ動的計測}
+上記で計測した結果を元に、足関節ロボットに1Hzのsin周期運動をさせ、ストレッチセンサを用いて各筋の伸長計測を行った。
+なお、各筋に与える出力はFig.\ref{output_for_actions}に示すものを与えた。
 
 \begin{figure}[h]
   \includegraphics[width=0.76\columnwidth,clip]{3_analysis/outPut/putPut.eps}
   \caption{動的計測}
   \label{output_for_actions}
 \end{figure}
+
+解析方法として、与えた出力が1Hzであること、データの出力周期が100Hzであることを用いて、
+1秒ごとに区切り0.01秒ごとの区間の平均値、標準誤差の計算を行った。
+なお、それぞれの計算には式\ref{ave}、\ref{std}をそれぞれ用いた。
