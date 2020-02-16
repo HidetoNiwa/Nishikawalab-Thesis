@@ -1,12 +1,12 @@
  Sma4Win ver. 1.8  SMP file
 
-0 1 210 297 0 0 2
+1 1 210 297 0 0 2
 2
 [output.dat]
-output.dat
+E:\NishikawaLab\Nishikawalab-Thesis\2_measurement\output\output.dat
 0 0 0 0 0 1 12 0 -1 
 40 0 300 0 0 0 0
-0 2 200 255
+0 2 300 16711680
 0 0 1 0 0 0 16777215 5
 0 0 0
 x
@@ -16,10 +16,10 @@ y
 
 
 [output.dat]
-output.dat
+E:\NishikawaLab\Nishikawalab-Thesis\2_measurement\output\output.dat
 0 0 0 0 0 2 12 0 -1 
 40 0 300 0 0 0 0
-0 2 200 16711680
+0 2 300 255
 0 0 1 0 0 0 16777215 5
 0 0 0
 x
@@ -89,7 +89,7 @@ Symbol
 
 8
 14300 5200 0 1 0 0
-%01E‘Oãøœ‹Ø\n%02EäCœ‹Ø/ƒqƒ‰ƒ‹Ø
+%02E‘Oãøœ‹Ø\n%01EäCœ‹Ø/ƒqƒ‰ƒ‹Ø
 -2400 0 0 0 400 0 0 0 162 3 2 1 18
 Times New Roman
 -2400 0 0 0 400 0 0 0 128 3 2 1 17
@@ -108,14 +108,29 @@ Times New Roman
 Symbol
 
 [OTHERS]
- 3
+ 2
 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
 -2400 0 0 0 400 1 0 0 2 3 2 1 18
 Symbol
-C:\Users\Hideto Niwa\Desktop\NishikawaLab\‘²˜_\2_measurement\output\output.SMP
 
 [MASKS]
  0
 0
 0
+
+[DATA]
+[output.dat] 2020-2-6 21:23:48
+1	0	550
+2	36.84301396	513.156986
+3	137.5	412.5
+4	275	275
+5	412.5	137.5
+6	513.156986	36.84301396
+7	550	0
+8	513.156986	36.84301396
+9	412.5	137.5
+10	275	275
+11	137.5	412.5
+12	36.84301396	513.156986
+[End of Data]
 

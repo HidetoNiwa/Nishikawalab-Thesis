@@ -66,6 +66,8 @@ Fig．\ref{zenkei_action}、\ref{hikotsu_action}、\ref{hirame_action}に示す�
   \caption{ストレッチセンサ動的計測結果（前脛骨筋）}
   \label{zenkei_action}
   \end{center}
+\end{figure}
+\begin{figure}[h]
   \begin{center}
   \includegraphics[width=0.75\columnwidth,clip]{./4_consideration/moving/hikotsu.eps}
   \caption{ストレッチセンサ動的計測結果（腓骨筋）}
@@ -86,13 +88,13 @@ Fig．\ref{zenkei_action}、\ref{hikotsu_action}、\ref{hirame_action}に示す�
 \section{考察}
 \subsection{ストレッチセンサ計測精度}
 先ほどの結果より，それぞれの計測位置における空気圧人工筋の長さをグラフに表すと，
-Fig.\ref{4-ml}の様になった．このグラフから見てわかるように，腓骨筋とヒラメ筋が組となって
+Fig．\ref{4-ml}の様になった．このグラフから見てわかるように，腓骨筋とヒラメ筋が組となって
 前脛骨筋と逆位相のsin波形的動きをさせることが出来た．今回，足関節ロボットの空気圧人工筋
-それぞれに対して，Fig.\ref{output_for_test}の出力を出すよう指令を与えたので
+それぞれに対して，Fig．\ref{output_for_test}の出力を出すよう指令を与えたので
 システムとして問題なく動いたことがわかった．
 
-続いて，Table.\ref{4_2}の結果を用いて，横軸にセンサの長さ，縦軸に時定数としたグラフを
-描画すると，Fig.\ref{ml-rc1}，\ref{ml-rc2}，\ref{ml-rc3}に示すようになった．
+続いて，Table．\ref{4_2}の結果を用いて，横軸にセンサの長さ，縦軸に時定数としたグラフを
+描画すると，Fig．\ref{ml-rc1}，\ref{ml-rc2}，\ref{ml-rc3}に示すようになった．
 各筋肉に関して，長さが増加するとセンサでの計測値が減少した．
 どの筋肉においても同様の結果を示しており，ストレッチセンサが伸びると
 静電容量が減少するといったことが分かった．
@@ -105,7 +107,7 @@ Fig.\ref{4-ml}の様になった．このグラフから見てわかるように
 
 また，空気圧人工筋の伸びの変化に対して，時定数の変化が非常に微小なものとなっている．
 今回の時定数の結果や，製作したRC回路の抵抗値$1.5M\Omega$より静電容量の変化量に関して考えると，
-最も変化が大きかったヒラメ筋においても$35～38pF$の変化しか現れなかった．
+最も変化が大きかった腓骨筋においても$42～45pF$の変化しか現れなかった．
 これに対する対策として，RC回路における抵抗値の再選定を行う必要があると考えられた．
 抵抗値を増加させると時定数も増加するのでマイコンで変化量を計測しやすくなる．
 一方で，抵抗値を増大させると計測ノイズ成分も大きくなるので，その辺りも踏まえて抵抗値の
@@ -121,28 +123,50 @@ Fig.\ref{4-ml}の様になった．このグラフから見てわかるように
 
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.78\columnwidth,clip]{4_consideration/zenkei.eps}
+        \includegraphics[width=0.7\columnwidth,clip]{4_consideration/zenkei.eps}
     \end{center}
     \caption{空気圧人工筋の長さとセンサ計測値の関係（前脛骨筋）}
     \label{ml-rc1}
 \end{figure}
-
+\clearpage
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.78\columnwidth,clip]{4_consideration/hikotsu.eps}
+        \includegraphics[width=0.7\columnwidth,clip]{4_consideration/hikotsu.eps}
     \end{center}
     \caption{空気圧人工筋の長さとセンサ計測値の関係（腓骨筋）}
     \label{ml-rc2}
 \end{figure}
-
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.78\columnwidth,clip]{4_consideration/hirame.eps}
+        \includegraphics[width=0.7\columnwidth,clip]{4_consideration/hirame.eps}
     \end{center}
     \caption{空気圧人工筋の長さとセンサ計測値の関係（ヒラメ筋）}
     \label{ml-rc3}
 \end{figure}
-
+\clearpage
 \subsection{ストレッチセンサ動的計測}
 今回、各筋肉に1Hzの周期動作を入れ、区間ごとに区切り各平均値の計算を行った。
 おおむね、各筋において計測精度評価にて観測された時定数内に収まっていた。これは、
+ストレッチセンサを用いた、筋肉の伸縮計測において、再現性があると考えられる。
+また、静的にストレッチセンサの実長さの計測を行った上で、ストレッチセンサを用いて
+時定数の計測を行うと、実長さが算出できることが分かった。
+
+一方で、今回足関節ロボットの空気圧人工筋動作システムとストレッチセンサの計測システムが、
+実装の仕様上、同一システム上となっていないので、足関節ロボットが動作している途中からの
+ストレッチセンサの計測となった。このことにより、ストレッチセンサの計測開始と、
+空気圧人工筋の出力開始とが合っていない状態となってしまった。
+また、計測システムの都合上それぞれのストレッチセンサに対して独立に計測を行ったため、
+それぞれのストレッチセンサの計測開始位置も合っていない状態となっている。
+
+上記のことを補正するため、前脛骨筋に関しては時定数の最小値を、腓骨筋、ヒラメ筋に関して最大値を
+0秒として処理した。このように処理した理由として、Fig．\ref{output_for_actions}にて示す
+出力を各空気圧人工筋に与えたこと、また、Fig．\ref{ml-rc1}，\ref{ml-rc2}，\ref{ml-rc3}に示す
+ように、空気圧人工筋の実長さに対して、時定数は単調減少となってことが元となっている。
+これらの結果より、周期位置の補正結果はFig．\ref{min-rc2}に示すようになった。
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth,clip]{4_consideration/min/hikotsu.eps}
+    \end{center}
+    \caption{動的計測　補正結果（腓骨筋）}
+    \label{min-rc2}
+\end{figure}
