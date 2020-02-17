@@ -57,9 +57,9 @@ Table.\ref{strain}のような長さの結果となった．
 
 \subsection{ストレッチセンサ動的計測}
 
-Fig. \ref{output_for_actions}のような出力を各空気圧人工筋に与え、
-1秒ごとに区切り0.01秒ごとの区間の平均値、標準誤差の計算を行った結果、
-Fig．\ref{zenkei_action}、\ref{hikotsu_action}、\ref{hirame_action}に示すようになった。
+Fig. \ref{output_for_actions}のような出力を各空気圧人工筋に与え，
+1秒ごとに区切り0.01秒ごとの区間の平均値，標準誤差の計算を行った結果，
+Fig．\ref{zenkei_action}，\ref{hikotsu_action}，\ref{hirame_action}に示すようになった．
 \begin{figure}[h]
   \begin{center}
   \includegraphics[width=0.75\columnwidth,clip]{./4_consideration/moving/zenkei.eps}
@@ -145,28 +145,57 @@ Fig．\ref{4-ml}の様になった．このグラフから見てわかるよう�
 \end{figure}
 \clearpage
 \subsection{ストレッチセンサ動的計測}
-今回、各筋肉に1Hzの周期動作を入れ、区間ごとに区切り各平均値の計算を行った。
-おおむね、各筋において計測精度評価にて観測された時定数内に収まっていた。これは、
-ストレッチセンサを用いた、筋肉の伸縮計測において、再現性があると考えられる。
-また、静的にストレッチセンサの実長さの計測を行った上で、ストレッチセンサを用いて
-時定数の計測を行うと、実長さが算出できることが分かった。
+今回，各筋肉に1Hzの周期動作を入れ，区間ごとに区切り各平均値の計算を行った．
+おおむね，各筋において計測精度評価にて観測された時定数内に収まっていた．これは，
+ストレッチセンサを用いた，筋肉の伸縮計測において，再現性があると考えられる．
+また，静的にストレッチセンサの実長さの計測を行った上で，ストレッチセンサを用いて
+時定数の計測を行うと，実長さが算出できることが分かった．
 
-一方で、今回足関節ロボットの空気圧人工筋動作システムとストレッチセンサの計測システムが、
-実装の仕様上、同一システム上となっていないので、足関節ロボットが動作している途中からの
-ストレッチセンサの計測となった。このことにより、ストレッチセンサの計測開始と、
-空気圧人工筋の出力開始とが合っていない状態となってしまった。
-また、計測システムの都合上それぞれのストレッチセンサに対して独立に計測を行ったため、
-それぞれのストレッチセンサの計測開始位置も合っていない状態となっている。
+一方で，今回足関節ロボットの空気圧人工筋動作システムとストレッチセンサの計測システムが，
+実装の仕様上，同一システム上となっていないので，足関節ロボットが動作している途中からの
+ストレッチセンサの計測となった．このことにより，ストレッチセンサの計測開始と，
+空気圧人工筋の出力開始とが合っていない状態となってしまった．
+また，計測システムの都合上それぞれのストレッチセンサに対して独立に計測を行ったため，
+それぞれのストレッチセンサの計測開始位置も合っていない状態となっている．
 
-上記のことを補正するため、前脛骨筋に関しては時定数の最小値を、腓骨筋、ヒラメ筋に関して最大値を
-0秒として処理した。このように処理した理由として、Fig．\ref{output_for_actions}にて示す
-出力を各空気圧人工筋に与えたこと、また、Fig．\ref{ml-rc1}，\ref{ml-rc2}，\ref{ml-rc3}に示す
-ように、空気圧人工筋の実長さに対して、時定数は単調減少となってことが元となっている。
-これらの結果より、周期位置の補正結果はFig．\ref{min-rc2}に示すようになった。
+上記のことを補正するため，前脛骨筋に関しては時定数の最小値を，腓骨筋，ヒラメ筋に関して最大値を
+0秒として処理した．このように処理した理由として，Fig．\ref{output_for_actions}にて示す
+出力を各空気圧人工筋に与えたこと，また，Fig．\ref{ml-rc1}，\ref{ml-rc2}，\ref{ml-rc3}に示す
+ように，空気圧人工筋の実長さに対して，時定数は単調減少となってことが元となっている．
+これらの結果より，周期位置の補正結果はFig．\ref{min-rc1}，\ref{min-rc2}，\ref{min-rc3}に示すようになった．
+また，それぞれの筋における周期時刻補正後の時定数最小値/最大値の周期時刻は下記の Table．\ref{min-max}に
+示すようになった．これらの結果より，背屈方向にかかる時間よりも底屈方向にかかる時間の方が長いことが分かった．
+本来であれば，1Hzのsin動作であり，底屈動作，背屈動作ともに0.5sで行われるべき動作である．
+これは，重力の影響により，底屈動作よりも背屈動作の方が行われやすかったからと考えられる．
+これらの確認として，実際に空気圧人工筋に与えている出力とストレッチセンサの時定数の関係を調べる必要があるとも考えられる．
+\begin{table}[h]
+  \begin{center}
+    \label{min-max}
+    \caption{周期時刻補正後の時定数最大値/最小値における周期時刻}
+    \begin{tabular}{|c||c|c|c|}\hline
+      & 前脛骨筋　& 腓骨筋 & ヒラメ筋 \\ \hline \hline
+      最小値 & 0.00s & 0.27s & 0.31s \\ \hline
+      最大値 & 0.43s & 0.00s & 0.00s \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.7\columnwidth,clip]{4_consideration/min/hikotsu.eps}
+        \includegraphics[width=0.75\columnwidth,clip]{4_consideration/min/zenkei.eps}
+    \end{center}
+    \caption{動的計測　補正結果（前脛骨筋）}
+    \label{min-rc1}
+    \begin{center}
+        \includegraphics[width=0.75\columnwidth,clip]{4_consideration/min/hikotsu.eps}
     \end{center}
     \caption{動的計測　補正結果（腓骨筋）}
     \label{min-rc2}
+\end{figure}
+\begin{figure}[t]
+    \begin{center}
+        \includegraphics[width=0.75\columnwidth,clip]{4_consideration/min/hirame.eps}
+    \end{center}
+    \caption{動的計測　補正結果（ヒラメ筋）}
+    \label{min-rc3}
 \end{figure}
