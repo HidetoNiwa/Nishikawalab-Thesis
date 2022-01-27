@@ -26,6 +26,6 @@ file_path="./main.pdf"
 
 ls -la
 
-response=$(curl -X POST -H "Content-Type: $(file -b --mime-type $file_path)"\
+response=$(curl -X POST -H "Content-Type: application/pdf"\
     -H "Authorization: token $GITHUB_TOKEN" --data-binary @$file_path \
 "https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$release_id/assets?name=$(basename $file_path)")
