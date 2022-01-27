@@ -21,7 +21,7 @@ res=`curl -H "Authorization: token $GITHUB_TOKEN" -X POST https://api.github.com
   \"prerelease\": false
 }"`
 
-release_id=$(echo $res | jq '.id')
+release_id=`echo ${res} | python3 -c 'import json,sys;print(json.load(sys.stdin)["id"])'`
 file_path="./main.pdf"
 
 ls -la
